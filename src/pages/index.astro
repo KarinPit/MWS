@@ -1,16 +1,48 @@
 ---
+import fetchApi from '../lib/strapi';
+
+const projects = await fetchApi<[]>({
+  endpoint: 'projects', // the content type to fetch
+  wrappedByKey: 'data', // the key to unwrap the response
+});
+
+const posts = await fetchApi<[]>({
+  endpoint: 'blogs', // the content type to fetch
+  wrappedByKey: 'data', // the key to unwrap the response
+});
 
 ---
 
+<!-- <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <head>
+    <title>Strapi & Astro</title>
+  </head>
+
+  <body>
+    <main>
+		<h1>This is all my projects</h1>
+      <ul>
+        {
+          projects.map((project) => (
+			<br>
+            <a href={`/projects/${project.attributes.title}/`}>
+              {project.attributes.title}
+            </a>
+          ))
+        }
+      </ul>
+	  <h1>This is all my blog posts</h1>
+	  <ul>
+        {
+			posts.map((post) => (
+			<br>
+            <a href={`/blog/${post.attributes.title}/`}>
+              {post.attributes.title}
+            </a>
+          ))
+        }
+      </ul>
+    </main>
+  </body>
+</html> -->

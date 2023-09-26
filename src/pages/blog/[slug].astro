@@ -1,0 +1,32 @@
+---
+
+export async function getStaticPaths() {
+  const response = await fetch("http://127.0.0.1:1337/api/blogs?populate=*");
+  const { data } = await response.json();
+  return data.map((post) => ({
+    params: { slug: post.attributes.title},
+    props: post,
+  }));
+  
+}
+
+const post = Astro.props;
+---
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{post.attributes.title}</title>
+  </head>
+
+  <body>
+    <main>
+      <h1>{post.attributes.title}</h1>
+      Render plain text
+      <img src={`http://127.0.0.1:1337${post.attributes.image.data.attributes.url}`} alt={post.attributes.image.data.attributes.name}
+      />
+      <p>{post.attributes.description}</p>
+      Render markdown
+    </main>
+  </body>
+</html> -->
