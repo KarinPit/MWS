@@ -1,48 +1,88 @@
 ---
-import fetchApi from '../lib/strapi';
+import fetchApi from "../lib/strapi";
+import Navigation from "../components/navigation.vue";
+import Carousel from "../components/carousel.vue";
+import ProjectGalleryIndex from "../components/projectGalleryIndex.vue";
+import ContactForm from "../components/contactForm.vue";
+import Footer from "../components/footer.vue";
+import "bootstrap/dist/css/bootstrap.css";
+import "../../public/styles/index.css";
 
 const projects = await fetchApi<[]>({
-  endpoint: 'projects', // the content type to fetch
-  wrappedByKey: 'data', // the key to unwrap the response
+  endpoint: "projects", // the content type to fetch
+  wrappedByKey: "data", // the key to unwrap the response
 });
 
 const posts = await fetchApi<[]>({
-  endpoint: 'blogs', // the content type to fetch
-  wrappedByKey: 'data', // the key to unwrap the response
+  endpoint: "blogs", // the content type to fetch
+  wrappedByKey: "data", // the key to unwrap the response
 });
-
 ---
 
-<!-- <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <title>Strapi & Astro</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>MWS Design</title>
   </head>
-
   <body>
+    <header>
+      <Navigation client:load />
+    </header>
     <main>
-		<h1>This is all my projects</h1>
-      <ul>
-        {
-          projects.map((project) => (
-			<br>
-            <a href={`/projects/${project.attributes.title}/`}>
-              {project.attributes.title}
-            </a>
-          ))
-        }
-      </ul>
-	  <h1>This is all my blog posts</h1>
-	  <ul>
-        {
-			posts.map((post) => (
-			<br>
-            <a href={`/blog/${post.attributes.title}/`}>
-              {post.attributes.title}
-            </a>
-          ))
-        }
-      </ul>
+      <div class="row">
+        <Carousel client:load />
+      </div>
+      <div class="row">
+        <div class="text-col text-center">
+          <img
+            id="cactus-img"
+            src="../../public/images/cactus-in-pot.png"
+            alt="cactus in a pot image"
+          />
+          <h3 class="marked-header">מורן ורנר סיידו</h3>
+          <p>
+            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום
+            דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום דולור סיט
+            אמט.לורם איפסום דולור סיט אמט.
+          </p>
+          <button class="white_btn">קראו עוד</button>
+        </div>
+      </div>
+      <div class="row">
+        <h3 class="marked-header">פרויקטים שלי</h3>
+        <ProjectGalleryIndex client:load />
+      </div>
+      <div class="row">
+        <ContactForm client:load />
+      </div>
+      <Footer client:load />
     </main>
   </body>
-</html> -->
+</html>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+  integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+  crossorigin="anonymous"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+  integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+  crossorigin="anonymous"></script>
+<script>
+  let prev_btn = document.getElementById("prev-btn");
+  prev_btn.addEventListener("focus", (e) => {
+    prev_btn.blur();
+  });
+
+  let next_btn = document.getElementById("next-btn");
+  next_btn.addEventListener("focus", (e) => {
+    next_btn.blur();
+  });
+</script>
