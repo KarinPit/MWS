@@ -2,10 +2,12 @@
 import fetchApi from "../lib/strapi";
 import Navigation from "../components/navigation.vue";
 import ContactForm from "../components/contactForm.vue";
-import ProjectGallery from "../components/projectGallery.vue";
+import ProjectGalleryPage from "../components/projectGalleryPage.vue";
 import Footer from "../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
+import "../../public/styles/navbar.css";
 import "../../public/styles/projects.css";
+import "../../public/styles/contactForm.css";
 ---
 
 <html>
@@ -25,15 +27,11 @@ import "../../public/styles/projects.css";
             <Navigation client:load />
         </header>
         <main>
-            <div class="row">
-                <div class="text-center my-auto">
-                    <div id="center-banner" class="banner">
-                        <h2 class="marked-header">פרויקטים נבחרים</h2>
-                    </div>
-                </div>
-                <ProjectGallery client:load />
+            <div class="row text-center my-auto">
+                <h2>הפרויקטים שלי</h2>
+                <ProjectGalleryPage client:load />
             </div>
-            <div class="row">
+            <div class="row beige-background">
                 <ContactForm client:load />
             </div>
             <Footer client:load />

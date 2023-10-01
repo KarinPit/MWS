@@ -2,28 +2,24 @@ html {
     direction: rtl;
 }
 
-#public-photo {
-    background: white;
-}
-
-#about-info {
-    padding: 2em;
-    direction: rtl;
-}
-
-#about-span {
-    font-weight: 700;
-    font-size: 2em;
+.review {
     display: block;
-    width: fit-content;
-    margin: 0.2em auto;
-    padding: 0.3em;
+    width: 100vw;
+    padding: 1em 0;
+}
+
+.reviews {
+    padding: 3em 0;
+}
+
+#add-review {
+    display: inline;
 }
 
 .white_btn {
     margin-top: 0.5em;
     padding: 0.2em 1em;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 300;
     border-radius: 0.2em;
     background: #edb966;
@@ -43,8 +39,7 @@ h2 {
 h3 {
     font-weight: 600;
     font-size: 1.6em;
-    padding: 0.2em 1em;
-    background: #edb966;
+    padding: 0.2em 0;
     border-radius: 0.2em;
 }
 
@@ -52,6 +47,8 @@ a {
     color: black;
     text-decoration: none;
 }
+
+
 
 .level-img {
     width: 6em;
@@ -149,15 +146,6 @@ input {
     font-size: 1.5em;
 }
 
-.contact-area {
-    background: white;
-    border-radius: 0.5em;
-    display: flex;
-    justify-content: center;
-    width: 80vw;
-    margin: auto;
-}
-
 .contact-btn {
     font-size: 1.2em;
     display: block;
@@ -191,7 +179,7 @@ input {
 
 .row {
     height: fit-content;
-    padding: 2em;
+    padding: 5em 0;
 }
 
 .beige-background {

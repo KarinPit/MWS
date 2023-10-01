@@ -1,9 +1,12 @@
 ---
 import Navigation from "../components/navigation.vue";
 import ContactForm from "../components/contactForm.vue";
+import ProjectGallerySample from "../components/projectGallerySample.vue";
 import Footer from "../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
+import "../../public/styles/navbar.css";
 import "../../public/styles/about.css";
+import "../../public/styles/contactForm.css";
 ---
 
 <html>
@@ -23,31 +26,31 @@ import "../../public/styles/about.css";
             <Navigation client:load />
         </header>
         <main>
-            <div class="row">
-                <div class="col-sm-6 text-center my-auto">
+            <div id="top-row" class="row beige-background">
+                <div class="col-sm-4 text-center my-auto">
+                    <p id="about-info">
+                        <span id="about-span">ברוכים הבאים,</span>
+                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם
+                        איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
+                    </p>
+                    <a href="/contact" class="white_btn">צרו קשר</a>
+                </div>
+                <div class="col-sm-8 text-center my-auto">
                     <img
                         id="public-photo"
                         src="../../public/images/4T1A8652-removebg.png"
                         alt="designed rooms examples"
                     />
                 </div>
-                <div class="col-sm-6 my-auto">
-                    <p id="about-info">
-                        <span id="about-span">ברוכים הבאים,</span>
-                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם
-                        איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
-                    </p>
-                </div>
             </div>
-            <div class="row">
+            <div class="row text-center beige-background">
                 <div class="my-auto">
                     <div id="about-p">
-                        <h2 class="marked-header">איך זה עובד?</h2>
-                        <!--                    <img id="pencil-line" src="/images/image-from-rawpixel-id-2955431-svg.svg" alt="designed rooms examples">-->
+                        <h2>איך זה עובד?</h2>
                         <div class="top-element">
                             <img
-                                class="cactus-img"
-                                src="/images/cactus-in-pot.png"
+                                class="level-img"
+                                src="../../public/images/butterfly.png"
                                 alt="designed rooms examples"
                             />
                             <h3>שלב 1</h3>
@@ -58,8 +61,8 @@ import "../../public/styles/about.css";
                         </p>
                         <div>
                             <img
-                                class="cactus-img"
-                                src="/images/cactus-in-pot.png"
+                                class="level-img"
+                                src="../../public/images/butterfly.png"
                                 alt="designed rooms examples"
                             />
                             <h3>שלב 2</h3>
@@ -70,8 +73,8 @@ import "../../public/styles/about.css";
                         </p>
                         <div>
                             <img
-                                class="cactus-img"
-                                src="/images/cactus-in-pot.png"
+                                class="level-img"
+                                src="../../public/images/butterfly.png"
                                 alt="designed rooms examples"
                             />
                             <h3>שלב 3</h3>
@@ -83,64 +86,24 @@ import "../../public/styles/about.css";
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="text-center my-auto">
-                    <div id="center-banner" class="banner">
-                        <h2 class="marked-header">פרויקטים נבחרים</h2>
-                        <!--                    <img id="pencil-line" src="/images/image-from-rawpixel-id-2955431-svg.svg" alt="designed rooms examples">-->
-                    </div>
-                </div>
-                <div class="my-auto">
-                    <div class="image-gallery">
-                        <div class="project-img">
-                            <h4>שם פרויקט</h4>
-                            <img
-                                class="gimage"
-                                src="/images/home-page/עיצוב פנים-90.jpg"
-                                alt="designed rooms examples"
-                            />
-                        </div>
-                        <div class="project-img">
-                            <h4>שם פרויקט</h4>
-                            <img
-                                class="gimage"
-                                src="/images/home-page/עיצוב פנים-97.jpg"
-                                alt="designed rooms examples"
-                            />
-                        </div>
-                        <div class="project-img">
-                            <h4>שם פרויקט</h4>
-                            <img
-                                class="gimage"
-                                src="/images/home-page/עיצוב פנים-105.jpg"
-                                alt="designed rooms examples"
-                            />
-                        </div>
-                        <div class="project-img">
-                            <h4>שם פרויקט</h4>
-                            <img
-                                class="gimage"
-                                src="/images/home-page/עיצוב פנים-131.jpg"
-                                alt="designed rooms examples"
-                            />
-                        </div>
-                    </div>
-                </div>
+            <div class="row text-center my-auto">
+                <h2>פרויקטים נבחרים</h2>
+                <ProjectGallerySample client:load />
             </div>
-            <div class="row">
-                <ContactForm client:load />
-            </div>
-            <Footer client:load />
         </main>
+        <div class="row beige-background">
+            <ContactForm client:load />
+        </div>
+        <Footer client:load />
     </body>
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
-        crossorigin="anonymous"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
-        crossorigin="anonymous"></script>
-    <script></script>
 </html>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+    integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+    crossorigin="anonymous"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+    integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+    crossorigin="anonymous"></script>
+<script></script>

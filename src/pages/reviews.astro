@@ -6,7 +6,9 @@ import ClientReviews from "../components/reviews.vue";
 import AddReview from "../components/addReview.vue";
 import Footer from "../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
-import "../../public/styles/blog.css";
+import "../../public/styles/navbar.css";
+import "../../public/styles/reviews.css";
+import "../../public/styles/contactForm.css";
 ---
 
 <html>
@@ -26,12 +28,16 @@ import "../../public/styles/blog.css";
             <Navigation client:load />
         </header>
         <main>
-            <div class="row">
-                <AddReview client:load />
-                <ClientReviews client:load />
+            <div class="row text-center my-auto">
+                <div>
+                    <AddReview client:load />
+                </div>
+                <div class="reviews">
+                    <ClientReviews client:load />
+                </div>
             </div>
         </main>
-        <div class="row">
+        <div class="row beige-background">
             <ContactForm client:load />
         </div>
         <Footer client:load />

@@ -1,58 +1,46 @@
 
 <template>
-    <nav class="navbar navbar-expand-md">
+    <nav :class="{ 'bg-white': isScrolled }" class="navbar navbar-expand-md">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="nav-text">
-                <a class="nav-text-element" onclick="updateClipboard()" style="cursor: pointer">0587809493</a>
-                <a class="navbar-img" onclick="openFacebook()" style="cursor: pointer"><img
+                <a class="nav-text-element" @click="updateClipboard" style="cursor: pointer">0587809493</a>
+                <a class="navbar-img" @click="openFacebook" style="cursor: pointer"><img
                         src="../../public/images/facebook_black.svg" alt="facebook black outline logo"></a>
-                <a class="navbar-img" onclick="openInstagram()" style="cursor: pointer"><img
+                <a class="navbar-img" @click="openInstagram" style="cursor: pointer"><img
                         src="../../public/images/instagram_black.svg" alt="instagram black outline logo"></a>
-                <a class="navbar-img" onclick="openWhatsApp()" style="cursor: pointer"><img
+                <a class="navbar-img" @click="openWhatsApp" style="cursor: pointer"><img
                         src="../../public/images/whatsapp_black.svg" alt="whats app black outline logo"></a>
-                <a class="navbar-brand" href="/"><span id="brand-bold">MWS</span> Studio</a>
+                <!-- <a class="navbar-brand" href="/"><span id="brand-bold">MWS</span> Studio</a> -->
             </div>
-            <div class="brand-row text-center">
+            <!-- <div class="brand-row text-center">
                 <a class="navbar-brand-row" href="/"><span id="brand-bold">MWS</span> Studio</a>
-            </div>
+            </div> -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/"><img class="nav-item-bullet"
-                                src="images/image-from-rawpixel-id-2421204-original.png" alt="a small cactus bullet">בית</a>
+                        <a class="nav-link active" aria-current="page" href="/"><span class="nav-link-span">בית</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about"><img class="nav-item-bullet"
-                                src="images/image-from-rawpixel-id-2421204-original.png" alt="a small cactus bullet">עלי</a>
+                        <a class="nav-link" href="/about"><span class="nav-link-span">עלי</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/projects"><img class="nav-item-bullet"
-                                src="images/image-from-rawpixel-id-2421204-original.png"
-                                alt="a small cactus bullet">פרויקטים</a>
+                        <a class="nav-link" href="/projects"><span class="nav-link-span">פרויקטים</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog"><img class="nav-item-bullet"
-                                src="images/image-from-rawpixel-id-2421204-original.png"
-                                alt="a small cactus bullet">בלוג</a>
+                        <a class="nav-link" href="/blog"><span class="nav-link-span">בלוג</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact"><img class="nav-item-bullet"
-                                src="images/image-from-rawpixel-id-2421204-original.png" alt="a small cactus bullet">צור
-                            קשר</a>
+                        <a class="nav-link" href="/reviews"><span class="nav-link-span">לקוחות ממליצים</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/reviews"><img class="nav-item-bullet"
-                                src="images/image-from-rawpixel-id-2421204-original.png"
-                                alt="a small cactus bullet">לקוחות מספרים</a>
+                        <a class="nav-link" href="/contact"><span class="nav-link-span">צור קשר</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><img class="nav-item-bullet"
-                                src="images/image-from-rawpixel-id-2421204-original.png"
-                                alt="a small cactus bullet">English</a>
+                        <a class="nav-link" href="#"><span class="nav-link-span">English</span></a>
                     </li>
                 </ul>
             </div>
@@ -60,25 +48,50 @@
     </nav>
 </template>
 
+
 <script>
-function openWhatsApp() {
-    window.open('https://wa.me/972587809493');
-}
-
-function openFacebook() {
-    window.open('https://www.facebook.com/MWSStudioStyle');
-}
-
-function openInstagram() {
-    window.open('https://www.instagram.com/moran_interior_design/');
-}
-
-function updateClipboard() {
-    navigator.clipboard.writeText('0587809493');
-}
-
-function openMail() {
-    window.location.href = "mailto:karinpitlik@gmail.com?subject=&body=";
-}
-
+export default {
+    data() {
+        return {
+            isScrolled: false,
+        };
+    },
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.handleScroll);
+    },
+    methods: {
+        handleScroll() {
+            this.isScrolled = window.scrollY > 0;
+        },
+        openWhatsApp() {
+            window.open('https://wa.me/972587809493');
+        },
+        openFacebook() {
+            window.open('https://www.facebook.com/MWSStudioStyle');
+        },
+        openInstagram() {
+            window.open('https://www.instagram.com/moran_interior_design/');
+        },
+        updateClipboard() {
+            navigator.clipboard.writeText('0587809493');
+        },
+        openMail() {
+            window.location.href = 'mailto:karinpitlik@gmail.com?subject=&body=';
+        },
+    },
+};
 </script>
+
+<style scoped>
+.navbar {
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: black;
+    color: white;
+}
+</style>

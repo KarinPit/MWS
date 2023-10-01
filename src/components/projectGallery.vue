@@ -1,9 +1,8 @@
 <template>
-    <div class="image-gallery">
+    <div class="image-gallery" v-if="project && typeof project === 'object'">
         <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
-            <div class="project-img" v-for="(imageUrl, index) in column" :key="index">
-                <h4>שם פרויקט</h4>
-                <img class="gimage" :src="baseUrl + imageUrl" alt="designed house example">
+            <div class="project-img" v-for="(image, index) in column" :key="index">
+                <img class="gimage" :src="baseUrl + image" alt="designed house example" />
             </div>
         </div>
     </div>
@@ -11,36 +10,40 @@
   
 <script>
 export default {
+    props: {
+        project: Object,
+    },
     data() {
         return {
-            baseUrl: 'http://127.0.0.1:1337',
-            mainImageUrl: [],
+            baseUrl: "http://127.0.0.1:1337",
+            images: [], // Initialize the images array here
         };
-    },
-    async created() {
-        // Fetch the data when the component is created
-        this.mainImageUrl = await GetImageUrl();
     },
     computed: {
         imageColumns() {
-            const columnCount = 3; // Number of columns
             const columns = [];
+            const imagesPerColumn = Math.ceil(this.images.length / 2); // Two columns
 
-            for (let i = 0; i < this.mainImageUrl.length; i += columnCount) {
-                columns.push(this.mainImageUrl.slice(i, i + columnCount));
+            for (let colIndex = 0; colIndex < 2; colIndex++) { // Always two columns
+                columns.push(this.images.slice(colIndex * imagesPerColumn, (colIndex + 1) * imagesPerColumn));
             }
-            // console.log(columns)
-
             return columns;
         },
     },
+    methods: {
+        async GetImages() {
+            // Use this.project to access the project prop
+            return this.project.attributes.images.data.map((image) => image.attributes.url);
+        },
+    },
+    async created() {
+        if (this.project && typeof this.project === 'object') {
+            // Call the GetImages method to set the images data property
+            this.images = await this.GetImages();
+        }
+    },
 };
-
-async function GetImageUrl() {
-    const response = await fetch("http://127.0.0.1:1337/api/projects?populate=*");
-    const { data } = await response.json();
-    const imagesUrl = data.map((image) => image.attributes.mainImage.data.attributes.url);
-    return imagesUrl;
-}
 </script>
+  
+<style scoped></style>
   

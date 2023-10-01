@@ -1,6 +1,6 @@
 <template>
     <div class="info">
-        <h3 class="marked-header">פרטי יצירת קשר</h3>
+        <h3>פרטי יצירת קשר</h3>
         <p class="contact-p"><img class="p-icons" src="/images/location_black.svg" alt="location black outline logo">lorem 15,
             Zur Moshe</p>
         <p class="contact-p"><img class="p-icons" src="/images/phone_black.svg" alt="phone black outline logo">0587809493</p>
@@ -8,7 +8,7 @@
                 alt="email black outline logo">lorem.ipsum@gmail.com</p>
     </div>
     <div class="social-media">
-        <h3 class="marked-header">רשתות חברתיות</h3>
+        <h3>רשתות חברתיות</h3>
         <img class="social_media-icons" @click="openSocialMedia('facebook')" src="../../public/images/facebook_black.svg"
             alt="facebook black outline logo">
         <img class="social_media-icons" @click="openSocialMedia('instagram')" src="../../public/images/instagram_black.svg"

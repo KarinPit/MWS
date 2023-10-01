@@ -45,8 +45,7 @@ export default {
             const projects = data.map((project) => ({
                 name: project.attributes.title, // Set project name
                 imageUrl: project.attributes.mainImage.data.attributes.url,
-            }
-            ));
+            }));
             return projects;
         },
     },
@@ -54,6 +53,12 @@ export default {
 </script>
   
 <style scoped>
+
+.project-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .project-name {
     display: flex;
     justify-content: center;
@@ -62,28 +67,24 @@ export default {
     z-index: 1;
     background: #edb966;
     width: fit-content;
+    height: 3em;
     padding: 0 5em;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    /* Add a smooth transition */
 }
 
 .gimage {
-    width: 100%;
     opacity: 100%;
     border-radius: 1em;
     transition: opacity 0.3s ease-in-out;
-    padding: 1em;
 }
 
 .project-img:hover .project-name,
 .hovered {
     opacity: 1;
-    /* Make it fully visible on hover or if hovered is true */
 }
 
 .project-img:hover .gimage {
-    opacity: 0.3;
-    /* Set image opacity to 50% on hover */
+    opacity: 0.5;
 }
 </style>

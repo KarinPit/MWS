@@ -1,32 +1,56 @@
 ---
+import Navigation from "../../components/navigation.vue";
+import ProjectGallery from "../../components/projectGallery.vue";
+import ContactForm from "../../components/contactForm.vue";
+import Footer from "../../components/footer.vue";
+import "bootstrap/dist/css/bootstrap.css";
+import "../../../public/styles/navbar.css";
+import "../../../public/styles/viewProject.css";
+import "../../../public/styles/contactForm.css";
 
 export async function getStaticPaths() {
   const response = await fetch("http://127.0.0.1:1337/api/projects?populate=*");
   const { data } = await response.json();
   return data.map((project) => ({
-    params: { slug: project.attributes.title},
+    params: { slug: project.attributes.title },
     props: project,
   }));
-  
 }
 
 const project = Astro.props;
 ---
 
-<!-- <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>{project.attributes.title}</title>
   </head>
-
   <body>
+    <header>
+      <Navigation client:load />
+    </header>
     <main>
-      <h1>{project.attributes.title}</h1>
-      Render plain text
-      <img src={`http://127.0.0.1:1337${project.attributes.mainImage.data.attributes.url}`} alt={project.attributes.mainImage.data.attributes.name}
-      />
-      <p>{project.attributes.description}</p>
-      Render markdown
+      <div class="row">
+        <div id="project-area">
+          <div class="project-desc">
+            <h2 class="marked-header">{project.attributes.title}</h2>
+            <p id="product-exp">{project.attributes.description}</p>
+            <ProjectGallery project={project} client:load />
+          </div>
+        </div>
+      </div>
+      <div class="row beige-background">
+        <ContactForm client:load />
+      </div>
+      <Footer client:load />
     </main>
   </body>
-</html> -->
+</html>

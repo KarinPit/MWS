@@ -174,7 +174,7 @@ a {
 }
 
 .row {
-    height: fit-content;
+    height: 50vh;
     padding: 2em;
 }
 
@@ -587,34 +587,18 @@ p {
     }
 
     .img-col {
-        width: 33%;
+        width: 50%;
         height: fit-content;
     }
 
     .gimage {
         position: relative;
-        width: 100%;
-        object-fit: cover;
+        width: 50%;
+        height: 20em;
+        margin: auto;
+        object-fit: contain;
         border-radius: 0.3em;
         padding: 0.5em;
-    }
-
-    #img1,
-    #img5,
-    #img7 {
-        height: 25em;
-    }
-
-    #img3,
-    #img4,
-    #img9 {
-        height: 40em;
-    }
-
-    #img2,
-    #img6,
-    #img8 {
-        height: 30em;
     }
 
     .contact-area {

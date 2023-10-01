@@ -1,9 +1,8 @@
 <template>
     <div v-for="(review, index) in reviews" :key="index">
-        <div>
-            <h4>ביקורת חדשה</h4>
+        <div class="review">
+            <h3>{{ review.title }}</h3>
             <p>{{ formatReviewDate(review.createdAt) }}</p>
-            <p>{{ review.title }}</p>
             <p>{{ review.content }}</p>
         </div>
     </div>

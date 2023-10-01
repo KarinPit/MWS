@@ -1,5 +1,5 @@
 <template>
-    <div id="carouselExampleControls" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
+    <div id="carouselExampleControls" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner">
             <div class="carousel-item active" v-if="urls.mainImageUrl !== ''">
                 <img :src="baseUrl + urls.mainImageUrl" class="carousel-img d-block w-100" alt="woman going down wood stairs">
@@ -9,14 +9,14 @@
                 <img :src="baseUrl + imageUrl" class="carousel-img d-block w-100" alt="designed house example">
             </div>
         </div>
-        <button id="prev-btn" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        <!-- <button id="prev-btn" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         </button>
         <button id="next-btn" class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
             data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </button>
+        </button> -->
     </div>
 </template>
 

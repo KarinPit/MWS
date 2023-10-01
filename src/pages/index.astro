@@ -1,22 +1,13 @@
 ---
-import fetchApi from "../lib/strapi";
 import Navigation from "../components/navigation.vue";
 import Carousel from "../components/carousel.vue";
 import ProjectGalleryIndex from "../components/projectGalleryIndex.vue";
 import ContactForm from "../components/contactForm.vue";
 import Footer from "../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
+import "../../public/styles/navbar.css";
 import "../../public/styles/index.css";
-
-const projects = await fetchApi<[]>({
-  endpoint: "projects", // the content type to fetch
-  wrappedByKey: "data", // the key to unwrap the response
-});
-
-const posts = await fetchApi<[]>({
-  endpoint: "blogs", // the content type to fetch
-  wrappedByKey: "data", // the key to unwrap the response
-});
+import "../../public/styles/contactForm.css";
 ---
 
 <html>
@@ -36,31 +27,42 @@ const posts = await fetchApi<[]>({
       <Navigation client:load />
     </header>
     <main>
-      <div class="row">
-        <Carousel client:load />
-      </div>
-      <div class="row">
-        <div class="text-col text-center">
-          <img
-            id="cactus-img"
-            src="../../public/images/cactus-in-pot.png"
-            alt="cactus in a pot image"
-          />
-          <h3 class="marked-header">מורן ורנר סיידו</h3>
-          <p>
-            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום
-            דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום דולור סיט
-            אמט.לורם איפסום דולור סיט אמט.
-          </p>
-          <button class="white_btn">קראו עוד</button>
+      <div class="container-fluid">
+        <div id="top-row" class="row beige-background">
+          <div class="col-4 my-auto text-center">
+            <h1><span id="bold-logo-text">MWS</span> Studio</h1>
+            <p id="sub-logo-text">
+              לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום
+              דולור סיט אמט, קונסקטורר אדיפיסינג.
+            </p>
+            <p id="scroll-down-command">גללו למטה</p>
+          </div>
+          <div class="col-8">
+            <Carousel client:load />
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <h3 class="marked-header">פרויקטים שלי</h3>
-        <ProjectGalleryIndex client:load />
-      </div>
-      <div class="row">
-        <ContactForm client:load />
+
+        <div class="row beige-background text-center my-auto">
+          <div id="about-info">
+            <img id="flower-img" src="../../public/images/sketched-leaves1.png">
+            <h3>מורן ורנר סיידו</h3>
+            <p id="about-p">
+              לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום
+              דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום דולור סיט
+              אמט.לורם איפסום דולור סיט אמט.
+            </p>
+            <a href="/about" class="white_btn">קראו עוד עלי</a>
+          </div>
+        </div>
+
+        <div class="row text-center my-auto">
+          <h3 id="">פרויקטים שלי</h3>
+          <ProjectGalleryIndex client:load />
+        </div>
+
+        <div class="row my-auto beige-background">
+          <ContactForm client:load />
+        </div>
       </div>
       <Footer client:load />
     </main>
@@ -86,3 +88,23 @@ const posts = await fetchApi<[]>({
     next_btn.blur();
   });
 </script>
+
+<!-- <img
+  id="logo"
+  src="../../public/images/Logo_Moran_new2.png"
+  alt="sketched down arrow"
+/> -->
+<!-- <img
+    id="cactus-img"
+    src="../../public/images/cactus-in-pot.png"
+    alt="cactus in a pot image"
+  />
+  <h3 class="marked-header">מורן ורנר סיידו</h3>
+  <p>
+    לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום
+    דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום דולור סיט
+    אמט.לורם איפסום דולור סיט אמט.
+  </p>
+  <a href="/about" class="button white_btn">קראו עוד</a>
+  <a href="/reviews" class="button">לקוחות ממליצים</a>
+</div> -->
