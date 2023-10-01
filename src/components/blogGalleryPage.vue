@@ -1,56 +1,58 @@
 <template>
     <div class="image-gallery">
-        <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
-            <div class="project-img" v-for="(post, index) in column" :key="index" @mouseover="toggleHovered(index)"
-                @mouseout="toggleHovered(-1)">
-                <a class="project-name" :href="`/blog/${post.name}`">{{ post.name }}</a>
-                <a :href="`/blog/${post.name}`"><img class="gimage" :src="baseUrl + post.imageUrl"
-                        alt="designed house example" /></a>
-            </div>
+      <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
+        <div class="project-img" v-for="(post, index) in column" :key="index" @mouseover="toggleHovered(index)" @mouseout="toggleHovered(-1)">
+          <a class="project-name" :href="`/blog/${post.name}`">{{ post.name }}</a>
+          <a :href="`/blog/${post.name}`"><img class="gimage" :src="baseUrl + post.imageUrl" alt="designed house example" /></a>
         </div>
+      </div>
     </div>
-</template>
-  
-<script>
-export default {
+  </template>
+    
+  <script>
+  export default {
     data() {
-        return {
-            baseUrl: "http://127.0.0.1:1337",
-            posts: [],
-            hovered: -1, // Track hover state, initialize to -1 to indicate no hover
-        };
+      return {
+        baseUrl: "http://127.0.0.1:1337",
+        posts: [],
+        hovered: -1, // Track hover state, initialize to -1 to indicate no hover
+      };
     },
     async created() {
-        // Fetch the data when the component is created
-        this.posts = await this.GetPosts(); // Call the GetProjects method
+      // Fetch the data when the component is created
+      this.posts = await this.GetPosts(); // Call the GetProjects method
     },
     computed: {
-        imageColumns() {
-            const columnCount = 2; // Number of columns
-            const columns = [];
-
-            for (let i = 0; i < this.posts.length; i += columnCount) {
-                columns.push(this.posts.slice(i, i + columnCount));
-            }
-            return columns;
-        },
+      imageColumns() {
+        const columnCount = 3; // Number of columns
+        const columns = [];
+  
+        // Calculate how many posts should be in each column
+        const postsPerColumn = Math.ceil(this.posts.length / columnCount);
+  
+        for (let i = 0; i < this.posts.length; i += postsPerColumn) {
+          columns.push(this.posts.slice(i, i + postsPerColumn));
+        }
+        return columns;
+      },
     },
     methods: {
-        toggleHovered(index) {
-            this.hovered = index;
-        },
-        async GetPosts() {
-            const response = await fetch("http://127.0.0.1:1337/api/blogs?populate=*");
-            const { data } = await response.json();
-            const posts = data.map((post) => ({
-                name: post.attributes.title,
-                imageUrl: post.attributes.image.data.attributes.url,
-            }));
-            return posts;
-        },
+      toggleHovered(index) {
+        this.hovered = index;
+      },
+      async GetPosts() {
+        const response = await fetch("http://127.0.0.1:1337/api/blogs?populate=*");
+        const { data } = await response.json();
+        const posts = data.map((post) => ({
+          name: post.attributes.title,
+          imageUrl: post.attributes.image.data.attributes.url,
+        }));
+        return posts;
+      },
     },
-};
-</script>
+  };
+  </script>
+  
   
 <style scoped>
 .project-img {
@@ -65,17 +67,17 @@ export default {
     align-items: center;
     position: absolute;
     z-index: 1;
-    background: #edb966;
     width: fit-content;
     height: 3em;
-    padding: 0 5em;
+    padding: 0;
     opacity: 0;
+    font-size: 2em;
     transition: opacity 0.3s ease-in-out;
 }
 
 .gimage {
     opacity: 100%;
-    border-radius: 1em;
+    border-radius: 1.5em;
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -85,6 +87,6 @@ export default {
 }
 
 .project-img:hover .gimage {
-    opacity: 0.5;
+    opacity: 0.3;
 }
 </style>

@@ -65,17 +65,17 @@ export default {
     align-items: center;
     position: absolute;
     z-index: 1;
-    background: #edb966;
     width: fit-content;
     height: 3em;
-    padding: 0 5em;
+    padding: 0;
+    font-size: 2em;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
 
 .gimage {
     opacity: 100%;
-    border-radius: 1em;
+    border-radius: 1.5em;
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -85,6 +85,6 @@ export default {
 }
 
 .project-img:hover .gimage {
-    opacity: 0.5;
+    opacity: 0.3;
 }
 </style>

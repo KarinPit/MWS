@@ -1,83 +1,29 @@
+/* Global Styles */
 html {
     direction: rtl;
 }
 
-#top-row {
-    padding: 0;
-    opacity: 100%;
-}
-
-#logo {
-    width: 80%;
-    height: auto;
-}
-
-h1 {
-    font-size: 4em;
-    margin: 0;
-}
-
-h3 {
-    font-weight: 600;
-    font-size: 2.5em;
-    padding: 0.5em;
-}
-
-
-a {
-    color: black;
-    text-decoration: none;
-}
-
-#bold-logo-text {
-    font-weight: 800;
-}
-
-#sub-logo-text {
-    width: 80%;
-    margin: 0.5em auto;
-    margin-bottom: 1em;
-    padding: 0.5em 0;
-    font-size: 1.5em;
-    font-weight: 300;
-}
-
-#scroll-down-command {
-    background: #edb966;
-    border-radius: 0.5em;
-    width: fit-content;
-    padding: 0.4em 1.6em;
-    margin: auto;
-    font-size: 1.5em;
-}
-
-#down-arrow {
-    height: 4em;
-    width: 100%;
-    z-index: 5;
-    margin-top: 2em;
-    opacity: 50%;
-}
-
-#body-image {
-    width: 100%;
-    height: 70vh;
-    object-fit: contain;
-    /* object-position: 0 50%; */
-}
-
-#about-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    height: 100%;
-    margin: 6em auto;
-    padding: 5em 10em;
+/* Header Section */
+#public-photo {
     background: white;
 }
 
+/* About Section */
+#about-info {
+    padding: 2em;
+    direction: rtl;
+}
+
+#about-span {
+    font-weight: 700;
+    font-size: 2em;
+    display: block;
+    width: fit-content;
+    margin: 0.2em auto;
+    padding: 0.3em;
+}
+
+/* Buttons */
 .white_btn {
     margin-top: 0.5em;
     padding: 0.2em 1em;
@@ -88,84 +34,140 @@ a {
     border: none;
 }
 
-#flower-img {
-    width: 13em;
-    height: auto;
-    margin-bottom: 0.5em;
+/* Headings */
+h1 {
+    font-size: 4em;
+    margin: 0;
 }
 
+h2 {
+    font-weight: 600;
+    font-size: 2.5em;
+    padding: 0.5em 0;
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 1.6em;
+    padding: 0.2em 1em;
+    background: #edb966;
+    border-radius: 0.2em;
+}
+
+/* Links */
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Images */
+.level-img {
+    width: 6em;
+    height: auto;
+    margin: 0.5em 0;
+}
+
+/* About Paragraph */
+#product-exp {
+    /* border: 1px solid gray;
+    border-radius: 1em; */
+    padding: 1em;
+    width: 60%;
+    margin: auto;
+}
+
+p {
+    text-align: center;
+    font-size: 1.5em;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+}
+
+/* Image Gallery */
+.image-gallery {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.gimage {
+    padding: 1em;
+    object-fit: cover;
+    background: white;
+    border-radius: 1.5em;
+}
+
+/* Background Colors */
 .beige-background {
     background: #efefef;
 }
 
-.carousel {
-    position: relative;
-    width: 100%;
+/* Top Header */
+.top-header {
+    margin-top: 4em;
+    margin-bottom: 0;
 }
 
-.carousel-img {
-    height: 100vh;
-    object-fit: cover;
-    object-position: 30% 0;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    background: rgb(255, 255, 255);
-    opacity: 40%;
-    height: 100%;
-    width: 2.5em;
-    clip-path: circle();
-}
-
-.carousel-control-prev {
-    margin-left: 2em;
-}
-
-.carousel-control-next {
-    margin-right: 2em;
-}
-
-
-.image-gallery {
-    width: 100%;
-    padding: 1em;
-}
-
-.img-col {
-    display: block;
-    width: 100%;
-    height: fit-content;
-}
-
-.gimage {
-    object-fit: cover;
-    background: white;
-}
-
-.project-img {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.project-name {
-    height: 3em;
-}
-
+/* Marked Header */
 .marked-header {
     width: fit-content;
-    /* background: rgb(251, 255, 200); */
-    /* background: #edb966;
-    border-radius: 0.5em; */
-    margin-left: auto;
-    margin-right: auto;
+    background: rgb(251, 255, 200);
+    margin: auto;
     padding: 0.5em;
+    margin-bottom: 0.5em;
 }
 
+/* Contact Section */
+.contact-title {
+    font-size: 1.7em;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+}
 
+form {
+    z-index: 1;
+    border-radius: 0.5em;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 5em;
+}
+
+input {
+    display: block;
+    width: 80%;
+    max-width: 20em;
+    max-height: 2em;
+    height: 10vw;
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 0.2em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5em;
+    background: white;
+    font-size: 1.5em;
+}
+
+/* Contact Area */
+.contact-btn {
+    font-size: 1.2em;
+    display: block;
+    height: 3em;
+    width: 25vw;
+    max-width: 6em;
+    margin: auto;
+    background: #21252a;
+    margin-top: 0.8em;
+    color: white;
+    border: none;
+}
+
+/* Footer */
 .footer-text {
     margin: 0;
     padding: 1em;
@@ -173,33 +175,19 @@ a {
     font-weight: 300;
 }
 
+/* Rows */
 .row {
     height: fit-content;
-    padding: 2em;
+    padding: 7em;
+    margin: 0;
 }
-
-.text-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    direction: rtl;
-    font-weight: 300;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80vw;
-    height: 40em;
-    background: white;
-    border-radius: 0.5em;
-}
-
-p {
-    text-align: center;
-    font-size: 1.5em;
-    width: 100%;
-}
-
 
 @media (max-width: 340px) {
+    body {
+        font-family: 'Assistant', sans-serif;
+        font-size: 11px;
+    }
+
     .navbar-brand {
         display: none;
     }
@@ -226,52 +214,34 @@ p {
         display: block;
     }
 
-    body {
-        font-family: 'Assistant', sans-serif;
-        font-size: 11px;
+    .top-header {
+        margin-top: 7em;
     }
 
-    #img3,
-    #img6,
-    #img9 {
-        display: none;
-    }
+    .image-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        width: 100%;
 
-    #contact-lines {
-        width: 8vw;
-        height: auto;
-        margin: auto;
-        opacity: 70%;
-    }
-
-    .text-col {
-        margin-bottom: 1em;
-        margin-top: 1em;
-        padding: 2em;
-    }
-
-    #cactus-img {
-        width: 7em;
     }
 
     .gimage {
         margin-bottom: 2em;
+        width: 100%;
+        height: 30em;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin: auto;
-    }
 
     form {
-        margin: auto;
         width: 100%;
+    }
+
+    .row {
+        padding: 7em 2em;
     }
 }
 
@@ -282,20 +252,7 @@ p {
         font-size: 11px;
     }
 
-    .brand-div {
-        display: flex;
-        justify-content: end;
-        width: 20vw;
-    }
-
     .navbar-brand {
-        font-size: 1.4em;
-        font-weight: 300;
-        padding: 0;
-        min-height: 100%;
-    }
-
-    .brand-row {
         display: none;
     }
 
@@ -303,52 +260,54 @@ p {
         font-weight: 700;
     }
 
-    .nav-text {
-        padding-left: 1.5em;
-    }
-
-    #img3,
-    #img6,
-    #img9 {
-        display: none;
-    }
-
-    #contact-lines {
-        width: 8vw;
-        height: auto;
-        margin: auto;
-        opacity: 70%;
-    }
-
-    .text-col {
-        margin-bottom: 1em;
+    .brand-row {
+        width: 100%;
         margin-top: 1em;
-        padding: 2em;
+        padding-top: 1em;
+        background: #ffffff;
+        border-top: 1px solid rgba(0, 0, 0, 0.22);
     }
 
-    #cactus-img {
-        width: 7em;
+    .navbar-brand-row {
+        font-size: 2em;
+        font-weight: 300;
+        padding: 0;
+        width: 100%;
+        text-decoration: none;
+        color: black;
+        display: block;
+    }
+
+    .top-header {
+        margin-top: 7em;
+    }
+
+    .image-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        width: 100%;
+
     }
 
     .gimage {
         margin-bottom: 2em;
+        width: 100%;
+        height: 30em;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin: auto;
-    }
 
     form {
-        margin: auto;
         width: 100%;
     }
+
+    .row {
+        padding: 7em 5em;
+    }
+
 }
 
 /* Media query for screens between 576px and 767px (e.g., small tablets) */
@@ -383,46 +342,31 @@ p {
         padding-left: 1.5em;
     }
 
-    #img3,
-    #img6,
-    #img9 {
-        display: none;
-    }
 
-    #contact-lines {
-        width: 8vw;
-        height: auto;
-        margin: auto;
-        opacity: 70%;
-    }
+    .image-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        width: 100%;
 
-    .text-col {
-        margin-bottom: 5em;
-        margin-top: 5em;
-        padding: 5em;
-    }
-
-    #cactus-img {
-        width: 7em;
     }
 
     .gimage {
         margin-bottom: 2em;
+        width: 100%;
+        height: 30em;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin: auto;
+    .img-col {
+        width: 45%;
+        margin: 0.5em;
+        height: fit-content;
     }
 
     form {
-        margin: auto;
         width: 100%;
     }
 }
@@ -453,7 +397,6 @@ p {
 
     .navbar-collapse {
         margin: 0;
-        background: transparent;
     }
 
     .navbar-nav {
@@ -472,31 +415,25 @@ p {
         padding-left: 1.5em;
     }
 
-    #img3,
-    #img6,
-    #img9 {
-        display: none;
-    }
-
-    #contact-lines {
-        width: 8vw;
-        height: auto;
+    .image-gallery {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        width: 100%;
         margin: auto;
-        opacity: 70%;
+        padding: 0;
     }
 
-    .text-col {
-        margin-bottom: 5em;
-        margin-top: 5em;
-        padding: 5em;
-    }
-
-    #cactus-img {
-        width: 7em;
+    .img-col {
+        width: 45%;
+        margin: 0.5em;
+        height: fit-content;
     }
 
     .gimage {
-        margin-bottom: 2em;
+        width: 100%;
+        height: 30em;
+        object-fit: cover;
     }
 
     .contact-area {
@@ -507,12 +444,21 @@ p {
         justify-content: center;
         align-content: center;
         width: 80vw;
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 4em;
+        margin-bottom: 4em;
     }
 
     form {
-        margin: auto;
         width: 100%;
+    }
+
+    #public-photo {
+        width: 100%;
+        height: 70vw;
+        object-fit: contain;
+        padding-top: 5em;
     }
 }
 
@@ -542,7 +488,6 @@ p {
 
     .navbar-collapse {
         margin: 0;
-        background: transparent;
     }
 
     .navbar-nav {
@@ -561,43 +506,25 @@ p {
         padding-left: 1.5em;
     }
 
-    #contact-lines {
-        width: 8vw;
-        height: auto;
-        margin: auto;
-        opacity: 70%;
-    }
-
-    .text-col {
-        margin-bottom: 5em;
-        margin-top: 5em;
-        padding: 5em;
-    }
-
-    #cactus-img {
-        width: 7em;
-    }
-
     .image-gallery {
         display: flex;
         align-items: stretch;
         justify-content: center;
         width: 100%;
-        padding: 1em;
+        margin: auto;
+        padding: 0;
     }
 
     .img-col {
-        width: 50%;
+        width: 33%;
+        margin: 0.5em;
         height: fit-content;
     }
 
     .gimage {
-        position: relative;
         width: 100%;
-        height: 30em;
+        height: 20em;
         object-fit: cover;
-        border-radius: 0.3em;
-        padding: 0.5em;
     }
 
     .contact-area {
@@ -608,17 +535,18 @@ p {
         justify-content: center;
         align-content: center;
         width: 80vw;
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 4em;
+        margin-bottom: 4em;
     }
 
-    .contact-div {
-        padding-top: 5em;
-        padding-bottom: 5em;
-        padding-left: 2em;
+    .logo-col {
+        padding: 0;
     }
 
     form {
-        margin: auto;
         width: 100%;
     }
+
 }

@@ -1,11 +1,17 @@
+/* Global Styles */
 html {
     direction: rtl;
+    width: 100%;
+    overflow-x: hidden;
 }
 
+
+/* Header Styles */
 #public-photo {
-    background: white;
+    background: rgb(191, 204, 206);
 }
 
+/* About Section Styles */
 #about-info {
     padding: 2em;
     direction: rtl;
@@ -20,16 +26,16 @@ html {
     padding: 0.3em;
 }
 
+/* Button Styles */
 .white_btn {
-    margin-top: 0.5em;
-    padding: 0.2em 1em;
+    border-radius: 0.5em;
+    width: fit-content;
+    padding: 0.4em 1.6em;
+    margin: auto;
     font-size: 1.5em;
-    font-weight: 300;
-    border-radius: 0.2em;
-    background: #edb966;
-    border: none;
 }
 
+/* Typography Styles */
 h1 {
     font-size: 4em;
     margin: 0;
@@ -44,7 +50,6 @@ h3 {
     font-weight: 600;
     font-size: 1.6em;
     padding: 0.2em 1em;
-    background: #edb966;
     border-radius: 0.2em;
 }
 
@@ -53,22 +58,25 @@ a {
     text-decoration: none;
 }
 
+/* Images */
 .level-img {
     width: 6em;
     height: auto;
     margin: 0.5em 0;
 }
 
+/* About Paragraph Styles */
 #about-p {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 60%;
     height: 100%;
     margin: 6em auto;
-    padding: 5em 10em;
+    padding: 0;
     background: white;
+    border-radius: 0.5em;
 }
 
 p {
@@ -80,6 +88,7 @@ p {
     height: fit-content;
 }
 
+/* Image Gallery Styles */
 .image-gallery {
     position: relative;
     width: 100%;
@@ -99,9 +108,10 @@ p {
     margin-top: 2em;
 }
 
-
+/* Marked Header Styles */
 .steps {
     margin: auto;
+    padding: 0.5em;
 }
 
 .marked-header {
@@ -111,7 +121,7 @@ p {
     padding: 0.5em;
 }
 
-
+/* Form Styles */
 form {
     z-index: 1;
     border-radius: 0.5em;
@@ -138,6 +148,7 @@ input {
     font-size: 1.5em;
 }
 
+/* Contact Area Styles */
 .contact-area {
     background: white;
     border-radius: 0.5em;
@@ -171,6 +182,7 @@ input {
     flex: 1;
 }
 
+/* Footer Styles */
 .footer-text {
     margin: 0;
     padding: 1em;
@@ -178,6 +190,7 @@ input {
     font-weight: 300;
 }
 
+/* Top Row Styles */
 #top-row {
     padding: 0;
     opacity: 100%;
@@ -185,10 +198,11 @@ input {
 
 .row {
     height: fit-content;
-    padding: 2em;
+    padding: 0;
+    margin: 0;
 }
 
-
+/* Media Queries */
 
 @media (max-width: 340px) {
     body {
@@ -222,29 +236,9 @@ input {
         display: block;
     }
 
-    #img3,
-    #img6,
-    #img9 {
-        display: none;
-    }
-
-    #contact-lines {
-        width: 8vw;
-        height: auto;
-        margin: auto;
-        opacity: 70%;
-    }
-
-    .blue-row {
-        padding: 0;
-    }
-
     #about-p {
         width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 5em;
-        margin-bottom: 5em;
+        margin: 3em auto;
     }
 
     .text-col {
@@ -260,26 +254,9 @@ input {
         margin-top: 3em;
     }
 
-    .project-img {
-        margin: 0;
-    }
-
     .gimage {
+        width: 20em;
         margin-bottom: 2em;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 4em;
-        margin-bottom: 4em;
     }
 
     form {
@@ -287,8 +264,32 @@ input {
     }
 
     #public-photo {
+        width: 100%;
+        height: 100vw;
+        object-fit: contain;
+        padding-top: 5em;
+    }
+
+    .welcoome-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5em 5em;
+    }
+
+    #about-info {
+        padding: 0;
+    }
+
+    .white_btn {
+        padding: 0.5em 1em;
+        margin: 1em;
+    }
+
+    #about-p {
+        padding: 4em 2em;
         width: 80%;
-        margin-top: 10em;
     }
 }
 
@@ -325,12 +326,6 @@ input {
         display: block;
     }
 
-    .text-col {
-        margin-bottom: 1em;
-        margin-top: 1em;
-        padding: 2em;
-    }
-
     .image-gallery {
         display: flex;
         position: relative;
@@ -338,26 +333,9 @@ input {
         margin-top: 3em;
     }
 
-    .project-img {
-        margin: 0;
-    }
-
     .gimage {
+        width: 30em;
         margin-bottom: 2em;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 4em;
-        margin-bottom: 4em;
     }
 
     form {
@@ -365,9 +343,33 @@ input {
     }
 
     #public-photo {
-        width: 80%;
-        margin-top: 10em;
+        width: 100%;
+        height: 100vw;
+        object-fit: contain;
+        padding-top: 5em;
     }
+
+    .welcoome-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 8em 5em;
+    }
+
+    #about-info {
+        padding: 0;
+    }
+
+    .white_btn {
+        margin: 1em;
+    }
+
+    #about-p {
+        padding: 4em 2em;
+        width: 80%;
+    }
+
 }
 
 /* Media query for screens between 576px and 767px (e.g., small tablets) */
@@ -402,12 +404,6 @@ input {
         padding-left: 1.5em;
     }
 
-    #img3,
-    #img6,
-    #img9 {
-        display: none;
-    }
-
     #about-info {
         font-size: 1.5em;
     }
@@ -434,21 +430,8 @@ input {
     }
 
     .gimage {
+        width: 40em;
         margin-bottom: 2em;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 4em;
-        margin-bottom: 4em;
     }
 
     form {
@@ -457,9 +440,17 @@ input {
 
     #public-photo {
         width: 100%;
-        height: 70vw;
+        height: 100vw;
         object-fit: contain;
         padding-top: 5em;
+    }
+
+    #about-p {
+        padding: 4em 5em;
+    }
+
+    #about-info {
+        padding: 1em 1em;
     }
 }
 
@@ -507,38 +498,9 @@ input {
         padding-left: 1.5em;
     }
 
-    #img3,
-    #img6,
-    #img9 {
-        display: none;
-    }
-
-    .steps {
-        width: 70%;
-    }
-
-    .text-col {
-        margin-bottom: 1em;
-        margin-top: 1em;
-        padding: 2em;
-    }
-
     .gimage {
+        width: 40em;
         margin-bottom: 2em;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 4em;
-        margin-bottom: 4em;
     }
 
     form {
@@ -547,9 +509,17 @@ input {
 
     #public-photo {
         width: 100%;
-        height: 70vw;
+        height: 100vw;
         object-fit: contain;
         padding-top: 5em;
+    }
+
+    #about-p {
+        padding: 4em 5em;
+    }
+
+    #about-info {
+        padding: 1em 1em;
     }
 }
 
@@ -597,23 +567,12 @@ input {
         padding-left: 1.5em;
     }
 
-    .steps {
-        width: 50%;
-        padding-bottom: 2em;
-    }
-
-    .text-col {
-        margin-bottom: 5em;
-        margin-top: 5em;
-        padding: 5em;
-    }
-
     .image-gallery {
         display: flex;
         align-items: stretch;
         justify-content: center;
         width: 100%;
-        padding: 1em;
+        padding: 1em 5em;
     }
 
     .gimage {
@@ -623,7 +582,7 @@ input {
         border-radius: 0.3em;
         padding: 0.5em;
     }
-    
+
     .contact-div {
         padding-top: 5em;
         padding-bottom: 5em;
@@ -636,8 +595,17 @@ input {
 
     #public-photo {
         width: 100%;
-        height: 50vw;
+        height: 100vh;
         object-fit: contain;
         padding-top: 5em;
     }
+
+    #about-info {
+        padding: 1em 2em;
+    }
+
+    #about-p {
+        padding: 4em 5em;
+    }
+
 }

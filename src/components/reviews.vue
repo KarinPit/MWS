@@ -1,9 +1,10 @@
 <template>
-    <div v-for="(review, index) in reviews" :key="index">
+    <div v-for="(review, index) in sortedReviews" :key="index">
         <div class="review">
             <h3>{{ review.title }}</h3>
             <p>{{ formatReviewDate(review.createdAt) }}</p>
             <p>{{ review.content }}</p>
+            <p class="line-seperator">--------------------------------------</p>
         </div>
     </div>
 </template>
@@ -19,6 +20,16 @@ export default {
         // Fetch the data when the component is created
         this.reviews = await GetReviews();
     },
+    computed: {
+        sortedReviews() {
+            // Sort the reviews by createdAt in descending order (newer first)
+            return this.reviews.slice().sort((a, b) => {
+                const dateA = new Date(a.createdAt);
+                const dateB = new Date(b.createdAt);
+                return dateB - dateA;
+            });
+        },
+    },
     methods: {
         formatReviewDate(createdAt) {
             const date = new Date(createdAt);
@@ -28,7 +39,6 @@ export default {
             return `${day}-${month}-${year}`;
         },
     },
-
 };
 
 async function GetReviews() {
@@ -38,4 +48,3 @@ async function GetReviews() {
     return reviews;
 }
 </script>
-  

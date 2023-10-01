@@ -7,7 +7,7 @@
     <div class="col-form">
         <form @submit.prevent="submitForm">
             <div class="info-div">
-                <p class="contact-title">רוצים שאצור איתכם קשר? השאירו פרטים ואחזור אליכם</p>
+                <h2 class="contact-title">רוצים שאצור איתכם קשר? השאירו פרטים ואחזור אליכם</h2>
                 <p class="info-p">טלפון: 0587809493</p>
                 <p class="info-p">אימייל: pit@gmail.com</p>
             </div>

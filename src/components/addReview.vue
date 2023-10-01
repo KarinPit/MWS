@@ -2,7 +2,7 @@
   <div>
     <div class="top-header">
       <h2>לקוחות ממליצים</h2>
-      <button id="add-review" class="white_btn" @click="showPopup = true">הוסף ביקורת</button>
+      <button id="add-review" class="white_btn mainBackground" @click="showPopup = true">הוסף ביקורת</button>
     </div>
 
     <!-- Popup Menu -->

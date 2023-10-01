@@ -38,16 +38,16 @@ const project = Astro.props;
       <Navigation client:load />
     </header>
     <main>
-      <div class="row">
+      <div class="row text-center my-auto">
         <div id="project-area">
           <div class="project-desc">
-            <h2 class="marked-header">{project.attributes.title}</h2>
+            <h2>{project.attributes.title}</h2>
             <p id="product-exp">{project.attributes.description}</p>
             <ProjectGallery project={project} client:load />
           </div>
         </div>
       </div>
-      <div class="row beige-background">
+      <div class="row beige-background p-5">
         <ContactForm client:load />
       </div>
       <Footer client:load />

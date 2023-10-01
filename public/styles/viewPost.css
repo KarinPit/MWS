@@ -2,14 +2,8 @@ html {
     direction: rtl;
 }
 
-#top-row {
-    padding: 0;
-    opacity: 100%;
-}
-
-#logo {
-    width: 80%;
-    height: auto;
+#post-area {
+    padding: 7em 2em;
 }
 
 h1 {
@@ -66,100 +60,14 @@ a {
     /* object-position: 0 50%; */
 }
 
-#about-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    height: 100%;
-    margin: 6em auto;
-    padding: 5em 10em;
-    background: white;
-}
-
-.white_btn {
-    margin-top: 0.5em;
-    padding: 0.2em 1em;
-    font-size: 1.5em;
-    font-weight: 300;
-    border-radius: 0.2em;
-    background: #edb966;
-    border: none;
-}
-
-#flower-img {
-    width: 13em;
-    height: auto;
-    margin-bottom: 0.5em;
-}
 
 .beige-background {
     background: #efefef;
 }
 
-.carousel {
-    position: relative;
-    width: 100%;
-}
-
-.carousel-img {
-    height: 100vh;
-    object-fit: cover;
-    object-position: 30% 0;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    background: rgb(255, 255, 255);
-    opacity: 40%;
-    height: 100%;
-    width: 2.5em;
-    clip-path: circle();
-}
-
-.carousel-control-prev {
-    margin-left: 2em;
-}
-
-.carousel-control-next {
-    margin-right: 2em;
-}
-
-
-.image-gallery {
-    width: 100%;
-    padding: 1em;
-}
-
-.img-col {
-    display: block;
-    width: 100%;
-    height: fit-content;
-}
-
-.gimage {
-    object-fit: cover;
-    background: white;
-}
-
-.project-img {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.project-name {
-    height: 3em;
-}
 
 .marked-header {
     width: fit-content;
-    /* background: rgb(251, 255, 200); */
-    /* background: #edb966;
-    border-radius: 0.5em; */
     margin-left: auto;
     margin-right: auto;
     padding: 0.5em;
@@ -178,19 +86,6 @@ a {
     padding: 2em;
 }
 
-.text-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    direction: rtl;
-    font-weight: 300;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80vw;
-    height: 40em;
-    background: white;
-    border-radius: 0.5em;
-}
 
 p {
     text-align: center;
@@ -231,44 +126,6 @@ p {
         font-size: 11px;
     }
 
-    #img3,
-    #img6,
-    #img9 {
-        display: none;
-    }
-
-    #contact-lines {
-        width: 8vw;
-        height: auto;
-        margin: auto;
-        opacity: 70%;
-    }
-
-    .text-col {
-        margin-bottom: 1em;
-        margin-top: 1em;
-        padding: 2em;
-    }
-
-    #cactus-img {
-        width: 7em;
-    }
-
-    .gimage {
-        margin-bottom: 2em;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin: auto;
-    }
-
     form {
         margin: auto;
         width: 100%;
@@ -307,44 +164,6 @@ p {
         padding-left: 1.5em;
     }
 
-    #img3,
-    #img6,
-    #img9 {
-        display: none;
-    }
-
-    #contact-lines {
-        width: 8vw;
-        height: auto;
-        margin: auto;
-        opacity: 70%;
-    }
-
-    .text-col {
-        margin-bottom: 1em;
-        margin-top: 1em;
-        padding: 2em;
-    }
-
-    #cactus-img {
-        width: 7em;
-    }
-
-    .gimage {
-        margin-bottom: 2em;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin: auto;
-    }
-
     form {
         margin: auto;
         width: 100%;
@@ -381,44 +200,6 @@ p {
 
     .nav-text {
         padding-left: 1.5em;
-    }
-
-    #img3,
-    #img6,
-    #img9 {
-        display: none;
-    }
-
-    #contact-lines {
-        width: 8vw;
-        height: auto;
-        margin: auto;
-        opacity: 70%;
-    }
-
-    .text-col {
-        margin-bottom: 5em;
-        margin-top: 5em;
-        padding: 5em;
-    }
-
-    #cactus-img {
-        width: 7em;
-    }
-
-    .gimage {
-        margin-bottom: 2em;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin: auto;
     }
 
     form {
@@ -472,44 +253,6 @@ p {
         padding-left: 1.5em;
     }
 
-    #img3,
-    #img6,
-    #img9 {
-        display: none;
-    }
-
-    #contact-lines {
-        width: 8vw;
-        height: auto;
-        margin: auto;
-        opacity: 70%;
-    }
-
-    .text-col {
-        margin-bottom: 5em;
-        margin-top: 5em;
-        padding: 5em;
-    }
-
-    #cactus-img {
-        width: 7em;
-    }
-
-    .gimage {
-        margin-bottom: 2em;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin: auto;
-    }
-
     form {
         margin: auto;
         width: 100%;
@@ -559,57 +302,6 @@ p {
 
     .nav-text {
         padding-left: 1.5em;
-    }
-
-    #contact-lines {
-        width: 8vw;
-        height: auto;
-        margin: auto;
-        opacity: 70%;
-    }
-
-    .text-col {
-        margin-bottom: 5em;
-        margin-top: 5em;
-        padding: 5em;
-    }
-
-    #cactus-img {
-        width: 7em;
-    }
-
-    .image-gallery {
-        display: flex;
-        align-items: stretch;
-        justify-content: center;
-        width: 100%;
-        padding: 1em;
-    }
-
-    .img-col {
-        width: 50%;
-        height: fit-content;
-    }
-
-    .gimage {
-        position: relative;
-        width: 50%;
-        height: 20em;
-        margin: auto;
-        object-fit: contain;
-        border-radius: 0.3em;
-        padding: 0.5em;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin: auto;
     }
 
     .contact-div {

@@ -1,15 +1,15 @@
 .col-logo {
     margin: auto;
-    padding-right: 15em;
+    /* padding-right: 15em; */
 }
 
 .col-form {
     margin: auto;
-    padding-left: 15em;
+    /* padding-left: 15em; */
 }
 
 .contact-title {
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-weight: 700;
     margin-bottom: 0.5em;
 }
@@ -28,7 +28,7 @@ input {
     display: block;
     width: 80%;
     max-width: 20em;
-    max-height: 2em;
+    max-height: 2.5em;
     height: 10vw;
     text-align: center;
     border: 1px solid grey;
@@ -37,7 +37,7 @@ input {
     margin-right: auto;
     margin-bottom: 0.5em;
     background: white;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 .contact-btn {
@@ -67,4 +67,22 @@ input {
     font-size: 1.3em;
     margin: auto;
     padding-bottom: 0.5em;
+}
+
+@media (max-width: 992px) {
+    .col-logo {
+        padding: 1em 0;
+    }
+
+}
+
+@media (min-width: 1500px) {
+
+    .col-logo {
+        padding-right: 15em;
+    }
+
+    .col-form {
+        padding-left: 15em;
+    }
 }

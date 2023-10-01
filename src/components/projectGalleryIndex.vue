@@ -1,15 +1,15 @@
 <template>
     <div class="image-gallery">
-        <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
-            <div class="project-img" v-for="(project, index) in column" :key="index" @mouseover="toggleHovered(index)"
-                @mouseout="toggleHovered(-1)">
-                <a class="project-name" :href="`/projects/${project.name}`">{{ project.name }}</a>
-                <a :href="`/projects/${project.name}`"><img class="gimage" :src="baseUrl + project.imageUrl"
-                        alt="designed house example" /></a>
-            </div>
+      <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
+        <div class="project-img" v-for="(project, index) in column" :key="index" @mouseover="toggleHovered(index)" @mouseout="toggleHovered(-1)">
+          <a class="project-name" :href="`/projects/${project.name}`">{{ project.name }}</a>
+          <div class="image-container">
+            <a :href="`/projects/${project.name}`"><img class="gimage" :src="baseUrl + project.imageUrl" alt="designed house example" /></a>
+          </div>
         </div>
+      </div>
     </div>
-</template>
+  </template>
   
 <script>
 export default {
@@ -60,9 +60,11 @@ export default {
     align-items: center;
     position: absolute;
     z-index: 1;
-    background: #edb966;
+    border-radius: 0.4em;
     width: fit-content;
-    padding: 0 5em;
+    height: 3em;
+    padding: 0;
+    font-size: 2em;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     /* Add a smooth transition */
@@ -71,7 +73,7 @@ export default {
 .gimage {
     width: 100%;
     opacity: 100%;
-    border-radius: 1em;
+    border-radius: 1.5em;
     transition: opacity 0.3s ease-in-out;
     padding: 1em;
 }

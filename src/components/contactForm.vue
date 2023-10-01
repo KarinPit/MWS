@@ -1,16 +1,16 @@
 <template>
-    <div class="col-5 col-logo text-center">
+    <div class="col-lg-5 col-logo text-center">
         <img class="mws-logo" src="../../public/images/Logo_Moran_new2.png" alt="MWS Logo" />
         <p class="logo-info">מייל: lorem.ipsum@gmail.com</p>
         <p class="logo-info">טלפון: 0587809493</p>
     </div>
-    <div class="col-7 col-form">
+    <div class="col-lg-7 col-form">
         <form @submit.prevent="submitForm">
             <p class="contact-title">רוצים שאצור איתכם קשר? השאירו פרטים ואחזור אליכם</p>
             <input type="text" v-model="name" placeholder="שם מלא" required />
             <input type="tel" v-model="phone" placeholder="טלפון" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required />
             <input type="email" v-model="email" placeholder="מייל" />
-            <input class="contact-btn" type="submit" value="שלח" />
+            <input class="contact-btn mainBackground" type="submit" value="שלח" />
         </form>
     </div>
 </template>

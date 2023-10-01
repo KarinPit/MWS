@@ -1,11 +1,14 @@
+/* Global Styles */
 html {
     direction: rtl;
 }
 
+/* Header Section */
 #public-photo {
     background: white;
 }
 
+/* About Section */
 #about-info {
     padding: 2em;
     direction: rtl;
@@ -20,6 +23,7 @@ html {
     padding: 0.3em;
 }
 
+/* Buttons */
 .white_btn {
     margin-top: 0.5em;
     padding: 0.2em 1em;
@@ -30,6 +34,7 @@ html {
     border: none;
 }
 
+/* Headings */
 h1 {
     font-size: 4em;
     margin: 0;
@@ -38,6 +43,7 @@ h1 {
 h2 {
     font-weight: 600;
     font-size: 2.5em;
+    padding: 0.5em 0;
 }
 
 h3 {
@@ -48,17 +54,20 @@ h3 {
     border-radius: 0.2em;
 }
 
+/* Links */
 a {
     color: black;
     text-decoration: none;
 }
 
+/* Images */
 .level-img {
     width: 6em;
     height: auto;
     margin: 0.5em 0;
 }
 
+/* About Paragraph */
 #about-p {
     display: flex;
     flex-direction: column;
@@ -80,6 +89,7 @@ p {
     height: fit-content;
 }
 
+/* Image Gallery */
 .image-gallery {
     position: relative;
     width: 100%;
@@ -93,15 +103,18 @@ p {
     background: white;
 }
 
+/* Background Colors */
 .beige-background {
     background: #efefef;
 }
 
+/* Top Header */
 .top-header {
     margin-top: 4em;
     margin-bottom: 0;
 }
 
+/* Marked Header */
 .marked-header {
     width: fit-content;
     background: rgb(251, 255, 200);
@@ -110,17 +123,11 @@ p {
     margin-bottom: 0.5em;
 }
 
+/* Contact Section */
 .contact-title {
     font-size: 1.7em;
     font-weight: 700;
     margin-bottom: 0.5em;
-}
-
-#contact-lines {
-    width: 8vw;
-    height: auto;
-    margin: auto;
-    opacity: 70%;
 }
 
 form {
@@ -149,15 +156,7 @@ input {
     font-size: 1.5em;
 }
 
-.contact-area {
-    background: white;
-    border-radius: 0.5em;
-    display: flex;
-    justify-content: center;
-    width: 80vw;
-    margin: auto;
-}
-
+/* Contact Area */
 .contact-btn {
     font-size: 1.2em;
     display: block;
@@ -171,17 +170,7 @@ input {
     border: none;
 }
 
-.contact-div {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    padding-bottom: 2em;
-    border-radius: 0.5em;
-    flex: 1;
-}
-
+/* Footer */
 .footer-text {
     margin: 0;
     padding: 1em;
@@ -189,22 +178,12 @@ input {
     font-weight: 300;
 }
 
+/* Rows */
 .row {
     height: fit-content;
-    padding: 2em;
-}
-
-.beige-background {
-    background: #efefef;
-}
-
-p {
-    text-align: center;
-    font-size: 1.5em;
-    width: 100%;
+    padding: 7em;
     margin: 0;
 }
-
 
 @media (max-width: 340px) {
     body {
@@ -238,35 +217,6 @@ p {
         display: block;
     }
 
-    #contact-lines {
-        width: 8vw;
-        height: auto;
-        margin: auto;
-        opacity: 70%;
-    }
-
-    .blue-row {
-        padding: 0;
-    }
-
-    #about-p {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 5em;
-        margin-bottom: 5em;
-    }
-
-    .text-col {
-        margin-bottom: 1em;
-        margin-top: 1em;
-        padding: 2em;
-    }
-
-    .cactus-img {
-        width: 3em;
-    }
-
     .top-header {
         margin-top: 7em;
     }
@@ -276,38 +226,25 @@ p {
         flex-direction: column;
         align-items: stretch;
         justify-content: center;
-        width: 80%;
-        padding: 3em;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 2em;
-        margin-bottom: 7em;
+        width: 100%;
+
     }
 
     .gimage {
         margin-bottom: 2em;
-    }
-
-    .contact-area {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
+        width: 100%;
+        height: 30em;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 4em;
-        margin-bottom: 4em;
-        padding-left: 1em;
-        padding-right: 1em;
     }
+
 
     form {
         width: 100%;
     }
 
-    #public-photo {
-        width: 80%;
-        margin-top: 10em;
+    .row {
+        padding: 7em 2em;
     }
 }
 
@@ -344,16 +281,6 @@ p {
         display: block;
     }
 
-    .text-col {
-        margin-bottom: 1em;
-        margin-top: 1em;
-        padding: 2em;
-    }
-
-    .cactus-img {
-        width: 3em;
-    }
-
     .top-header {
         margin-top: 7em;
     }
@@ -363,44 +290,27 @@ p {
         flex-direction: column;
         align-items: stretch;
         justify-content: center;
-        width: 80%;
-        padding: 3em;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 2em;
-        margin-bottom: 7em;
+        width: 100%;
+
     }
 
     .gimage {
         margin-bottom: 2em;
-        width: 80%;
-        height: 20em;
+        width: 100%;
+        height: 30em;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 4em;
-        margin-bottom: 4em;
-    }
 
     form {
         width: 100%;
     }
 
-    #public-photo {
-        width: 80%;
-        margin-top: 10em;
+    .row {
+        padding: 7em 5em;
     }
+
 }
 
 /* Media query for screens between 576px and 767px (e.g., small tablets) */
@@ -435,34 +345,22 @@ p {
         padding-left: 1.5em;
     }
 
-    #about-info {
-        font-size: 1.5em;
-    }
-
-    .steps {
-        width: 100%;
-    }
-
-    .text-col {
-        margin-bottom: 1em;
-        margin-top: 1em;
-        padding: 2em;
-    }
-
-    .cactus-img {
-        width: 3em;
-    }
 
     .image-gallery {
         display: flex;
+        flex-direction: column;
         align-items: stretch;
         justify-content: center;
-        width: 90%;
-        padding: 3em;
+        width: 100%;
+
+    }
+
+    .gimage {
+        margin-bottom: 2em;
+        width: 100%;
+        height: 30em;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 2em;
-        margin-bottom: 7em;
     }
 
     .img-col {
@@ -471,35 +369,8 @@ p {
         height: fit-content;
     }
 
-    .gimage {
-        width: 100%;
-        height: 30em;
-        object-fit: cover;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 4em;
-        margin-bottom: 4em;
-    }
-
     form {
         width: 100%;
-    }
-
-    #public-photo {
-        width: 100%;
-        height: 70vw;
-        object-fit: contain;
-        padding-top: 5em;
     }
 }
 
@@ -547,30 +418,13 @@ p {
         padding-left: 1.5em;
     }
 
-    .steps {
-        width: 70%;
-    }
-
-    .text-col {
-        margin-bottom: 1em;
-        margin-top: 1em;
-        padding: 2em;
-    }
-
-    .cactus-img {
-        width: 3em;
-    }
-
     .image-gallery {
         display: flex;
         align-items: stretch;
         justify-content: center;
-        width: 90%;
-        padding: 3em;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 2em;
-        margin-bottom: 7em;
+        width: 100%;
+        margin: auto;
+        padding: 0;
     }
 
     .img-col {
@@ -655,34 +509,17 @@ p {
         padding-left: 1.5em;
     }
 
-    .steps {
-        width: 90%;
-        padding-bottom: 2em;
-    }
-
-    .text-col {
-        margin-bottom: 5em;
-        margin-top: 5em;
-        padding: 5em;
-    }
-
-    .cactus-img {
-        width: 7em;
-    }
-
     .image-gallery {
         display: flex;
         align-items: stretch;
         justify-content: center;
-        width: 90%;
-        padding: 3em;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 7em;
+        width: 100%;
+        margin: auto;
+        padding: 0;
     }
 
     .img-col {
-        width: 45%;
+        width: 33%;
         margin: 0.5em;
         height: fit-content;
     }
@@ -709,12 +546,6 @@ p {
 
     .logo-col {
         padding: 0;
-    }
-
-    .contact-div {
-        padding-top: 5em;
-        padding-bottom: 5em;
-        padding-left: 2em;
     }
 
     form {

@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../../public/styles/navbar.css";
 import "../../public/styles/index.css";
 import "../../public/styles/contactForm.css";
+import "../../public/styles/mainButtonColor.css";
 ---
 
 <html>
@@ -28,17 +29,17 @@ import "../../public/styles/contactForm.css";
     </header>
     <main>
       <div class="container-fluid">
-        <div id="top-row" class="row beige-background">
-          <div class="col-4 my-auto text-center">
+        <div id="top-row" class="row">
+          <div class="col-lg-8">
+            <Carousel client:load />
+          </div>
+          <div id="main-col" class="col-lg-4 my-auto text-center">
             <h1><span id="bold-logo-text">MWS</span> Studio</h1>
             <p id="sub-logo-text">
               לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום
               דולור סיט אמט, קונסקטורר אדיפיסינג.
             </p>
-            <p id="scroll-down-command">גללו למטה</p>
-          </div>
-          <div class="col-8">
-            <Carousel client:load />
+            <p id="scroll-down-command" class="mainBackground">גללו למטה</p>
           </div>
         </div>
 
@@ -51,16 +52,16 @@ import "../../public/styles/contactForm.css";
               דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום דולור סיט
               אמט.לורם איפסום דולור סיט אמט.
             </p>
-            <a href="/about" class="white_btn">קראו עוד עלי</a>
+            <a href="/about" class="white_btn mainBackground">קראו עוד עלי</a>
           </div>
         </div>
 
-        <div class="row text-center my-auto">
+        <div class="row text-center my-auto p-5">
           <h3 id="">פרויקטים שלי</h3>
           <ProjectGalleryIndex client:load />
         </div>
 
-        <div class="row my-auto beige-background">
+        <div class="row my-auto beige-background p-5">
           <ContactForm client:load />
         </div>
       </div>
@@ -89,22 +90,3 @@ import "../../public/styles/contactForm.css";
   });
 </script>
 
-<!-- <img
-  id="logo"
-  src="../../public/images/Logo_Moran_new2.png"
-  alt="sketched down arrow"
-/> -->
-<!-- <img
-    id="cactus-img"
-    src="../../public/images/cactus-in-pot.png"
-    alt="cactus in a pot image"
-  />
-  <h3 class="marked-header">מורן ורנר סיידו</h3>
-  <p>
-    לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום
-    דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום דולור סיט
-    אמט.לורם איפסום דולור סיט אמט.
-  </p>
-  <a href="/about" class="button white_btn">קראו עוד</a>
-  <a href="/reviews" class="button">לקוחות ממליצים</a>
-</div> -->

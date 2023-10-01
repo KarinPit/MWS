@@ -29,23 +29,27 @@ import "../../public/styles/contact.css";
       <Navigation client:load />
     </header>
     <main>
-      <div class="row text-center my-auto">
-        <!-- <ContactMenu client:load /> -->
-      </div>
-      <div class="row text-end my-auto">
-        <ContactFormPage client:load />
-        <div id="map-div">
-          <gmp-map
-            center="32.29911804199219,34.91328811645508"
-            zoom="14"
-            map-id="map"
-          >
-            <gmp-advanced-marker
-              position="32.29911804199219,34.91328811645508"
-              title="My location"
+      <!-- <div class="row text-center my-auto">
+        <ContactMenu client:load />
+      </div> -->
+      <div class="row text-end">
+        <div class="col-lg-6 my-auto col-margin">
+          <div id="map-div">
+            <gmp-map
+              center="32.29911804199219,34.91328811645508"
+              zoom="14"
+              map-id="map"
             >
-            </gmp-advanced-marker>
-          </gmp-map>
+              <gmp-advanced-marker
+                position="32.29911804199219,34.91328811645508"
+                title="My location"
+              >
+              </gmp-advanced-marker>
+            </gmp-map>
+          </div>
+        </div>
+        <div class="col-lg-6 my-auto col-margin">
+          <ContactFormPage client:load />
         </div>
       </div>
       <Footer client:load />

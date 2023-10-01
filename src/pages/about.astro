@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../../public/styles/navbar.css";
 import "../../public/styles/about.css";
 import "../../public/styles/contactForm.css";
+import "../../public/styles/mainButtonColor.css";
 ---
 
 <html>
@@ -26,72 +27,72 @@ import "../../public/styles/contactForm.css";
             <Navigation client:load />
         </header>
         <main>
-            <div id="top-row" class="row beige-background">
-                <div class="col-sm-4 text-center my-auto">
-                    <p id="about-info">
-                        <span id="about-span">ברוכים הבאים,</span>
-                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם
-                        איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
-                    </p>
-                    <a href="/contact" class="white_btn">צרו קשר</a>
-                </div>
-                <div class="col-sm-8 text-center my-auto">
+            <div id="top-row" class="row">
+                <div class="col-sm-8 text-center my-auto p-0">
                     <img
                         id="public-photo"
                         src="../../public/images/4T1A8652-removebg.png"
                         alt="designed rooms examples"
                     />
                 </div>
-            </div>
-            <div class="row text-center beige-background">
-                <div class="my-auto">
-                    <div id="about-p">
-                        <h2>איך זה עובד?</h2>
-                        <div class="top-element">
-                            <img
-                                class="level-img"
-                                src="../../public/images/butterfly.png"
-                                alt="designed rooms examples"
-                            />
-                            <h3>שלב 1</h3>
-                        </div>
-                        <p class="steps">
-                            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית
-                            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
-                        </p>
-                        <div>
-                            <img
-                                class="level-img"
-                                src="../../public/images/butterfly.png"
-                                alt="designed rooms examples"
-                            />
-                            <h3>שלב 2</h3>
-                        </div>
-                        <p class="steps">
-                            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית
-                            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
-                        </p>
-                        <div>
-                            <img
-                                class="level-img"
-                                src="../../public/images/butterfly.png"
-                                alt="designed rooms examples"
-                            />
-                            <h3>שלב 3</h3>
-                        </div>
-                        <p class="steps">
-                            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית
-                            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
-                        </p>
-                    </div>
+                <div class="col-sm-4 text-center my-auto welcoome-col">
+                    <p id="about-info">
+                        <span id="about-span">ברוכים הבאים,</span>
+                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם
+                        איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
+                    </p>
+                    <a href="/contact" class="white_btn mainBackground"
+                        >צרו קשר</a
+                    >
                 </div>
             </div>
-            <div class="row text-center my-auto">
+            <div class="row text-center beige-background">
+                <div id="about-p">
+                    <h2>איך זה עובד?</h2>
+                    <div class="top-element">
+                        <img
+                            class="level-img"
+                            src="../../public/images/butterfly.png"
+                            alt="designed rooms examples"
+                        />
+                        <h3 class="mainBackground">שלב 1</h3>
+                    </div>
+                    <p class="steps">
+                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם
+                        איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
+                    </p>
+                    <div>
+                        <img
+                            class="level-img"
+                            src="../../public/images/butterfly.png"
+                            alt="designed rooms examples"
+                        />
+                        <h3 class="mainBackground">שלב 2</h3>
+                    </div>
+                    <p class="steps">
+                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם
+                        איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
+                    </p>
+                    <div>
+                        <img
+                            class="level-img"
+                            src="../../public/images/butterfly.png"
+                            alt="designed rooms examples"
+                        />
+                        <h3 class="mainBackground">שלב 3</h3>
+                    </div>
+                    <p class="steps">
+                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם
+                        איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
+                    </p>
+                </div>
+            </div>
+            <div class="row text-center my-auto p-5">
                 <h2>פרויקטים נבחרים</h2>
                 <ProjectGallerySample client:load />
             </div>
         </main>
-        <div class="row beige-background">
+        <div class="row beige-background p-5">
             <ContactForm client:load />
         </div>
         <Footer client:load />

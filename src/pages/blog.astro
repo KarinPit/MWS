@@ -5,7 +5,7 @@ import BlogGalleryPage from "../components/blogGalleryPage.vue";
 import Footer from "../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../public/styles/navbar.css";
-import "../../public/styles/projects.css";
+import "../../public/styles/blog.css";
 import "../../public/styles/contactForm.css";
 ---
 
@@ -28,10 +28,10 @@ import "../../public/styles/contactForm.css";
         <main>
             <div class="row text-center my-auto">
                 <h2>הבלוג שלי</h2>
+                <BlogGalleryPage client:load />
             </div>
-            <BlogGalleryPage client:load />
         </main>
-        <div class="row beige-background">
+        <div class="row beige-background p-5">
             <ContactForm client:load />
         </div>
         <Footer client:load />

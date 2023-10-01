@@ -1,6 +1,11 @@
+/* Global Styles */
+
+/* Set the text direction to right-to-left for languages that require it */
 html {
     direction: rtl;
 }
+
+/* Review Styles */
 
 .review {
     display: block;
@@ -12,9 +17,15 @@ html {
     padding: 3em 0;
 }
 
+.line-seperator {
+    padding: 1em 0;
+}
+
 #add-review {
     display: inline;
 }
+
+/* Button Styles */
 
 .white_btn {
     margin-top: 0.5em;
@@ -22,9 +33,10 @@ html {
     font-size: 1.2em;
     font-weight: 300;
     border-radius: 0.2em;
-    background: #edb966;
     border: none;
 }
+
+/* Heading Styles */
 
 h1 {
     font-size: 4em;
@@ -34,6 +46,7 @@ h1 {
 h2 {
     font-weight: 600;
     font-size: 2.5em;
+    padding: 0 0;
 }
 
 h3 {
@@ -43,30 +56,15 @@ h3 {
     border-radius: 0.2em;
 }
 
+/* Link Styles */
+
 a {
     color: black;
     text-decoration: none;
 }
 
+/* About Section Styles */
 
-
-.level-img {
-    width: 6em;
-    height: auto;
-    margin: 0.5em 0;
-}
-
-#about-p {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    height: 100%;
-    margin: 6em auto;
-    padding: 5em 10em;
-    background: white;
-}
 
 p {
     text-align: center;
@@ -77,27 +75,21 @@ p {
     height: fit-content;
 }
 
-.image-gallery {
-    position: relative;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
 
-.gimage {
-    padding: 1em;
-    object-fit: cover;
-    background: white;
-}
+/* Background Styles */
 
 .beige-background {
     background: #efefef;
 }
 
+/* Header Styles */
+
 .top-header {
     margin-top: 4em;
     margin-bottom: 0;
 }
+
+/* Marked Header Styles */
 
 .marked-header {
     width: fit-content;
@@ -107,18 +99,16 @@ p {
     margin-bottom: 0.5em;
 }
 
+/* Contact Title Styles */
+
 .contact-title {
     font-size: 1.7em;
     font-weight: 700;
     margin-bottom: 0.5em;
 }
 
-#contact-lines {
-    width: 8vw;
-    height: auto;
-    margin: auto;
-    opacity: 70%;
-}
+
+/* Form Styles */
 
 form {
     z-index: 1;
@@ -129,6 +119,8 @@ form {
     margin-bottom: auto;
     margin-left: 5em;
 }
+
+/* Input Styles */
 
 input {
     display: block;
@@ -146,6 +138,8 @@ input {
     font-size: 1.5em;
 }
 
+/* Contact Button Styles */
+
 .contact-btn {
     font-size: 1.2em;
     display: block;
@@ -159,6 +153,8 @@ input {
     border: none;
 }
 
+/* Contact Division Styles */
+
 .contact-div {
     position: relative;
     display: flex;
@@ -170,6 +166,8 @@ input {
     flex: 1;
 }
 
+/* Footer Text Styles */
+
 .footer-text {
     margin: 0;
     padding: 1em;
@@ -177,22 +175,15 @@ input {
     font-weight: 300;
 }
 
+/* Row Styles */
+
 .row {
     height: fit-content;
     padding: 5em 0;
-}
-
-.beige-background {
-    background: #efefef;
-}
-
-p {
-    text-align: center;
-    font-size: 1.5em;
-    width: 100%;
     margin: 0;
 }
 
+/* Media Queries */
 
 @media (max-width: 340px) {
     body {
