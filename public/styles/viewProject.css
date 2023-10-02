@@ -28,7 +28,7 @@ h1 {
 }
 
 h2 {
-    font-weight: 600;
+    font-weight: 800;
     font-size: 2.5em;
     padding: 0.5em 0;
 }
@@ -45,6 +45,11 @@ h3 {
 a {
     color: black;
     text-decoration: none;
+}
+
+#projects {
+    color: white;
+    background: black;
 }
 
 /* Images */
@@ -510,7 +515,7 @@ input {
 
     .gimage {
         width: 100%;
-        height: 20em;
+        height: 30em;
         object-fit: cover;
     }
 

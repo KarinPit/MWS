@@ -7,8 +7,11 @@
     <div class="col-lg-7 col-form">
         <form @submit.prevent="submitForm">
             <p class="contact-title">רוצים שאצור איתכם קשר? השאירו פרטים ואחזור אליכם</p>
+            <label for="name">שם מלא</label>
             <input type="text" v-model="name" placeholder="שם מלא" required />
+            <label for="phone">טלפון</label>
             <input type="tel" v-model="phone" placeholder="טלפון" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required />
+            <label for="email">מייל</label>
             <input type="email" v-model="email" placeholder="מייל" />
             <input class="contact-btn mainBackground" type="submit" value="שלח" />
         </form>
@@ -53,4 +56,10 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+label {
+    display: none;
+}
+</style>
   

@@ -5,6 +5,11 @@ html {
     /* Right-to-left text direction for languages like Arabic */
 }
 
+#contact {
+    color: white;
+    background: black;
+}
+
 /* Map Styles */
 #map-div {
     width: 100%;
@@ -33,12 +38,12 @@ h1 {
 }
 
 h2 {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 1.5em;
 }
 
 h3 {
-    font-weight: 600;
+    font-weight: 800;
     font-size: 1.6em;
     padding: 0.2em 0;
     border-radius: 0.2em;

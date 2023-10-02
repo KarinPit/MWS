@@ -22,7 +22,7 @@ const post = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="he">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,7 +42,7 @@ const post = Astro.props;
       <div class="row text-center">
         <div id="post-area">
           <div class="post-desc">
-            <h2 class="marked-header">{post.attributes.title}</h2>
+            <h2>{post.attributes.title}</h2>
             <!-- <BlogGallery post={post} client:load /> -->
             <p id="product-exp">{post.attributes.content}</p>
           </div>

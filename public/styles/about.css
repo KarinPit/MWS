@@ -18,7 +18,7 @@ html {
 }
 
 #about-span {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 2em;
     display: block;
     width: fit-content;
@@ -35,19 +35,25 @@ html {
     font-size: 1.5em;
 }
 
+#about {
+    color: white;
+    background: black;
+}
+
 /* Typography Styles */
 h1 {
+    font-weight: 800;
     font-size: 4em;
     margin: 0;
 }
 
 h2 {
-    font-weight: 600;
+    font-weight: 800;
     font-size: 2.5em;
 }
 
 h3 {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.6em;
     padding: 0.2em 1em;
     border-radius: 0.2em;
