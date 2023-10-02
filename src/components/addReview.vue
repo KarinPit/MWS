@@ -5,19 +5,21 @@
       <button id="add-review" class="white_btn mainBackground" @click="showPopup = true">הוסף ביקורת</button>
     </div>
 
-    <!-- Popup Menu -->
-    <div class="centered-popup" v-if="showPopup">
-      <!-- Overlay background with click event -->
-      <div class="popup-overlay" @click="closePopup"></div>
-      <div class="popup-menu">
-        <button id="close-btn" @click="closePopup">x</button>
-        <div class="popup-content">
-          <input type="text" id="customerName" v-model="customerName" placeholder="הכנס שם הלקוח" required>
-          <textarea id="reviewText" v-model="reviewText" placeholder="כתוב את ביקורתך כאן" required></textarea>
-          <button id="send-btn" class="white_btn" @click="submitReview">שלח!</button>
+    <!-- Use the <transition> element for fade-in effect -->
+    <transition name="fade" appear>
+      <div v-if="showPopup">
+        <!-- Overlay background with click event -->
+        <div class="popup-overlay" @click="closePopup"></div>
+        <div class="popup-menu">
+          <button type="button" id="close-btn" @click="closePopup" class="btn-close" aria-label="Close"></button>
+          <div class="popup-content">
+            <input type="text" id="customerName" v-model="customerName" placeholder="הכנס שם הלקוח" required>
+            <textarea id="reviewText" v-model="reviewText" placeholder="כתוב את ביקורתך כאן" required></textarea>
+            <button id="send-btn" class="white_btn mainBackground" @click="submitReview">שלח!</button>
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -70,6 +72,17 @@ export default {
 </script>
 
 <style scoped>
+/* Add the fade transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 .centered-popup {
   position: fixed;
   top: 0;
@@ -94,11 +107,12 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  border-radius: 5px;
+  border-radius: 0.5em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  max-width: 40em;
+  max-width: 35em;
   width: 90%;
-  height: 45%;
+  height: fit-content;
+  padding: 2em 1em;
 }
 
 .popup-content {
@@ -107,19 +121,27 @@ export default {
 }
 
 #customerName {
-  width: fit-content;
-}
-
-#reviewText {
-  width: 80%;
-  height: 10em;
-  margin: 0 2em;
-}
-
-#customerName,
-#reviewText {
+  width: 20em;
   border-radius: 0.3em;
+  background: rgb(232, 232, 232);
+  border: none;
+  font-size: 1.2em;
 }
+
+#reviewText {
+  width: 20em;
+  height: 10em;
+  border-radius: 0.5em;
+  border: none;
+  text-align: center;
+  background: rgb(232, 232, 232);
+  font-size: 1.2em;
+  padding: 1em;
+  margin: 0;
+}
+
+/* textarea::placeholder {
+} */
 
 #close-btn {
   position: absolute;
@@ -128,8 +150,16 @@ export default {
   transform: translate(-50%, -50%);
   background-color: white;
   border: none;
-  font-size: 1.5em;
+  font-size: 1em;
+  --bs-btn-close-focus-shadow: none;
 }
+
+#send-btn {
+  display: block !important;
+  margin: 0.5em auto;
+  margin-bottom: 0;
+}
+
 
 .popup-overlay {
   position: fixed;
@@ -137,7 +167,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, .5);
   z-index: 0;
 }
 </style>

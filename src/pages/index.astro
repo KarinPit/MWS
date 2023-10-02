@@ -30,22 +30,27 @@ import "../../public/styles/mainButtonColor.css";
     <main>
       <div class="container-fluid">
         <div id="top-row" class="row">
+          <div></div>
           <div class="col-lg-8">
             <Carousel client:load />
           </div>
-          <div id="main-col" class="col-lg-4 my-auto text-center">
+          <div id="main-col" class="col-lg-4 my-auto text-center make-top">
             <h1><span id="bold-logo-text">MWS</span> Studio</h1>
             <p id="sub-logo-text">
               לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום
               דולור סיט אמט, קונסקטורר אדיפיסינג.
             </p>
-            <p id="scroll-down-command" class="mainBackground">גללו למטה</p>
+            <p id="scroll-down-command">(גללו למטה)</p>
           </div>
         </div>
 
-        <div class="row beige-background text-center my-auto">
-          <div id="about-info">
-            <img id="flower-img" src="../../public/images/sketched-leaves1.png">
+        <div class="row text-center my-auto">
+          <!-- <div class="background-overlay-color2"></div> -->
+          <div id="about-info" class="make-top">
+            <img
+              id="flower-img"
+              src="../../public/images/sketched-leaves1.png"
+            />
             <h3>מורן ורנר סיידו</h3>
             <p id="about-p">
               לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם איפסום
@@ -56,9 +61,12 @@ import "../../public/styles/mainButtonColor.css";
           </div>
         </div>
 
-        <div class="row text-center my-auto p-5">
-          <h3 id="">פרויקטים שלי</h3>
-          <ProjectGalleryIndex client:load />
+        <div class="row text-center my-auto p-5 beige-background">
+          <div class="make-top">
+            <h3 id="">פרויקטים שלי</h3>
+            <ProjectGalleryIndex client:load />
+          </div>
+          <div class="background-overlay-color1"></div>
         </div>
 
         <div class="row my-auto beige-background p-5">
@@ -89,4 +97,3 @@ import "../../public/styles/mainButtonColor.css";
     next_btn.blur();
   });
 </script>
-

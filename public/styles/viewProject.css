@@ -3,25 +3,12 @@ html {
     direction: rtl;
 }
 
-/* Header Section */
-#public-photo {
-    background: white;
+.vel-btns-wrapper .btn__close {
+    position: absolute !important;
+    top: 7% !important;
+    right: 80% !important;
 }
 
-/* About Section */
-#about-info {
-    padding: 2em;
-    direction: rtl;
-}
-
-#about-span {
-    font-weight: 700;
-    font-size: 2em;
-    display: block;
-    width: fit-content;
-    margin: 0.2em auto;
-    padding: 0.3em;
-}
 
 /* Buttons */
 .white_btn {

@@ -87,7 +87,7 @@ export default {
 
 <style scoped>
 .navbar {
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
 }
 
 .navbar-nav .nav-item .nav-link:hover {
