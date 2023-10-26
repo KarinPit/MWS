@@ -2,13 +2,14 @@ html {
     direction: rtl;
 }
 
+#home {
+    color: black;
+    background: white;
+}
+
 #blog {
     color: white;
     background: black;
-}
-
-#post-area {
-    padding: 7em 2em;
 }
 
 h1 {
@@ -21,7 +22,6 @@ h2 {
     font-size: 2.5em;
     padding: 0.5em;
 }
-
 
 a {
     color: black;
@@ -87,15 +87,19 @@ a {
 }
 
 .row {
-    height: 50vh;
+    height: fit-content;
     padding: 2em;
 }
 
 
 p {
-    text-align: center;
+    text-align: start;
     font-size: 1.5em;
     width: 100%;
+}
+
+#product-exp {
+    position: relative;
 }
 
 
@@ -135,6 +139,10 @@ p {
         margin: auto;
         width: 100%;
     }
+
+    #post-area {
+        padding: 7em 1em 3em 1em;
+    }
 }
 
 /* Media query for screens smaller than 576px (e.g., smartphones) */
@@ -173,6 +181,10 @@ p {
         margin: auto;
         width: 100%;
     }
+
+    #post-area {
+        padding: 7em 4em 3em 4em;
+    }
 }
 
 /* Media query for screens between 576px and 767px (e.g., small tablets) */
@@ -210,6 +222,10 @@ p {
     form {
         margin: auto;
         width: 100%;
+    }
+
+    #post-area {
+        padding: 7em 4em 3em 4em;
     }
 }
 
@@ -261,6 +277,10 @@ p {
     form {
         margin: auto;
         width: 100%;
+    }
+
+    #post-area {
+        padding: 7em 5em 3em 5em;
     }
 }
 
@@ -318,5 +338,11 @@ p {
     form {
         margin: auto;
         width: 100%;
+    }
+
+    #post-area {
+        padding: 7em 2em 5em 2em;
+        width: 70%;
+        margin: auto;
     }
 }

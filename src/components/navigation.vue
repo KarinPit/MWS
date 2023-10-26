@@ -22,7 +22,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="home" class="nav-link active" aria-current="page" href="/"><span class="nav-link-span">בית</span></a>
+                        <a id="home" class="nav-link active" aria-current="page" href="/"><span
+                                class="nav-link-span">בית</span></a>
                     </li>
                     <li class="nav-item">
                         <a id="about" class="nav-link" href="/about"><span class="nav-link-span">עלי</span></a>
@@ -34,7 +35,8 @@
                         <a id="blog" class="nav-link" href="/blog"><span class="nav-link-span">בלוג</span></a>
                     </li>
                     <li class="nav-item">
-                        <a id="reviews" class="nav-link" href="/reviews"><span class="nav-link-span">לקוחות ממליצים</span></a>
+                        <a id="reviews" class="nav-link" href="/reviews"><span class="nav-link-span">לקוחות
+                                ממליצים</span></a>
                     </li>
                     <li class="nav-item">
                         <a id="contact" class="nav-link" href="/contact"><span class="nav-link-span">צור קשר</span></a>

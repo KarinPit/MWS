@@ -27,11 +27,13 @@ export default {
     computed: {
         imageColumns() {
             const columnCount = 3; // Number of columns
-            const columns = [];
+            const columns = new Array(columnCount).fill().map(() => []);
+            const projects = this.mainProjects;
 
-            for (let i = 0; i < this.mainProjects.length; i += columnCount) {
-                columns.push(this.mainProjects.slice(i, i + columnCount));
+            for (let i = 0; i < projects.length; i++) {
+                columns[i % columnCount].push(projects[i]);
             }
+
             return columns;
         },
     },
@@ -53,12 +55,12 @@ export default {
 </script>
   
 <style scoped>
-
 .project-img {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .project-name {
     display: flex;
     justify-content: center;

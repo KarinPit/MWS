@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
     "@astrojs/vue": "^3.0.0",
+    "@caisy/rich-text-astro-renderer": "^1.0.2",
     "@popperjs/core": "^2.11.8",
     "@types/bootstrap": "^5.2.7",
     "@vueuse/core": "^10.4.1",
@@ -23,6 +24,7 @@
     "portal-vue": "^3.0.0-beta.0",
     "vue": "^3.3.4",
     "vue-easy-lightbox": "^1.16.0",
-    "vue-gallery": "^2.0.5"
+    "vue-gallery": "^2.0.5",
+    "vue-markdown": "^2.2.4"
   }
 }

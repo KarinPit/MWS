@@ -11,6 +11,7 @@ import "../../../public/styles/contactForm.css";
 export async function getStaticPaths() {
   const response = await fetch("http://127.0.0.1:1337/api/projects?populate=*");
   const { data } = await response.json();
+
   return data.map((project) => ({
     params: { slug: project.attributes.title },
     props: project,
