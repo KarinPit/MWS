@@ -6,7 +6,7 @@ import vue from "@astrojs/vue";
 export default defineConfig({
   integrations: [vue()],
   server: {
-    host: '0.0.0.0', // Bind to all available network interfaces
-    port: 3000, // Use port 3000
+    host: '0.0.0.0',
+    port: process.env.PORT || 3000, // Use the value of process.env.PORT if available, or default to 3000
   },
 });
