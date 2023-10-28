@@ -1,1 +1,1 @@
-web: astro build && astro dev
+worker: astro build && astro dev
