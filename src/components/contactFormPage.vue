@@ -29,7 +29,7 @@ export default {
             name: '',
             phone: '',
             email: '',
-            apiUrl: 'http://127.0.0.1:1337/api/to-contacts', // Replace with your Strapi API endpoint
+            apiUrl: 'https://dry-everglades-63850-370c0019d409.herokuapp.com/api/to-contacts', // Replace with your Strapi API endpoint
         };
     },
     methods: {

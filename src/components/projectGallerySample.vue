@@ -2,10 +2,10 @@
     <div class="image-gallery">
         <div class="project-img" v-for="(project, index) in mainProjects" :key="index" @mouseover="toggleHovered(index)"
             @mouseout="toggleHovered(-1)">
-                <a class="project-name" v-if="project.publishStatus === 'selected'" :href="`/projects/${project.name}`">{{
-                    project.name }}</a>
-                <a :href="`/projects/${project.name}`"><img class="gimage" v-if="project.publishStatus === 'selected'"
-                        :src="baseUrl + project.imageUrl" alt="designed house example" /></a>
+            <a class="project-name" v-if="project.publishStatus === 'selected'" :href="`/projects/${project.name}`">{{
+                project.name }}</a>
+            <a :href="`/projects/${project.name}`"><img class="gimage" v-if="project.publishStatus === 'selected'"
+                    :src="baseUrl + project.imageUrl" alt="designed house example" /></a>
         </div>
     </div>
 </template>
@@ -14,7 +14,7 @@
 export default {
     data() {
         return {
-            baseUrl: "http://127.0.0.1:1337",
+            baseUrl: "https://dry-everglades-63850-370c0019d409.herokuapp.com",
             mainProjects: [],
             hovered: -1, // Track hover state, initialize to -1 to indicate no hover
         };
@@ -28,7 +28,7 @@ export default {
             this.hovered = index;
         },
         async GetProjects() {
-            const response = await fetch("http://127.0.0.1:1337/api/projects?populate=*");
+            const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/projects?populate=*");
             const { data } = await response.json();
             const projects = data.map((project) => ({
                 name: project.attributes.title, // Set project name
@@ -42,12 +42,12 @@ export default {
 </script>
   
 <style scoped>
-
 .project-img {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .project-name {
     display: flex;
     justify-content: center;

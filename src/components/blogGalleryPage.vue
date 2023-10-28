@@ -15,7 +15,7 @@
 export default {
   data() {
     return {
-      baseUrl: "http://127.0.0.1:1337",
+      baseUrl: "https://dry-everglades-63850-370c0019d409.herokuapp.com",
       posts: [],
       hovered: -1, // Track hover state, initialize to -1 to indicate no hover
     };
@@ -42,7 +42,7 @@ export default {
       this.hovered = index;
     },
     async GetPosts() {
-      const response = await fetch("http://127.0.0.1:1337/api/blogs?populate=*");
+      const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/blogs?populate=*");
       const { data } = await response.json();
       const posts = data.map((post) => ({
         name: post.attributes.title,

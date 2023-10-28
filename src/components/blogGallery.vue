@@ -11,7 +11,7 @@ export default {
     },
     data() {
         return {
-            baseUrl: "http://127.0.0.1:1337",
+            baseUrl: "https://dry-everglades-63850-370c0019d409.herokuapp.com",
             postImage: [],
         };
     },

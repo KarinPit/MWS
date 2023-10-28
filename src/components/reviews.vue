@@ -42,7 +42,7 @@ export default {
 };
 
 async function GetReviews() {
-    const response = await fetch("http://127.0.0.1:1337/api/reviews");
+    const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/reviews");
     const { data } = await response.json();
     const reviews = data.map((review) => review.attributes);
     return reviews;

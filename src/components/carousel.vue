@@ -24,7 +24,7 @@
 export default {
     data() {
         return {
-            baseUrl: 'http://127.0.0.1:1337',
+            baseUrl: 'https://dry-everglades-63850-370c0019d409.herokuapp.com/',
             urls: {
                 mainImageUrl: '',
                 imagesUrl: [],
@@ -38,7 +38,7 @@ export default {
 };
 
 async function GetHomeImages() {
-    const response = await fetch("http://127.0.0.1:1337/api/home-image?populate=*");
+    const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/home-image?populate=*");
     const { data } = await response.json();
     const mainImageUrl = data.attributes.mainImage.data.attributes.url;
     const images = data.attributes.images.data;
