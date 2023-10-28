@@ -223,6 +223,11 @@ input {
         display: block;
     }
 
+    .navbar-collapse {
+        margin: 0;
+        background: white;
+    }
+
     .top-header {
         margin-top: 7em;
     }
@@ -285,6 +290,11 @@ input {
         text-decoration: none;
         color: black;
         display: block;
+    }
+
+    .navbar-collapse {
+        margin: 0;
+        background: white;
     }
 
     .top-header {
