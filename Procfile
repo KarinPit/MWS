@@ -1,1 +1,1 @@
-web: npm run dev
+web: astro build && astro dev
