@@ -7,6 +7,6 @@ export default defineConfig({
   integrations: [vue()],
   server: {
     host: '0.0.0.0',
-    port: process.env.PORT || 3000, // Use the value of process.env.PORT if available, or default to 3000
+    port: parseInt(process.env.PORT, 10) || 3000,
   },
 });
