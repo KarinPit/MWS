@@ -6,6 +6,6 @@ import vue from "@astrojs/vue";
 export default defineConfig({
   integrations: [vue()],
   server: {
-    port: process.env.PORT || 3000,
+    port: parseInt(process.env.PORT, 10) || 3000, // Parse the value from the PORT environment variable as a number
   },
 });
