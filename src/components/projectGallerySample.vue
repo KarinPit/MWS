@@ -57,7 +57,7 @@ export default {
     width: fit-content;
     height: 3em;
     padding: 0;
-    font-size: 1.8em;
+    font-size: 1.5em;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
