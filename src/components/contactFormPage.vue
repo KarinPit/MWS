@@ -14,7 +14,7 @@
             <input type="text" v-model="name" placeholder="שם מלא" required />
             <input type="tel" v-model="phone" placeholder="טלפון" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required />
             <input type="email" v-model="email" placeholder="מייל" />
-            <textarea type="text" v-model="name" placeholder="הערות" required></textarea>
+            <input type="text" v-model="comments" placeholder="הערות" required/>
             <input class="contact-btn" type="submit" value="שלח" />
         </form>
     </div>
@@ -29,6 +29,7 @@ export default {
             name: '',
             phone: '',
             email: '',
+            comments: '',
             apiUrl: 'https://dry-everglades-63850-370c0019d409.herokuapp.com/api/to-contacts', // Replace with your Strapi API endpoint
         };
     },
@@ -39,6 +40,7 @@ export default {
                     name: this.name,
                     phone: this.phone,
                     email: this.email,
+                    comments: this.comments,
                     publishedAt: null
                 }
             };
@@ -54,6 +56,7 @@ export default {
             this.name = '';
             this.phone = '';
             this.email = '';
+            this.comments = '';
         },
     },
 };
