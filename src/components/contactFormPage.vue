@@ -14,7 +14,7 @@
             <input type="text" v-model="name" placeholder="שם מלא" required />
             <input type="tel" v-model="phone" placeholder="טלפון" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required />
             <input type="email" v-model="email" placeholder="מייל" />
-            <input type="text" v-model="comments" placeholder="הערות" required/>
+            <input type="text" v-model="comments" placeholder="הערות" required />
             <input class="contact-btn" type="submit" value="שלח" />
         </form>
     </div>
