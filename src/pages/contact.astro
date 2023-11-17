@@ -1,19 +1,14 @@
 ---
-import fetchApi from "../lib/strapi";
 import Navigation from "../components/navigation.vue";
 import ContactFormPage from "../components/contactFormPage.vue";
 import Footer from "../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../public/styles/navbar.css";
 import "../../public/styles/contact.css";
-export async function getStaticPaths() {
-  const response = await fetch(
-    "https://dry-everglades-63850-370c0019d409.herokuapp.com/api/contact-info"
-  );
-  const { data } = await response.json();
-}
-
-const info = Astro.props;
+const response = await fetch(
+  "https://dry-everglades-63850-370c0019d409.herokuapp.com/api/contact-info"
+);
+const { data } = await response.json();
 ---
 
 <html lang="he">
@@ -50,12 +45,12 @@ const info = Astro.props;
         <div class="col-lg-6 my-auto col-margin">
           <div id="map-div">
             <gmp-map
-              center={`${info.data.attributes.latitude},${info.data.attributes.longitude}`}
+              center={`${data.attributes.latitude},${data.attributes.longitude}`}
               zoom="14"
               map-id="map"
             >
               <gmp-advanced-marker
-                position={`${info.data.attributes.latitude},${info.data.attributes.longitude}`}
+                position={`${data.attributes.latitude},${data.attributes.longitude}`}
                 title="My location"
               >
               </gmp-advanced-marker>

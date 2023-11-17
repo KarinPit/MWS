@@ -31,8 +31,18 @@ export default {
             email: '',
             comments: '',
             apiUrl: 'https://dry-everglades-63850-370c0019d409.herokuapp.com/api/to-contacts', // Replace with your Strapi API endpoint
+            info: {
+                emailAddress: '',
+                phoneNumber: [],
+                logoUrl: [],
+            },
         };
     },
+    async created() {
+        // Fetch the data when the component is created
+        this.info = await GetContactInfo();
+    },
+
     methods: {
         async submitForm() {
             const formData = {
