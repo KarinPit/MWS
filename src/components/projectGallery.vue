@@ -25,7 +25,8 @@ export default {
     },
     data() {
         return {
-            baseUrl: 'https://dry-everglades-63850-370c0019d409.herokuapp.com',
+            // baseUrl: 'https://dry-everglades-63850-370c0019d409.herokuapp.com',
+            baseUrl: '',
             images: [], // Initialize the images array here
             lightboxVisible: false,
             lightboxIndex: 0,

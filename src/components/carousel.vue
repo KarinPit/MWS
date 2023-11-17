@@ -1,8 +1,10 @@
 <template>
-    <div id="carouselExampleControls" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+    <div id="carouselExampleControls" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel"
+        data-bs-interval="3000">
         <div class="carousel-inner">
             <div class="carousel-item active" v-if="urls.mainImageUrl !== ''">
-                <img :src="baseUrl + urls.mainImageUrl" class="carousel-img d-block w-100" alt="woman going down wood stairs">
+                <img :src="baseUrl + urls.mainImageUrl" class="carousel-img d-block w-100"
+                    alt="woman going down wood stairs">
             </div>
             <div class="carousel-item" v-if="urls.mainImageUrl !== ''" v-for="(imageUrl, index) in urls.imagesUrl"
                 :key="index">
@@ -24,7 +26,8 @@
 export default {
     data() {
         return {
-            baseUrl: 'https://dry-everglades-63850-370c0019d409.herokuapp.com',
+            // baseUrl: 'https://dry-everglades-63850-370c0019d409.herokuapp.com',
+            baseUrl: '',
             urls: {
                 mainImageUrl: '',
                 imagesUrl: [],

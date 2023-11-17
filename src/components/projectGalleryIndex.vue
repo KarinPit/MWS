@@ -1,21 +1,24 @@
 <template>
     <div class="image-gallery">
-      <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
-        <div class="project-img" v-for="(project, index) in column" :key="index" @mouseover="toggleHovered(index)" @mouseout="toggleHovered(-1)">
-          <a class="project-name" :href="`/projects/${project.name}`">{{ project.name }}</a>
-          <div class="image-container">
-            <a :href="`/projects/${project.name}`"><img class="gimage" :src="baseUrl + project.imageUrl" alt="designed house example" /></a>
-          </div>
+        <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
+            <div class="project-img" v-for="(project, index) in column" :key="index" @mouseover="toggleHovered(index)"
+                @mouseout="toggleHovered(-1)">
+                <a class="project-name" :href="`/projects/${project.name}`">{{ project.name }}</a>
+                <div class="image-container">
+                    <a :href="`/projects/${project.name}`"><img class="gimage" :src="baseUrl + project.imageUrl"
+                            alt="designed house example" /></a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </template>
+</template>
   
 <script>
 export default {
     data() {
         return {
-            baseUrl: "https://dry-everglades-63850-370c0019d409.herokuapp.com",
+            // baseUrl: "https://dry-everglades-63850-370c0019d409.herokuapp.com",
+            baseUrl: "",
             mainProjects: [],
             hovered: -1, // Track hover state, initialize to -1 to indicate no hover
         };
