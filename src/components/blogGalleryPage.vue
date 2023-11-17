@@ -69,7 +69,6 @@ export default {
   align-items: center;
   position: absolute;
   z-index: 1;
-  width: fit-content;
   height: 3em;
   padding: 0;
   opacity: 0;
