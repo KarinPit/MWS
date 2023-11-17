@@ -15,7 +15,8 @@
 export default {
   data() {
     return {
-      baseUrl: "https://dry-everglades-63850-370c0019d409.herokuapp.com",
+      // baseUrl: "https://dry-everglades-63850-370c0019d409.herokuapp.com",
+      baseUrl: "",
       posts: [],
       hovered: -1, // Track hover state, initialize to -1 to indicate no hover
     };
