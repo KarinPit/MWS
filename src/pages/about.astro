@@ -9,14 +9,10 @@ import "../../public/styles/about.css";
 import "../../public/styles/contactForm.css";
 import "../../public/styles/mainButtonColor.css";
 
-export async function getStaticPaths() {
-    const response = await fetch(
-        "https://dry-everglades-63850-370c0019d409.herokuapp.com/api/about-me?populate=*"
-    );
-    const { data } = await response.json();
-}
-
-const info = Astro.props;
+const response = await fetch(
+    "https://dry-everglades-63850-370c0019d409.herokuapp.com/api/about-me?populate=*"
+);
+const { data } = await response.json();
 ---
 
 <html lang="he">
@@ -46,14 +42,14 @@ const info = Astro.props;
                 <div class="col-sm-8 text-center my-auto p-0">
                     <img
                         id="public-photo"
-                        src={info.data.attributes.image.data.attributes.url}
+                        src={data.attributes.image.data.attributes.url}
                         alt="designed rooms examples"
                     />
                 </div>
                 <div class="col-sm-4 text-center my-auto welcoome-col">
                     <p id="about-info">
                         <span id="about-span">ברוכים הבאים,</span>
-                        {info.data.attributes.description}
+                        {data.attributes.description}
                     </p>
                     <a href="/contact" class="white_btn mainBackground"
                         >צרו קשר</a
@@ -71,7 +67,7 @@ const info = Astro.props;
                         />
                         <h3 class="mainBackground">שלב 1</h3>
                     </div>
-                    <p class="steps">{info.data.attributes.stage1}</p>
+                    <p class="steps">{data.attributes.stage1}</p>
                     <div>
                         <img
                             class="level-img"
@@ -80,7 +76,7 @@ const info = Astro.props;
                         />
                         <h3 class="mainBackground">שלב 2</h3>
                     </div>
-                    <p class="steps">{info.data.attributes.stage2}</p>
+                    <p class="steps">{data.attributes.stage2}</p>
                     <div>
                         <img
                             class="level-img"
@@ -89,7 +85,7 @@ const info = Astro.props;
                         />
                         <h3 class="mainBackground">שלב 3</h3>
                     </div>
-                    <p class="steps">{info.data.attributes.stage3}</p>
+                    <p class="steps">{data.attributes.stage3}</p>
                 </div>
             </div>
             <div class="row text-center my-auto p-5">
