@@ -1,6 +1,6 @@
 <template>
     <div class="col-lg-5 col-logo text-center">
-        <img class="mws-logo" src={{ info.logoUrl }} alt="MWS Logo" />
+        <img class="mws-logo" :src=info.logoUrl alt="MWS Logo" />
         <p class="logo-info">מייל: {{ info.emailAddress }}</p>
         <p class="logo-info">טלפון: {{ info.phoneNumber }}</p>
     </div>
@@ -28,8 +28,18 @@ export default {
             phone: '',
             email: '',
             apiUrl: 'https://dry-everglades-63850-370c0019d409.herokuapp.com/api/to-contacts', // Replace with your Strapi API endpoint
+            info: {
+                emailAddress: '',
+                phoneNumber: [],
+                logoUrl: [],
+            },
         };
     },
+    async created() {
+        // Fetch the data when the component is created
+        this.info = await GetContactInfo();
+    },
+
     methods: {
         async submitForm() {
             const formData = {
@@ -57,14 +67,11 @@ export default {
 };
 
 async function GetContactInfo() {
-    const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/contact-info");
-    const logo_response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/logo?populate=*");
+    const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/contact-info?populate=*");
     const { data } = await response.json();
-    const { data_logo } = await logo_response.json();
-    console.log(data.attributes)
     const eaddress = data.attributes.address;
     const phonenum = "0" + data.attributes.phone;
-    const logo = data_logo.attributes.image.data.attributes.url;
+    const logo = data.attributes.logo.data.attributes.url;
     const info = {
         emailAddress: eaddress,
         phoneNumber: phonenum,
