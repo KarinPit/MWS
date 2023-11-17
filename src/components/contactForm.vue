@@ -61,6 +61,7 @@ async function GetContactInfo() {
     const logo_response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/logo?populate=*");
     const { data } = await response.json();
     const { data_logo } = await logo_response.json();
+    console.log(data.attributes)
     const eaddress = data.attributes.address;
     const phonenum = "0" + data.attributes.phone;
     const logo = data_logo.attributes.image.data.attributes.url;
