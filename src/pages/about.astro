@@ -8,6 +8,15 @@ import "../../public/styles/navbar.css";
 import "../../public/styles/about.css";
 import "../../public/styles/contactForm.css";
 import "../../public/styles/mainButtonColor.css";
+
+export async function getStaticPaths() {
+    const response = await fetch(
+        "https://dry-everglades-63850-370c0019d409.herokuapp.com/api/about-me?populate=*"
+    );
+    const { data } = await response.json();
+}
+
+const info = Astro.props;
 ---
 
 <html lang="he">
@@ -37,15 +46,14 @@ import "../../public/styles/mainButtonColor.css";
                 <div class="col-sm-8 text-center my-auto p-0">
                     <img
                         id="public-photo"
-                        src="../../public/images/4T1A8652-removebg.png"
+                        src={info.data.attributes.image.data.attributes.url}
                         alt="designed rooms examples"
                     />
                 </div>
                 <div class="col-sm-4 text-center my-auto welcoome-col">
                     <p id="about-info">
                         <span id="about-span">ברוכים הבאים,</span>
-                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם
-                        איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
+                        {info.data.attributes.description}
                     </p>
                     <a href="/contact" class="white_btn mainBackground"
                         >צרו קשר</a
@@ -63,10 +71,7 @@ import "../../public/styles/mainButtonColor.css";
                         />
                         <h3 class="mainBackground">שלב 1</h3>
                     </div>
-                    <p class="steps">
-                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם
-                        איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
-                    </p>
+                    <p class="steps">{info.data.attributes.stage1}</p>
                     <div>
                         <img
                             class="level-img"
@@ -75,10 +80,7 @@ import "../../public/styles/mainButtonColor.css";
                         />
                         <h3 class="mainBackground">שלב 2</h3>
                     </div>
-                    <p class="steps">
-                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם
-                        איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
-                    </p>
+                    <p class="steps">{info.data.attributes.stage2}</p>
                     <div>
                         <img
                             class="level-img"
@@ -87,10 +89,7 @@ import "../../public/styles/mainButtonColor.css";
                         />
                         <h3 class="mainBackground">שלב 3</h3>
                     </div>
-                    <p class="steps">
-                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית לורם
-                        איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית.
-                    </p>
+                    <p class="steps">{info.data.attributes.stage3}</p>
                 </div>
             </div>
             <div class="row text-center my-auto p-5">

@@ -1,8 +1,8 @@
 <template>
     <div class="col-lg-5 col-logo text-center">
-        <img class="mws-logo" src="../../public/images/Logo_Moran_new2.png" alt="MWS Logo" />
-        <p class="logo-info">מייל: lorem.ipsum@gmail.com</p>
-        <p class="logo-info">טלפון: 0587809493</p>
+        <img class="mws-logo" src={{ info.logoUrl }} alt="MWS Logo" />
+        <p class="logo-info">מייל: {{ info.emailAddress }}</p>
+        <p class="logo-info">טלפון: {{ info.phoneNumber }}</p>
     </div>
     <div class="col-lg-7 col-form">
         <form @submit.prevent="submitForm">
@@ -55,6 +55,22 @@ export default {
         },
     },
 };
+
+async function GetContactInfo() {
+    const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/contact-info");
+    const logo_response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/logo?populate=*");
+    const { data } = await response.json();
+    const { data_logo } = await logo_response.json();
+    const eaddress = data.attributes.address;
+    const phonenum = "0" + data.attributes.phone;
+    const logo = data_logo.attributes.image.data.attributes.url;
+    const info = {
+        emailAddress: eaddress,
+        phoneNumber: phonenum,
+        logoUrl: logo,
+    };
+    return info;
+}
 </script>
 
 <style scoped>
