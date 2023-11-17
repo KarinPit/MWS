@@ -479,6 +479,10 @@ input {
         object-fit: contain;
         padding-top: 5em;
     }
+
+    .project-name {
+        width: 20%;
+    }
 }
 
 /* Media query for screens between 992px and 1199px (e.g., larger desktops) */
@@ -566,6 +570,10 @@ input {
 
     form {
         width: 100%;
+    }
+
+    .project-name {
+        width: 25%;
     }
 
 }

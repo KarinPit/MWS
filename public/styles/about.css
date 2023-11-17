@@ -623,4 +623,8 @@ input {
         padding: 4em 5em;
     }
 
+    .project-name {
+        width: 15%;
+    }
+
 }
