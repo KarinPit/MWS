@@ -8,8 +8,8 @@
         <form @submit.prevent="submitForm">
             <div class="info-div">
                 <h2 class="contact-title">רוצים שאצור איתכם קשר? השאירו פרטים ואחזור אליכם</h2>
-                <p class="info-p">טלפון: 0587809493</p>
-                <p class="info-p">אימייל: pit@gmail.com</p>
+                <p class="info-p">טלפון: {{ info.phoneNumber }}</p>
+                <p class="info-p">אימייל: {{ info.emailAddress }}</p>
             </div>
             <input type="text" v-model="name" placeholder="שם מלא" required />
             <input type="tel" v-model="phone" placeholder="טלפון" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required />
@@ -60,5 +60,17 @@ export default {
         },
     },
 };
+
+async function GetContactInfo() {
+    const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/contact-info");
+    const { data } = await response.json();
+    const eaddress = data.attributes.address;
+    const phonenum = "0" + data.attributes.phone;
+    const info = {
+        emailAddress: eaddress,
+        phoneNumber: phonenum,
+    };
+    return info;
+}
 </script>
   

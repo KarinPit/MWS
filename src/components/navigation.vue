@@ -7,7 +7,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="nav-text">
-                <a class="nav-text-element" @click="updateClipboard" style="cursor: pointer">0587809493</a>
+                <a class="nav-text-element" @click="updateClipboard" style="cursor: pointer">{{ phonenum }}</a>
                 <a class="navbar-img" @click="openFacebook" style="cursor: pointer"><img
                         src="../../public/images/facebook_black.svg" alt="facebook black outline logo"></a>
                 <a class="navbar-img" @click="openInstagram" style="cursor: pointer"><img
@@ -85,6 +85,13 @@ export default {
         },
     },
 };
+
+async function GetContactInfo() {
+    const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/contact-info");
+    const { data } = await response.json();
+    const phonenum = "0" + data.attributes.phone;
+    return phonenum;
+}
 </script>
 
 <style scoped>
