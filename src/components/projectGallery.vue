@@ -47,7 +47,7 @@ export default {
     methods: {
         async GetImages() {
             // Use this.project to access the project prop
-            return this.project.attributes.images.data.map((image) => image.attributes.url);
+            return this.project.images.data.map((image) => image.attributes.url);
         },
         showImage(index) {
             this.lightboxIndex = index;

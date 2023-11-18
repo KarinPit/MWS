@@ -8,19 +8,14 @@ import "../../../public/styles/navbar.css";
 import "../../../public/styles/viewProject.css";
 import "../../../public/styles/contactForm.css";
 
-export async function getStaticPaths() {
-  const response = await fetch(
-    "https://dry-everglades-63850-370c0019d409.herokuapp.com/api/projects?populate=*"
-  );
-  const { data } = await response.json();
-
-  return data.map((project) => ({
-    params: { slug: project.attributes.title },
-    props: project,
-  }));
-}
-
-const project = Astro.props;
+const response = await fetch(
+  "https://dry-everglades-63850-370c0019d409.herokuapp.com/api/projects?populate=*"
+);
+const { data } = await response.json();
+const { slug } = Astro.params;
+const page = data.find((project) => project.attributes.title === slug);
+if (!page) return Astro.redirect("/404");
+const { attributes } = page;
 ---
 
 <!DOCTYPE html>
@@ -40,7 +35,7 @@ const project = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>{project.attributes.title}</title>
+    <title>{attributes.title}</title>
   </head>
   <body>
     <header>
@@ -50,9 +45,9 @@ const project = Astro.props;
       <div class="row text-center my-auto">
         <div id="project-area">
           <div class="project-desc">
-            <h2>{project.attributes.title}</h2>
-            <p id="product-exp">{project.attributes.description}</p>
-            <ProjectGallery project={project} client:load />
+            <h2>{attributes.title}</h2>
+            <p id="product-exp">{attributes.description}</p>
+            <ProjectGallery project={attributes} client:load />
           </div>
         </div>
       </div>
