@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
 import vue from "@astrojs/vue";
 import node from "@astrojs/node";
 
@@ -10,4 +9,8 @@ export default defineConfig({
     host: '0.0.0.0',
     port: parseInt(process.env.PORT, 10) || 3000
   },
+  output: 'server',
+  adapter: node({
+    mode: "middleware"
+  })
 });
