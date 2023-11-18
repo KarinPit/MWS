@@ -9,18 +9,14 @@ import "../../../public/styles/index.css";
 import "../../../public/styles/viewPost.css";
 import "../../../public/styles/contactForm.css";
 
-export async function getStaticPaths() {
-  const response = await fetch(
-    "https://dry-everglades-63850-370c0019d409.herokuapp.com/api/blogs?populate=*"
-  );
-  const { data } = await response.json();
-  return data.map((post) => ({
-    params: { slug: post.attributes.title },
-    props: post,
-  }));
-}
-
-const post = Astro.props;
+const response = await fetch(
+  "https://dry-everglades-63850-370c0019d409.herokuapp.com/api/blogs?populate=*"
+);
+const { data } = await response.json();
+const { slug } = Astro.params;
+const page = data.find((project) => project.attributes.title === slug);
+if (!page) return Astro.redirect("/404");
+const { id, attributes } = page;
 ---
 
 <!DOCTYPE html>
@@ -40,7 +36,7 @@ const post = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>{post.attributes.title}</title>
+    <title>{attributes.title}</title>
   </head>
   <body>
     <header>
@@ -50,8 +46,8 @@ const post = Astro.props;
       <div class="row text-center">
         <div id="post-area">
           <div class="post-desc">
-            <h2>{post.attributes.title}</h2>
-            <p id="product-exp">{post.attributes.content}</p>
+            <h2>{attributes.title}</h2>
+            <p id="product-exp">{attributes.content}</p>
           </div>
         </div>
       </div>
