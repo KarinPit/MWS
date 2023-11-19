@@ -67,7 +67,6 @@ export default {
     position: absolute;
     z-index: 1;
     border-radius: 0.4em;
-    width: fit-content;
     height: 3em;
     padding: 0;
     font-size: 2em;
