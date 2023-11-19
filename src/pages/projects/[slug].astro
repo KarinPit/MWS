@@ -46,7 +46,7 @@ const { attributes } = page;
         <div id="project-area">
           <div class="project-desc">
             <h2>{attributes.title}</h2>
-            <p id="product-exp">{attributes.description}</p>
+            <pre id="product-exp">{attributes.description}</pre>
             <ProjectGallery project={attributes} client:load />
           </div>
         </div>

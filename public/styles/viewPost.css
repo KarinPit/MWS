@@ -92,16 +92,32 @@ a {
 }
 
 
-p {
-    text-align: start;
-    font-size: 1.5em;
-    width: 100%;
-}
-
 #product-exp {
-    position: relative;
+    padding: 0.5em 0 1.5em 0;
+    margin: auto;
 }
 
+
+p,
+pre {
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+}
+
+p {
+    width: 100%;
+    text-align: center;
+}
+
+pre {
+    text-align: start;
+    width: 90%;
+    word-wrap: break-word;
+    white-space: pre-wrap
+}
 
 @media (max-width: 340px) {
     .navbar-brand {

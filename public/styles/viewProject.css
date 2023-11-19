@@ -62,17 +62,30 @@ a {
 /* About Paragraph */
 
 #product-exp {
-    padding: 0 1em 2em 1em;
+    padding: 0.5em 0 1.5em 0;
     margin: auto;
 }
 
-p {
-    text-align: start;
+
+p,
+pre {
+    font-family: 'Assistant', sans-serif;
     font-size: 1.5em;
-    width: 100%;
     margin: 0;
     padding: 0;
     height: fit-content;
+}
+
+p {
+    width: 100%;
+    text-align: center;
+}
+
+pre {
+    text-align: start;
+    width: 80%;
+    word-wrap: break-word;
+    white-space: pre-wrap
 }
 
 /* Image Gallery */
@@ -238,6 +251,10 @@ input {
     .row {
         padding: 7em 2em;
     }
+
+    pre {
+        width: 90%;
+    }
 }
 
 /* Media query for screens smaller than 576px (e.g., smartphones) */
@@ -308,6 +325,10 @@ input {
         padding: 7em 5em;
     }
 
+    pre {
+        width: 90%;
+    }
+
 }
 
 /* Media query for screens between 576px and 767px (e.g., small tablets) */
@@ -368,6 +389,10 @@ input {
 
     form {
         width: 100%;
+    }
+
+    pre {
+        width: 90%;
     }
 }
 
