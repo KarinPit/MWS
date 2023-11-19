@@ -8,8 +8,8 @@
             </button>
             <div class="nav-text">
                 <a class="nav-text-element" @click="updateClipboard" style="cursor: pointer">{{ phonenum }}</a>
-                <a class="navbar-img" @click="openFacebook" style="cursor: pointer"><img
-                        src="../../public/images/facebook_black.svg" alt="facebook black outline logo"></a>
+                <a class="navbar-img" @click="openFacebook" style="cursor: pointer"><img src="/images/facebook_black.svg"
+                        alt="facebook black outline logo"></a>
                 <a class="navbar-img" @click="openInstagram" style="cursor: pointer"><img
                         src="../../public/images/instagram_black.svg" alt="instagram black outline logo"></a>
                 <a class="navbar-img" @click="openWhatsApp" style="cursor: pointer"><img
