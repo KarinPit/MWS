@@ -61,16 +61,20 @@ a {
 
 /* About Paragraph */
 
+#project-area {
+    padding: 0;
+}
+
 #product-exp {
     padding: 0.5em 0 1.5em 0;
     margin: auto;
+    font-size: 1.5em;
 }
 
 
 p,
 pre {
     font-family: 'Assistant', sans-serif;
-    font-size: 1.5em;
     margin: 0;
     padding: 0;
     height: fit-content;
@@ -78,12 +82,11 @@ pre {
 
 p {
     width: 100%;
-    text-align: center;
+    text-align: start;
 }
 
 pre {
-    text-align: start;
-    width: 80%;
+    width: 90%;
     word-wrap: break-word;
     white-space: pre-wrap
 }
@@ -253,7 +256,7 @@ input {
     }
 
     pre {
-        width: 90%;
+        width: 100%;
     }
 }
 
@@ -326,7 +329,7 @@ input {
     }
 
     pre {
-        width: 90%;
+        width: 100%;
     }
 
 }
@@ -572,6 +575,10 @@ input {
 
     form {
         width: 100%;
+    }
+
+    #product-exp {
+        width: 70%;
     }
 
 }

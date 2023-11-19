@@ -95,13 +95,13 @@ a {
 #product-exp {
     padding: 0.5em 0 1.5em 0;
     margin: auto;
+    font-size: 1em;
 }
 
 
 p,
 pre {
     font-family: 'Assistant', sans-serif;
-    font-size: 1.5em;
     margin: 0;
     padding: 0;
     height: fit-content;
@@ -109,11 +109,10 @@ pre {
 
 p {
     width: 100%;
-    text-align: center;
+    text-align: start;
 }
 
 pre {
-    text-align: start;
     width: 90%;
     word-wrap: break-word;
     white-space: pre-wrap
@@ -367,7 +366,7 @@ pre {
     }
 
     #post-area {
-        padding: 7em 2em 5em 2em;
+        padding: 5em 2em 5em 2em;
         width: 70%;
         margin: auto;
     }
