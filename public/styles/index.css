@@ -6,7 +6,7 @@ html {
 
 #home {
     color: white;
-    background: black;
+    background: rgba(48, 79, 91, 255);
 }
 
 /* Typography */
@@ -33,7 +33,7 @@ a {
 }
 
 p {
-    text-align: center;
+    text-align: justify;
     font-size: 1.5em;
     width: 100%;
 }
@@ -73,6 +73,14 @@ p {
 
 .make-top {
     z-index: 1;
+}
+
+.top {
+    padding-top: 4em;
+}
+
+.bottom {
+    padding-bottom: 4em;
 }
 
 #top-row {
@@ -124,16 +132,16 @@ p {
 }
 
 /* About Section */
-#about-info {
+.about-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 70%;
     height: 100%;
-    margin: 6em auto;
-    padding: 5em 10em;
-    background: white;
+    margin: 1em auto;
+    padding: 3em;
+    background: #efefef;
 }
 
 #flower-img {
@@ -165,7 +173,6 @@ p {
 .carousel-img {
     height: 100vh;
     object-fit: cover;
-    object-position: 30% 0;
 }
 
 .carousel-control-prev,
@@ -183,6 +190,17 @@ p {
 
 .carousel-control-next {
     margin-right: 2em;
+}
+
+.arrow-down {
+    position: absolute;
+    top: 89%;
+    left: 2.5%;
+    width: 5em;
+    z-index: 2;
+    opacity: 60%;
+    background-color: #ffffff;
+    border-radius: 50%;
 }
 
 /* Image Gallery */
@@ -311,7 +329,7 @@ form {
     }
 
 
-    #about-info {
+    .about-info {
         padding: 5em 2em;
     }
 }
@@ -396,7 +414,7 @@ form {
         margin: 1em;
     }
 
-    #about-info {
+    .about-info {
         padding: 5em 4em;
     }
 }
@@ -465,7 +483,7 @@ form {
         align-items: center;
         position: absolute;
         z-index: 1;
-          /* background: rgba(255, 255, 255, 0.886); */
+        /* background: rgba(255, 255, 255, 0.886); */
         background: rgba(191, 204, 206, 0.805);
         position: absolute;
         top: 50%;
@@ -561,6 +579,10 @@ form {
 
     #about-info {
         padding: 5em 4em;
+    }
+
+    .project-name {
+        width: 70%;
     }
 }
 
@@ -659,5 +681,9 @@ form {
 
     #main-col {
         padding: 1em;
+    }
+
+    .project-name {
+        width: 70%;
     }
 }

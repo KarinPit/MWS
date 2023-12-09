@@ -8,16 +8,16 @@
             </button>
             <div class="nav-text">
                 <a class="nav-text-element" @click="updateClipboard" style="cursor: pointer">{{ phonenum }}</a>
-                <a class="navbar-img" @click="openFacebook" style="cursor: pointer"><img
-                        src="../../public/images/facebook_black.svg" alt="facebook black outline logo"></a>
-                <a class="navbar-img" @click="openInstagram" style="cursor: pointer"><img
-                        src="../../public/images/instagram_black.svg" alt="instagram black outline logo"></a>
-                <a class="navbar-img" @click="openWhatsApp" style="cursor: pointer"><img
-                        src="../../public/images/whatsapp_black.svg" alt="whats app black outline logo"></a>
+                <a class="navbar-img" @click="openFacebook" style="cursor: pointer"><img src="/images/facebook_black.svg"
+                        alt="facebook black outline logo"></a>
+                <a class="navbar-img" @click="openInstagram" style="cursor: pointer"><img src="/images/instagram_black.svg"
+                        alt="instagram black outline logo"></a>
+                <a class="navbar-img" @click="openWhatsApp" style="cursor: pointer"><img src="/images/whatsapp_black.svg"
+                        alt="whats app black outline logo"></a>
                 <!-- <a class="navbar-brand" href="/"><span id="brand-bold">MWS</span> Studio</a> -->
             </div>
-            <!-- <div class="brand-row text-center">
-                <a class="navbar-brand-row" href="/"><span id="brand-bold">MWS</span> Studio</a>
+            <!-- <div class="top-logo">
+                <img src="/images/Logo_Moran_new2.png" alt="MWS logo">
             </div> -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
@@ -100,7 +100,7 @@ async function GetContactInfo() {
 }
 
 .navbar-nav .nav-item .nav-link:hover {
-    background-color: black;
+    background-color: rgba(48, 79, 91, 255);
     color: white;
 }
 </style>

@@ -49,7 +49,7 @@ a {
 
 #projects {
     color: white;
-    background: black;
+    background: rgba(48, 79, 91, 255);
 }
 
 /* Images */
@@ -59,20 +59,62 @@ a {
     margin: 0.5em 0;
 }
 
-/* About Paragraph */
+/* Project Explanation */
 
-#product-exp {
-    padding: 0 1em 2em 1em;
-    margin: auto;
+.back-btn {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 700;
 }
 
-p {
-    text-align: start;
+.back-btn img {
+    width: 1.2em;
+    margin-left: 0.5em;
+}
+
+.back-btn btn {
+    background-color: rgb(197, 205, 208);
+    padding: 0.5em 1em;
+}
+
+.project-area {
+    padding: 3em;
+    background-color: #efefef;
+}
+
+.project-area h2 {
+    text-align: center;
+}
+
+.project-area a {
+    padding: 0.5em;
+}
+
+.product-exp {
+    padding: 0.5em 0 1.5em 0;
+    margin: auto;
     font-size: 1.5em;
-    width: 100%;
+}
+
+p,
+pre {
+    font-family: 'Assistant', sans-serif;
     margin: 0;
     padding: 0;
     height: fit-content;
+}
+
+p {
+    width: 100%;
+    text-align: start;
+}
+
+pre {
+    width: 100%;
+    word-wrap: break-word;
+    white-space: pre-wrap
 }
 
 /* Image Gallery */
@@ -84,10 +126,10 @@ p {
 }
 
 .gimage {
-    padding: 1em;
+    /* padding: 0 0 2em 0; */
     object-fit: cover;
     background: white;
-    border-radius: 1.5em;
+    /* border-radius: 0.5em; */
 }
 
 /* Background Colors */
@@ -238,6 +280,10 @@ input {
     .row {
         padding: 7em 2em;
     }
+
+    pre {
+        width: 100%;
+    }
 }
 
 /* Media query for screens smaller than 576px (e.g., smartphones) */
@@ -308,6 +354,10 @@ input {
         padding: 7em 5em;
     }
 
+    pre {
+        width: 100%;
+    }
+
 }
 
 /* Media query for screens between 576px and 767px (e.g., small tablets) */
@@ -368,6 +418,10 @@ input {
 
     form {
         width: 100%;
+    }
+
+    pre {
+        width: 90%;
     }
 }
 
@@ -511,13 +565,12 @@ input {
         align-items: stretch;
         justify-content: center;
         width: 100%;
-        margin: auto;
+        margin: 0;
         padding: 0;
     }
 
     .img-col {
-        width: 33%;
-        margin: 0.5em;
+        width: 50%;
         height: fit-content;
     }
 

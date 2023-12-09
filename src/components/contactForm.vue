@@ -85,5 +85,9 @@ async function GetContactInfo() {
 label {
     display: none;
 }
+
+.contact-title {
+    text-align: center;
+}
 </style>
   

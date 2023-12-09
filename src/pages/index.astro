@@ -9,6 +9,7 @@ import "../../public/styles/navbar.css";
 import "../../public/styles/index.css";
 import "../../public/styles/contactForm.css";
 import "../../public/styles/mainButtonColor.css";
+import ProjectGallerySample from "../components/projectGallerySample.vue";
 
 const response = await fetch(
   "https://dry-everglades-63850-370c0019d409.herokuapp.com/api/home-page"
@@ -22,11 +23,7 @@ const { data } = await response.json();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="../../public/images/flower.svg"
-    />
+    <link rel="icon" type="image/svg+xml" href="/images/Favicon-new.svg" />
     <title>MWS Studio</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
@@ -40,51 +37,47 @@ const { data } = await response.json();
     </header>
     <main>
       <div class="container-fluid">
-        <div id="top-row" class="row">
-          <div></div>
-          <div class="col-lg-8 p-0">
-            <Carousel client:load />
-          </div>
-          <div id="main-col" class="col-lg-4 my-auto text-center make-top">
-            <h1><span id="bold-logo-text">MWS</span> Studio</h1>
-            <p id="sub-logo-text">
-              {data.attributes.description}
-            </p>
-            <p id="scroll-down-command">(גללו למטה)</p>
-          </div>
-        </div>
-
-        <div class="row text-center my-auto">
-          <!-- <div class="background-overlay-color2"></div> -->
-          <div id="about-info" class="make-top">
-            <img
-              id="flower-img"
-              src="../../public/images/sketched-leaves1.png"
-              alt="sketched plant leaves"
-            />
-            <h3>מורן ורנר סיידו</h3>
-            <p id="about-p">
-              {data.attributes.aboutDescription}
-            </p>
-            <a href="/about" class="white_btn mainBackground">קראו עוד עלי</a>
-          </div>
-        </div>
-
-        <div class="row text-center my-auto p-5 beige-background">
-          <div class="make-top">
-            <h3>פרויקטים שלי</h3>
-            <ProjectGalleryIndex client:load />
-          </div>
-          <div class="background-overlay-color1"></div>
-        </div>
-
-        <div class="row my-auto beige-background p-5">
-          <ContactForm client:load />
+        <div class="row">
+          <Carousel client:load />
+          <img
+            class="arrow-down"
+            src="/images/Arrow Cirlce Down.gif"
+            alt="arrow pointing down"
+          />
         </div>
       </div>
-      <Footer client:load />
     </main>
+
+    <div class="row text-center my-auto top">
+      <div class="about-info">
+        <h3>ברוכים הבאים</h3>
+        <p>{data.attributes.description}</p>
+      </div>
+    </div>
+
+    <div class="row text-center my-auto bottom">
+      <div class="about-info">
+        <h3>מורן ורנר סיידו</h3>
+        <p id="about-p">
+          {data.attributes.aboutDescription}
+        </p>
+        <a href="/about" class="white_btn mainBackground">קראו עוד עלי</a>
+      </div>
+    </div>
+
+    <div class="row text-center my-auto p-5 beige-background">
+      <div class="make-top">
+        <h3>פרויקטים שלי</h3>
+        <ProjectGallerySample client:load />
+      </div>
+      <div class="background-overlay-color1"></div>
+    </div>
+
+    <div class="row my-auto beige-background p-5">
+      <ContactForm client:load />
+    </div>
   </body>
+  <Footer client:load />
 </html>
 
 <script

@@ -17,24 +17,28 @@
 export default {
     data() {
         return {
-            // baseUrl: "https://dry-everglades-63850-370c0019d409.herokuapp.com",
             baseUrl: "",
             mainProjects: [],
-            hovered: -1, // Track hover state, initialize to -1 to indicate no hover
+            hovered: -1,
         };
     },
     async created() {
-        // Fetch the data when the component is created
-        this.mainProjects = await this.GetProjects(); // Call the GetProjects method
+        this.mainProjects = await this.GetProjects();
     },
     computed: {
         imageColumns() {
-            const columnCount = 3; // Number of columns
+            const columnCount = 3;
             const columns = [];
 
-            for (let i = 0; i < this.mainProjects.length; i += columnCount) {
-                columns.push(this.mainProjects.slice(i, i + columnCount));
+            for (let i = 0; i < columnCount; i++) {
+                columns.push([]);
             }
+
+            this.mainProjects.forEach((project, index) => {
+                const columnIndex = index % columnCount;
+                columns[columnIndex].push(project);
+            });
+
             return columns;
         },
     },
@@ -46,10 +50,9 @@ export default {
             const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/projects?populate=*");
             const { data } = await response.json();
             const projects = data.map((project) => ({
-                name: project.attributes.title, // Set project name
+                name: project.attributes.title,
                 imageUrl: project.attributes.mainImage.data.attributes.url,
-            }
-            ));
+            }));
             return projects;
         },
     },
@@ -64,7 +67,6 @@ export default {
     position: absolute;
     z-index: 1;
     border-radius: 0.4em;
-    width: fit-content;
     height: 3em;
     padding: 0;
     font-size: 2em;
