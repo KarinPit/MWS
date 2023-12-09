@@ -21,11 +21,7 @@ const { data } = await response.json();
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            rel="icon"
-            type="image/svg+xml"
-            href="/images/flower.svg"
-        />
+        <link rel="icon" type="image/svg+xml" href="/images/Favicon-new.svg" />
         <title>MWS Studio</title>
         <link
             href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
@@ -39,14 +35,14 @@ const { data } = await response.json();
         </header>
         <main>
             <div id="top-row" class="row">
-                <div class="col-sm-8 text-center my-auto p-0">
+                <div class="col-sm-5 text-center p-0 photo-col">
                     <img
                         id="public-photo"
                         src={data.attributes.image.data.attributes.url}
                         alt="designed rooms examples"
                     />
                 </div>
-                <div class="col-sm-4 text-center my-auto welcoome-col">
+                <div class="col-sm-7 text-center welcome-col">
                     <p id="about-info">
                         <span id="about-span">ברוכים הבאים</span>
                         {data.attributes.description}
@@ -60,29 +56,14 @@ const { data } = await response.json();
                 <div id="about-p">
                     <h2>איך זה עובד?</h2>
                     <div class="top-element">
-                        <img
-                            class="level-img"
-                            src="/images/butterfly.png"
-                            alt="designed rooms examples"
-                        />
                         <h3 class="mainBackground">שלב 1</h3>
                     </div>
                     <p class="steps">{data.attributes.stage1}</p>
                     <div>
-                        <img
-                            class="level-img"
-                            src="/images/butterfly.png"
-                            alt="designed rooms examples"
-                        />
                         <h3 class="mainBackground">שלב 2</h3>
                     </div>
                     <p class="steps">{data.attributes.stage2}</p>
                     <div>
-                        <img
-                            class="level-img"
-                            src="/images/butterfly.png"
-                            alt="designed rooms examples"
-                        />
                         <h3 class="mainBackground">שלב 3</h3>
                     </div>
                     <p class="steps">{data.attributes.stage3}</p>

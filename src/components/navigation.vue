@@ -16,8 +16,8 @@
                         alt="whats app black outline logo"></a>
                 <!-- <a class="navbar-brand" href="/"><span id="brand-bold">MWS</span> Studio</a> -->
             </div>
-            <!-- <div class="brand-row text-center">
-                <a class="navbar-brand-row" href="/"><span id="brand-bold">MWS</span> Studio</a>
+            <!-- <div class="top-logo">
+                <img src="/images/Logo_Moran_new2.png" alt="MWS logo">
             </div> -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
@@ -100,7 +100,7 @@ async function GetContactInfo() {
 }
 
 .navbar-nav .nav-item .nav-link:hover {
-    background-color: black;
+    background-color: rgba(48, 79, 91, 255);
     color: white;
 }
 </style>

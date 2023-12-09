@@ -1,7 +1,7 @@
 <template>
     <div class="image-gallery" v-if="project && typeof project === 'object'">
         <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
-            <div class="project-img" v-for="(image, index) in column" :key="index">
+            <div v-for="(image, index) in column" :key="index">
                 <a @click="showImage(index)">
                     <img class="gimage" :src="baseUrl + image" alt="designed house example" />
                 </a>
@@ -71,5 +71,6 @@ export default {
 .gimage {
     cursor: pointer;
 }
+
 </style>
   

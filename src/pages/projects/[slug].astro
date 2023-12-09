@@ -26,11 +26,7 @@ const { attributes } = page;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="../../public/images/flower.svg"
-    />
+    <link rel="icon" type="image/svg+xml" href="/images/Favicon-new.svg" />
     <title>MWS Studio</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
@@ -43,12 +39,19 @@ const { attributes } = page;
       <Navigation client:load />
     </header>
     <main>
-      <div class="row text-center my-auto">
-        <div id="project-area">
+      <div class="row my-auto">
+        <div class="project-area">
           <div class="project-desc">
+            <a class="back-btn" href="/projects"
+              ><btn
+                ><img src="/images/arrow-right.svg" />בחזרה לעמוד הפרויקטים</btn
+              ></a
+            >
             <h2>{attributes.title}</h2>
-            <pre><div set:html={marked.parse(attributes.description)} id="product-exp" /></pre>
-            <ProjectGallery project={attributes} client:load />
+            <div>
+              <pre><div class="product-exp" set:html={marked.parse(attributes.description)} /></pre>
+              <ProjectGallery project={attributes} client:load />
+            </div>
           </div>
         </div>
       </div>
