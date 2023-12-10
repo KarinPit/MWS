@@ -2,6 +2,7 @@
 import Navigation from "../components/navigation.vue";
 import ContactForm from "../components/contactForm.vue";
 import ProjectGallerySample from "../components/projectGallerySample.vue";
+import Stages from "../components/stages.vue";
 import Footer from "../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../public/styles/navbar.css";
@@ -9,10 +10,14 @@ import "../../public/styles/about.css";
 import "../../public/styles/contactForm.css";
 import "../../public/styles/mainButtonColor.css";
 
-const response = await fetch(
-    "https://dry-everglades-63850-370c0019d409.herokuapp.com/api/about-me?populate=*"
+const imageResponse = await fetch(
+    "https://mws-data-280b2464bf34.herokuapp.com/api/about-me?populate=*"
 );
-const { data } = await response.json();
+const stageResponse = await fetch(
+    "https://mws-data-280b2464bf34.herokuapp.com/api/about-stages"
+);
+const data1 = await imageResponse.json();
+const data2 = await stageResponse.json();
 ---
 
 <html lang="he">
@@ -38,14 +43,14 @@ const { data } = await response.json();
                 <div class="col-sm-5 text-center p-0 photo-col">
                     <img
                         id="public-photo"
-                        src={data.attributes.image.data.attributes.url}
+                        src={data1.data.attributes.image.data.attributes.url}
                         alt="designed rooms examples"
                     />
                 </div>
                 <div class="col-sm-7 text-center welcome-col">
                     <p id="about-info">
                         <span id="about-span">ברוכים הבאים</span>
-                        {data.attributes.description}
+                        {data1.data.attributes.description}
                     </p>
                     <a href="/contact" class="white_btn mainBackground"
                         >צרו קשר</a
@@ -55,18 +60,7 @@ const { data } = await response.json();
             <div class="row text-center beige-background">
                 <div id="about-p">
                     <h2>איך זה עובד?</h2>
-                    <div class="top-element">
-                        <h3 class="mainBackground">שלב 1</h3>
-                    </div>
-                    <p class="steps">{data.attributes.stage1}</p>
-                    <div>
-                        <h3 class="mainBackground">שלב 2</h3>
-                    </div>
-                    <p class="steps">{data.attributes.stage2}</p>
-                    <div>
-                        <h3 class="mainBackground">שלב 3</h3>
-                    </div>
-                    <p class="steps">{data.attributes.stage3}</p>
+                    <Stages client:load />
                 </div>
             </div>
             <div class="row text-center my-auto p-5">

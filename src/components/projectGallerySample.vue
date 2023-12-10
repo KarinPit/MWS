@@ -14,7 +14,7 @@
 export default {
     data() {
         return {
-            // baseUrl: "https://dry-everglades-63850-370c0019d409.herokuapp.com",
+            // baseUrl: "https://mws-data-280b2464bf34.herokuapp.com/",
             baseUrl: "",
             mainProjects: [],
             hovered: -1, // Track hover state, initialize to -1 to indicate no hover
@@ -29,7 +29,7 @@ export default {
             this.hovered = index;
         },
         async GetProjects() {
-            const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/projects?populate=*");
+            const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/projects?populate=*");
             const { data } = await response.json();
             const projects = data.map((project) => ({
                 name: project.attributes.title, // Set project name

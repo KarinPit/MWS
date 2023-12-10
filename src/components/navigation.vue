@@ -8,12 +8,12 @@
             </button>
             <div class="nav-text">
                 <a class="nav-text-element" @click="updateClipboard" style="cursor: pointer">{{ phonenum }}</a>
-                <a class="navbar-img" @click="openFacebook" style="cursor: pointer"><img src="/images/facebook_black.svg"
+                <!-- <a class="navbar-img" @click="openFacebook" style="cursor: pointer"><img src="/images/facebook_black.svg"
                         alt="facebook black outline logo"></a>
                 <a class="navbar-img" @click="openInstagram" style="cursor: pointer"><img src="/images/instagram_black.svg"
                         alt="instagram black outline logo"></a>
                 <a class="navbar-img" @click="openWhatsApp" style="cursor: pointer"><img src="/images/whatsapp_black.svg"
-                        alt="whats app black outline logo"></a>
+                        alt="whats app black outline logo"></a> -->
                 <!-- <a class="navbar-brand" href="/"><span id="brand-bold">MWS</span> Studio</a> -->
             </div>
             <!-- <div class="top-logo">
@@ -87,7 +87,7 @@ export default {
 };
 
 async function GetContactInfo() {
-    const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/contact-info");
+    const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/contact-info");
     const { data } = await response.json();
     const phonenum = "0" + data.attributes.phone;
     return phonenum;

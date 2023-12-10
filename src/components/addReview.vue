@@ -33,7 +33,7 @@ export default {
       customerName: '', // Added field for customer name
       reviewText: '',
       reviewJson: '',
-      apiUrl: 'https://dry-everglades-63850-370c0019d409.herokuapp.com/api/reviews'
+      apiUrl: 'https://mws-data-280b2464bf34.herokuapp.com/api/reviews'
     };
   },
   methods: {

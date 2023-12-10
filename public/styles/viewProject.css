@@ -88,15 +88,11 @@ a {
     text-align: center;
 }
 
-.project-area a {
-    padding: 0.5em;
-}
-
-.product-exp {
+/* .product-exp {
     padding: 0.5em 0 1.5em 0;
     margin: auto;
     font-size: 1.5em;
-}
+} */
 
 p,
 pre {
@@ -112,9 +108,19 @@ p {
 }
 
 pre {
-    width: 100%;
+    font-size: 1.5em;
+    width: 90%;
+    padding: 1em 2em;
+    margin: auto;
+    line-height: 1.2em;
     word-wrap: break-word;
-    white-space: pre-wrap
+    white-space: pre-wrap;
+    /* line-height: 1em; */
+}
+
+.p-line {
+    margin: 0;
+    padding: 0;
 }
 
 /* Image Gallery */

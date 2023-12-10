@@ -28,6 +28,11 @@ a {
     text-decoration: none;
 }
 
+.p-line {
+    margin: 0;
+    padding: 0;
+}
+
 .back-btn {
     display: flex;
     justify-content: end;
@@ -106,18 +111,13 @@ a {
 
 .row {
     height: fit-content;
-    padding: 2em;
+    padding: 5em;
 }
 
-
-#product-exp {
-    padding: 0.5em 0 1.5em 0;
-    margin: auto;
-    font-size: 1em;
-}
 
 .post-desc {
     padding: 3em;
+    width: 100%;
     background-color: #efefef;
 }
 
@@ -135,10 +135,24 @@ p {
 }
 
 pre {
+    font-size: 1em;
     width: 90%;
+    padding: 1em 2em;
+    margin: auto;
+    line-height: 1.5em;
     word-wrap: break-word;
-    white-space: pre-wrap
+    white-space: pre-wrap;
 }
+
+.post-desc ul {
+    margin: 0;
+}
+
+.post-desc li {
+    font-size: 1em;
+    text-align: justify;
+}
+
 
 @media (max-width: 340px) {
     .navbar-brand {
@@ -388,8 +402,8 @@ pre {
     }
 
     #post-area {
-        padding: 5em 2em 5em 2em;
-        width: 70%;
+        padding: 2em 2em;
+        width: 100%;
         margin: auto;
     }
 }

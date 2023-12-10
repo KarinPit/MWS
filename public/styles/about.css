@@ -35,7 +35,8 @@ html {
 
 /* About Section Styles */
 #about-info {
-    /* padding: 2em; */
+    width: 80%;
+    text-align: justify;
     direction: rtl;
     text-align: right;
 }
@@ -72,6 +73,7 @@ h1 {
 h2 {
     font-weight: 800;
     font-size: 2.5em;
+    padding-bottom: 0.5em;
 }
 
 h3 {
@@ -79,6 +81,7 @@ h3 {
     font-size: 1.6em;
     padding: 0.2em 1em;
     border-radius: 0.2em;
+    margin: 0.5em;
 }
 
 a {
@@ -140,7 +143,7 @@ p {
 /* Marked Header Styles */
 .steps {
     margin: auto;
-    padding: 0.5em;
+    padding-bottom: 1em;
 }
 
 .marked-header {
