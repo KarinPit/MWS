@@ -2,9 +2,9 @@
     <div v-for="(review, index) in sortedReviews" :key="index">
         <div class="review">
             <h3>{{ review.title }}</h3>
-            <p>{{ formatReviewDate(review.createdAt) }}</p>
-            <p>{{ review.content }}</p>
-            <p class="line-seperator">--------------------------------------</p>
+            <!-- <p>{{ formatReviewDate(review.createdAt) }}</p> -->
+            <p>{{ review.description }}</p>
+            <hr>
         </div>
     </div>
 </template>
@@ -42,9 +42,16 @@ export default {
 };
 
 async function GetReviews() {
-    const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/reviews");
+    const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/reviews");
     const { data } = await response.json();
-    const reviews = data.map((review) => review.attributes);
+    const reviews = data.map((review) => ({
+        title: review.attributes.title,
+        description: review.attributes.content.map(child => child.children.map(children => children.text)).flat().join(' ')
+
+    }
+    ));
+
+
     return reviews;
 }
 </script>

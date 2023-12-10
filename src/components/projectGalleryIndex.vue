@@ -47,7 +47,7 @@ export default {
             this.hovered = index;
         },
         async GetProjects() {
-            const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/projects?populate=*");
+            const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/projects?populate=*");
             const { data } = await response.json();
             const projects = data.map((project) => ({
                 name: project.attributes.title,

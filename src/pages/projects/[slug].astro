@@ -10,13 +10,63 @@ import "../../../public/styles/contactForm.css";
 import { marked } from "marked";
 
 const response = await fetch(
-  "https://dry-everglades-63850-370c0019d409.herokuapp.com/api/projects?populate=*"
+  "https://mws-data-280b2464bf34.herokuapp.com/api/projects?populate=*"
 );
 const { data } = await response.json();
 const { slug } = Astro.params;
 const page = data.find((project) => project.attributes.title === slug);
-if (!page) return Astro.redirect("/404");
-const { attributes } = page;
+
+function convertToMarkdown(contentArray) {
+  let markdownContent = "";
+
+  contentArray.forEach((item) => {
+    if (item.type === "text") {
+      let text = item.text.trim();
+
+      // Check if the text is not empty
+      if (text.length > 0) {
+        // Apply formatting based on item properties
+        if (item.bold) text = `**${text}**`;
+        if (item.underline) text = `<u>${text}</u>`;
+        if (item.strikethrough) text = `~~${text}~~`;
+        if (item.italic) text = `*${text}*`;
+
+        // Add formatted text to markdown content
+        markdownContent += `${text}\n\n`;
+      }
+    } else if (item.type === "list-item") {
+      // Handle list items
+      const listItemText = item.children
+        .map((child) => {
+          let listItem = child.text.trim();
+          // Check if the list item text is not empty
+          if (listItem.length > 0) {
+            // Apply formatting based on item properties
+            if (child.bold) listItem = `**${listItem}**`;
+            if (child.underline) listItem = `<u>${listItem}</u>`;
+            if (child.strikethrough) listItem = `~~${listItem}~~`;
+          }
+          return listItem;
+        })
+        .join(" ");
+
+      // Add list items to markdown content
+      if (listItemText.length > 0) {
+        markdownContent += `- ${listItemText}\n\n`;
+      }
+    }
+  });
+
+  return markdownContent.trim(); // Remove trailing newline
+}
+
+const toMark = page.attributes.description.flatMap(
+  (content) => content.children
+);
+console.log(toMark);
+const markdownText = convertToMarkdown(toMark);
+const renderedHTML = marked(markdownText);
+const { id, attributes } = page;
 ---
 
 <!DOCTYPE html>
@@ -44,12 +94,12 @@ const { attributes } = page;
           <div class="project-desc">
             <a class="back-btn" href="/projects"
               ><btn
-                ><img src="/images/arrow-right.svg" />בחזרה לעמוד הפרויקטים</btn
+                ><img src="/images/arrow-right.svg"/>בחזרה לעמוד הפרויקטים</btn
               ></a
             >
             <h2>{attributes.title}</h2>
             <div>
-              <pre><div class="product-exp" set:html={marked.parse(attributes.description)} /></pre>
+              <pre><p class="p-line" set:html={renderedHTML}/></pre>
               <ProjectGallery project={attributes} client:load />
             </div>
           </div>

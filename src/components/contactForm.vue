@@ -27,7 +27,7 @@ export default {
             name: '',
             phone: '',
             email: '',
-            apiUrl: 'https://dry-everglades-63850-370c0019d409.herokuapp.com/api/to-contacts', // Replace with your Strapi API endpoint
+            apiUrl: 'https://mws-data-280b2464bf34.herokuapp.com/api/to-contacts', // Replace with your Strapi API endpoint
             info: {
                 emailAddress: '',
                 phoneNumber: [],
@@ -67,10 +67,10 @@ export default {
 };
 
 async function GetContactInfo() {
-    const response = await fetch("https://dry-everglades-63850-370c0019d409.herokuapp.com/api/contact-info?populate=*");
+    const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/contact-info?populate=*");
     const { data } = await response.json();
     const eaddress = data.attributes.address;
-    const phonenum = "0" + data.attributes.phone;
+    const phonenum = data.attributes.phone;
     const logo = data.attributes.logo.data.attributes.url;
     const info = {
         emailAddress: eaddress,
