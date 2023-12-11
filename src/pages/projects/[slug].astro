@@ -32,7 +32,7 @@ function convertToMarkdown(contentArray) {
         if (item.italic) text = `*${text}*`;
 
         // Add formatted text to markdown content
-        markdownContent += `${text}\n\n`;
+        markdownContent += `${text}\n`;
       }
     } else if (item.type === "list-item") {
       // Handle list items
