@@ -16,7 +16,6 @@ const { data } = await response.json();
 const { slug } = Astro.params;
 const page = data.find((project) => project.attributes.title === slug);
 if (!page) return Astro.redirect("/404");
-
 function convertToMarkdown(contentArray) {
   let markdownContent = "";
 
@@ -31,7 +30,7 @@ function convertToMarkdown(contentArray) {
       if (item.italic) text = `*${text}*`;
 
       // Add formatted text to markdown content
-      markdownContent += `${text}\n\n`;
+      markdownContent += `${text}\n`;
     } else if (item.type === "list-item") {
       // Handle list items
       const listItemText = item.children
@@ -50,13 +49,19 @@ function convertToMarkdown(contentArray) {
     }
   });
 
+  // Replace spaces between formatting marks only
+  markdownContent = markdownContent.replace(/\*\* /g, "** ");
+  markdownContent = markdownContent.replace(/__ /g, "__ ");
+  markdownContent = markdownContent.replace(/~~ /g, "~~ ");
+  markdownContent = markdownContent.replace(/\* /g, "* ");
+
   return markdownContent.trim(); // Remove trailing newline
 }
 
 const toMark = page.attributes.content.flatMap((content) => content.children);
-console.log(toMark);
 const markdownText = convertToMarkdown(toMark);
 const renderedHTML = marked(markdownText);
+console.log(markdownText);
 const { id, attributes } = page;
 ---
 
@@ -82,10 +87,10 @@ const { id, attributes } = page;
     <main>
       <div class="row text-center">
         <div id="post-area">
+          <a class="back-btn" href="/blog"
+            ><btn><img src="/images/arrow-right.svg" />בחזרה לבלוג</btn></a
+          >
           <div class="post-desc">
-            <a class="back-btn" href="/blog"
-              ><btn><img src="/images/arrow-right.svg" />בחזרה לבלוג</btn></a
-            >
             <h2>{attributes.title}</h2>
             <pre><p set:html={renderedHTML} /></pre>
           </div>
