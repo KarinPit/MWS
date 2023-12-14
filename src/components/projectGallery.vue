@@ -1,9 +1,9 @@
 <template>
     <div class="image-gallery" v-if="project && typeof project === 'object'">
         <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
-            <div v-for="(image, index) in column" :key="index">
-                <a @click="showImage(index)">
-                    <img class="gimage" :src="baseUrl + image" alt="designed house example" />
+            <div v-for="(image, rowIndex) in column" :key="rowIndex">
+                <a @click="showImage(image.index)">
+                    <img class="gimage" :src="baseUrl + image.url" alt="designed house example" />
                 </a>
             </div>
         </div>
@@ -25,9 +25,8 @@ export default {
     },
     data() {
         return {
-            // baseUrl: 'https://mws-data-280b2464bf34.herokuapp.com/',
             baseUrl: '',
-            images: [], // Initialize the images array here
+            images: [],
             lightboxVisible: false,
             lightboxIndex: 0,
             lightboxImages: [],
@@ -35,19 +34,21 @@ export default {
     },
     computed: {
         imageColumns() {
-            const columns = [];
-            const imagesPerColumn = Math.ceil(this.images.length / 2); // Two columns
+            const columns = [[], []]; // Two columns
+            let indexCounter = 0;
 
-            for (let colIndex = 0; colIndex < 2; colIndex++) {
-                columns.push(this.images.slice(colIndex * imagesPerColumn, (colIndex + 1) * imagesPerColumn));
+            for (let i = 0; i < this.images.length; i++) {
+                const image = { ...this.images[i], index: indexCounter++ };
+                columns[i % 2].push(image);
             }
+
             return columns;
         },
     },
     methods: {
         async GetImages() {
             // Use this.project to access the project prop
-            return this.project.images.data.map((image) => image.attributes.url);
+            return this.project.images.data.map((image) => ({ url: image.attributes.url }));
         },
         showImage(index) {
             this.lightboxIndex = index;
@@ -61,7 +62,7 @@ export default {
         if (this.project && typeof this.project === 'object') {
             // Call the GetImages method to set the images data property
             this.images = await this.GetImages();
-            this.lightboxImages = this.images.map((image) => ({ src: this.baseUrl + image }));
+            this.lightboxImages = this.images.map((image) => this.baseUrl + image.url);
         }
     },
 };
@@ -71,6 +72,5 @@ export default {
 .gimage {
     cursor: pointer;
 }
-
 </style>
   

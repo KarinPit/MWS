@@ -1,13 +1,12 @@
 ---
 import Navigation from "../components/navigation.vue";
 import Carousel from "../components/carousel.vue";
-import ProjectGalleryIndex from "../components/projectGalleryIndex.vue";
 import ContactForm from "../components/contactForm.vue";
-import Footer from "../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../public/styles/navbar.css";
 import "../../public/styles/index.css";
-import "../../public/styles/contactForm.css";
+import Footer from "../components/footer.vue";
+// import "../../public/styles/contactForm.css";
 import "../../public/styles/mainButtonColor.css";
 import ProjectGallerySample from "../components/projectGallerySample.vue";
 
@@ -51,17 +50,17 @@ const { data } = await response.json();
     <div class="row text-center my-auto top">
       <div class="about-info">
         <h3>ברוכים הבאים</h3>
-        <p>{data.attributes.description}</p>
+        <p class="index-p">{data.attributes.description}</p>
       </div>
     </div>
 
     <div class="row text-center my-auto bottom">
       <div class="about-info">
         <h3>מורן ורנר סיידו</h3>
-        <p id="about-p">
+        <p class="index-p" id="about-p">
           {data.attributes.aboutDescription}
         </p>
-        <a href="/about" class="white_btn mainBackground">קראו עוד עלי</a>
+        <a href="/about" class="white-btn mainBackground">קראו עוד עלי</a>
       </div>
     </div>
 
@@ -72,12 +71,9 @@ const { data } = await response.json();
       </div>
       <div class="background-overlay-color1"></div>
     </div>
-
-    <div class="row my-auto beige-background p-5">
-      <ContactForm client:load />
-    </div>
+    <!-- <ContactForm client:load /> -->
+    <Footer client:load />
   </body>
-  <Footer client:load />
 </html>
 
 <script

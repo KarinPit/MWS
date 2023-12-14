@@ -36,7 +36,7 @@ html {
 
 #blog {
     color: white;
-    background: rgba(48,79,91,255);
+    background: rgba(48, 79, 91, 255);
 }
 
 /* Headings */
@@ -85,27 +85,13 @@ a {
     background: white;
 }
 
-p {
+.index-p {
     text-align: justify;
     font-size: 1.5em;
     width: 100%;
     margin: 0;
     padding: 0;
     height: fit-content;
-}
-
-/* Image Gallery */
-.image-gallery {
-    position: relative;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-.gimage {
-    padding: 1em;
-    object-fit: cover;
-    background: white;
 }
 
 /* Background Colors */
@@ -129,37 +115,7 @@ p {
 }
 
 /* Contact Section */
-.contact-title {
-    font-size: 1.7em;
-    font-weight: 700;
-    margin-bottom: 0.5em;
-}
 
-form {
-    z-index: 1;
-    border-radius: 0.5em;
-    padding-top: 1em;
-    padding-bottom: 2em;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 5em;
-}
-
-input {
-    display: block;
-    width: 80%;
-    max-width: 20em;
-    max-height: 2em;
-    height: 10vw;
-    text-align: center;
-    border: 1px solid grey;
-    border-radius: 0.2em;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0.5em;
-    background: white;
-    font-size: 1.5em;
-}
 
 /* Contact Area */
 .contact-btn {
@@ -175,19 +131,15 @@ input {
     border: none;
 }
 
-/* Footer */
-.footer-text {
-    margin: 0;
-    padding: 1em;
-    font-size: 1.2em;
-    font-weight: 300;
-}
-
 /* Rows */
 .row {
     height: fit-content;
-    padding: 7em;
+    /* padding: 7em; */
     margin: 0;
+}
+
+.blog-row {
+    padding: 7em;
 }
 
 @media (max-width: 340px) {
@@ -229,28 +181,6 @@ input {
 
     .top-header {
         margin-top: 7em;
-    }
-
-    .image-gallery {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        width: 100%;
-
-    }
-
-    .gimage {
-        margin-bottom: 2em;
-        width: 100%;
-        height: 30em;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-
-    form {
-        width: 100%;
     }
 
     .row {
@@ -300,28 +230,6 @@ input {
         margin-top: 7em;
     }
 
-    .image-gallery {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        width: 100%;
-
-    }
-
-    .gimage {
-        margin-bottom: 2em;
-        width: 100%;
-        height: 30em;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-
-    form {
-        width: 100%;
-    }
-
     .row {
         padding: 7em 5em;
     }
@@ -358,34 +266,6 @@ input {
 
     .nav-text {
         padding-left: 1.5em;
-    }
-
-
-    .image-gallery {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        width: 100%;
-
-    }
-
-    .gimage {
-        margin-bottom: 2em;
-        width: 100%;
-        height: 30em;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .img-col {
-        width: 45%;
-        margin: 0.5em;
-        height: fit-content;
-    }
-
-    form {
-        width: 100%;
     }
 }
 
@@ -433,27 +313,6 @@ input {
         padding-left: 1.5em;
     }
 
-    .image-gallery {
-        display: flex;
-        align-items: stretch;
-        justify-content: center;
-        width: 100%;
-        margin: auto;
-        padding: 0;
-    }
-
-    .img-col {
-        width: 45%;
-        margin: 0.5em;
-        height: fit-content;
-    }
-
-    .gimage {
-        width: 100%;
-        height: 30em;
-        object-fit: cover;
-    }
-
     .contact-area {
         background: white;
         border-radius: 0.5em;
@@ -468,19 +327,11 @@ input {
         margin-bottom: 4em;
     }
 
-    form {
-        width: 100%;
-    }
-
     #public-photo {
         width: 100%;
         height: 70vw;
         object-fit: contain;
         padding-top: 5em;
-    }
-
-    .project-name {
-        width: 20%;
     }
 }
 
@@ -528,51 +379,8 @@ input {
         padding-left: 1.5em;
     }
 
-    .image-gallery {
-        display: flex;
-        align-items: stretch;
-        justify-content: center;
-        width: 100%;
-        margin: auto;
-        padding: 0;
-    }
-
-    .img-col {
-        width: 33%;
-        margin: 0.5em;
-        height: fit-content;
-    }
-
-    .gimage {
-        width: 100%;
-        height: 25em;
-        object-fit: cover;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 4em;
-        margin-bottom: 4em;
-    }
-
     .logo-col {
         padding: 0;
-    }
-
-    form {
-        width: 100%;
-    }
-
-    .project-name {
-        width: 20%;
     }
 
 }

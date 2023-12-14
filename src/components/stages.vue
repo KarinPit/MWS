@@ -1,8 +1,8 @@
 <template>
     <div>
       <div v-for="(stage, index) in stages" :key="index">
-        <h3 class="mainBackground">{{ stage.title }}</h3>
-        <p class="steps">{{ stage.desc }}</p>
+        <h3>&#10003; {{ stage.title }}</h3>
+        <p class="steps index-p">{{ stage.desc }}</p>
       </div>
     </div>
   </template>
