@@ -6,7 +6,6 @@ import Footer from "../../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../../public/styles/navbar.css";
 import "../../../public/styles/viewProject.css";
-import "../../../public/styles/contactForm.css";
 import { marked } from "marked";
 
 const response = await fetch(
@@ -89,28 +88,26 @@ const { id, attributes } = page;
       <Navigation client:load />
     </header>
     <main>
-      <div class="row my-auto">
+      <div class="row project-row my-auto">
         <div class="project-area">
           <div class="project-desc">
             <a class="back-btn" href="/projects"
               ><btn
-                ><img src="/images/arrow-right.svg"/>בחזרה לעמוד הפרויקטים</btn
+                ><img src="/images/arrow-right.svg" />בחזרה לעמוד הפרויקטים</btn
               ></a
             >
             <h2>{attributes.title}</h2>
             <div>
-              <pre><p class="p-line" set:html={renderedHTML}/></pre>
+              <pre><p class="p-line" set:html={renderedHTML} /></pre>
               <ProjectGallery project={attributes} client:load />
             </div>
           </div>
         </div>
       </div>
-      <div class="row beige-background p-5">
-        <ContactForm client:load />
-      </div>
-      <Footer client:load />
     </main>
+    <ContactForm client:load />
   </body>
+  <Footer client:load />
 </html>
 
 <script

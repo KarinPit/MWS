@@ -111,11 +111,11 @@ p {
 }
 
 pre {
-    font-size: 1.5em;
-    width: 70%;
+    font-size: 1.3em;
+    width: 80%;
     padding: 1em 2em;
     margin: auto;
-    line-height: 1.2em;
+    line-height: 1.5em;
     word-wrap: break-word;
     white-space: pre-wrap;
     /* line-height: 1em; */
@@ -129,7 +129,7 @@ pre {
 /* Image Gallery */
 .image-gallery {
     position: relative;
-    width: 100%;
+    width: 80%;
     padding: 0;
     margin: 0;
 }
@@ -219,8 +219,11 @@ input {
 /* Rows */
 .row {
     height: fit-content;
-    padding: 7em;
     margin: 0;
+}
+
+.project-row {
+    padding: 7em;
 }
 
 @media (max-width: 340px) {
@@ -270,6 +273,7 @@ input {
         align-items: stretch;
         justify-content: center;
         width: 100%;
+        margin: auto;
 
     }
 
@@ -277,10 +281,10 @@ input {
         margin-bottom: 2em;
         width: 100%;
         height: 30em;
+        padding: 1em;
         margin-left: auto;
         margin-right: auto;
     }
-
 
     form {
         width: 100%;
@@ -291,7 +295,8 @@ input {
     }
 
     pre {
-        width: 100%;
+        padding: 0;
+        width: 90%;
     }
 }
 
@@ -343,6 +348,7 @@ input {
         align-items: stretch;
         justify-content: center;
         width: 100%;
+        margin: auto;
 
     }
 
@@ -350,10 +356,10 @@ input {
         margin-bottom: 2em;
         width: 100%;
         height: 30em;
+        padding: 2em;
         margin-left: auto;
         margin-right: auto;
     }
-
 
     form {
         width: 100%;
@@ -407,7 +413,8 @@ input {
         flex-direction: column;
         align-items: stretch;
         justify-content: center;
-        width: 100%;
+        width: 90%;
+        margin: auto;
 
     }
 
@@ -415,6 +422,7 @@ input {
         margin-bottom: 2em;
         width: 100%;
         height: 30em;
+        padding: 2em;
         margin-left: auto;
         margin-right: auto;
     }
@@ -482,7 +490,7 @@ input {
         display: flex;
         align-items: stretch;
         justify-content: center;
-        width: 100%;
+        width: 80%;
         margin: auto;
         padding: 0;
     }
@@ -496,6 +504,7 @@ input {
     .gimage {
         width: 100%;
         height: 30em;
+        padding: 1em;
         object-fit: cover;
     }
 
@@ -573,8 +582,8 @@ input {
         display: flex;
         align-items: stretch;
         justify-content: center;
-        width: 100%;
-        margin: 0;
+        width: 75%;
+        margin: auto;
         padding: 0;
     }
 
@@ -587,6 +596,7 @@ input {
         width: 100%;
         height: 30em;
         object-fit: cover;
+        padding: 1.5em;
     }
 
     .contact-area {

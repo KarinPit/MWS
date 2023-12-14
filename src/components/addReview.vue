@@ -2,7 +2,7 @@
   <div>
     <div class="top-header">
       <h2>לקוחות ממליצים</h2>
-      <button id="add-review" class="white_btn mainBackground" @click="showPopup = true">הוסף ביקורת</button>
+      <button id="add-review" class="white-btn mainBackground" @click="showPopup = true">הוסף ביקורת</button>
     </div>
 
     <!-- Use the <transition> element for fade-in effect -->
@@ -15,7 +15,7 @@
           <div class="popup-content">
             <input type="text" id="customerName" v-model="customerName" placeholder="הכנס שם הלקוח" required>
             <textarea id="reviewText" v-model="reviewText" placeholder="כתוב את ביקורתך כאן" required></textarea>
-            <button id="send-btn" class="white_btn mainBackground" @click="submitReview">שלח!</button>
+            <button id="send-btn" class="white-btn mainBackground" @click="submitReview">שלח!</button>
           </div>
         </div>
       </div>
@@ -72,6 +72,14 @@ export default {
 </script>
 
 <style scoped>
+.white-btn {
+  margin-top: 0.5em;
+  padding: 0.2em 1em;
+  font-size: 1.2em;
+  font-weight: 300;
+  border: none;
+}
+
 /* Add the fade transition */
 .fade-enter-active,
 .fade-leave-active {
@@ -107,12 +115,11 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  border-radius: 0.5em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   max-width: 35em;
   width: 90%;
   height: fit-content;
-  padding: 2em 1em;
+  padding: 3em 1em 2em 1em;
 }
 
 .popup-content {
@@ -121,17 +128,18 @@ export default {
 }
 
 #customerName {
-  width: 20em;
-  border-radius: 0.3em;
+  border-radius: 0;
+  width: 100%;
+  max-width: 20em;
   background: rgb(232, 232, 232);
   border: none;
   font-size: 1.2em;
 }
 
 #reviewText {
-  width: 20em;
+  width: 100%;
+  max-width: 20em;
   height: 10em;
-  border-radius: 0.5em;
   border: none;
   text-align: center;
   background: rgb(232, 232, 232);
@@ -169,5 +177,21 @@ export default {
   height: 100%;
   background-color: rgba(0, 0, 0, .5);
   z-index: 0;
+}
+
+
+@media (max-width: 340px),
+(min-width: 341px) and (max-width: 575px) {
+  .popup-menu {
+    width: 85%;
+    max-width: 30em;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .popup-menu {
+    width: 100%;
+    max-width: 30em;
+  }
 }
 </style>

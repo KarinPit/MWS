@@ -1,11 +1,11 @@
 <template>
     <div class="image-gallery">
         <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
-            <div class="project-img" v-for="(project, index) in column" :key="index" @mouseover="toggleHovered(index)"
+            <div class="project-box" v-for="(project, index) in column" :key="index" @mouseover="toggleHovered(index)"
                 @mouseout="toggleHovered(-1)">
                 <a class="project-name" :href="`/projects/${project.name}`">{{ project.name }}</a>
-                <a :href="`/projects/${project.name}`"><img class="gimage" :src="baseUrl + project.imageUrl"
-                        alt="designed house example" /></a>
+                <a class="project-img" :href="`/projects/${project.name}`"><img class="gimage"
+                        :src="baseUrl + project.imageUrl" alt="designed house example" /></a>
             </div>
         </div>
     </div>
@@ -56,10 +56,27 @@ export default {
 </script>
   
 <style scoped>
-.project-img {
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.gimage {
+    object-fit: cover;
+    background: white;
+    opacity: 100%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.project-box {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Remove fixed width and height */
 }
 
 .project-name {
@@ -75,18 +92,47 @@ export default {
     transition: opacity 0.3s ease-in-out;
 }
 
-.gimage {
-    opacity: 100%;
-    border-radius: 1.5em;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.project-img:hover .project-name,
+.project-box:hover .project-name,
 .hovered {
     opacity: 1;
 }
 
-.project-img:hover .gimage {
+.project-box:hover .gimage {
     opacity: 0.3;
+}
+
+@media (max-width: 340px),
+(min-width: 341px) and (max-width: 575px),
+(min-width: 576px) and (max-width: 767px) {
+    .image-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .gimage {
+        width: 70vw;
+        height: 30em;
+        padding: 1em;
+        margin-bottom: 2em;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .gimage {
+        width: 30vw;
+        height: 30em;
+        padding: 1em;
+    }
+}
+
+@media (min-width: 992px) {
+    .gimage {
+        width: 30vw;
+        height: 30em;
+        padding: 1em;
+    }
 }
 </style>

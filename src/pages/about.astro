@@ -3,11 +3,11 @@ import Navigation from "../components/navigation.vue";
 import ContactForm from "../components/contactForm.vue";
 import ProjectGallerySample from "../components/projectGallerySample.vue";
 import Stages from "../components/stages.vue";
-import Footer from "../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../public/styles/navbar.css";
 import "../../public/styles/about.css";
-import "../../public/styles/contactForm.css";
+import Footer from "../components/footer.vue";
+// import "../../public/styles/contactForm.css";
 import "../../public/styles/mainButtonColor.css";
 
 const imageResponse = await fetch(
@@ -39,26 +39,26 @@ const data2 = await stageResponse.json();
             <Navigation client:load />
         </header>
         <main>
-            <div id="top-row" class="row">
-                <div class="col-sm-5 text-center p-0 photo-col">
+            <div class="row top-row">
+                <div class="main-about">
                     <img
                         id="public-photo"
                         src={data1.data.attributes.image.data.attributes.url}
                         alt="designed rooms examples"
                     />
-                </div>
-                <div class="col-sm-7 text-center welcome-col">
-                    <p id="about-info">
-                        <span id="about-span">ברוכים הבאים</span>
-                        {data1.data.attributes.description}
-                    </p>
-                    <a href="/contact" class="white_btn mainBackground"
-                        >צרו קשר</a
-                    >
+                    <div class="about-box">
+                        <p class="about-info index-p">
+                            <span id="about-span">היי, נעים מאוד</span>
+                            {data1.data.attributes.description}
+                        </p>
+                        <a href="/contact" class="white-btn body-btn mainBackground"
+                            >צרו קשר</a
+                        >
+                    </div>
                 </div>
             </div>
-            <div class="row text-center beige-background">
-                <div id="about-p">
+            <div class="row beige-background text-col">
+                <div class="about-p">
                     <h2>איך זה עובד?</h2>
                     <Stages client:load />
                 </div>
@@ -68,11 +68,9 @@ const data2 = await stageResponse.json();
                 <ProjectGallerySample client:load />
             </div>
         </main>
-        <div class="row beige-background p-5">
-            <ContactForm client:load />
-        </div>
-        <Footer client:load />
+        <!-- <ContactForm client:load /> -->
     </body>
+    <Footer client:load />
 </html>
 
 <script

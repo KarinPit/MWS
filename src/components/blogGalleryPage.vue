@@ -1,9 +1,9 @@
 <template>
   <div class="image-gallery">
     <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
-      <div class="project-img" v-for="(post, index) in column" :key="index" @mouseover="toggleHovered(index)"
+      <div class="post-box" v-for="(post, index) in column" :key="index" @mouseover="toggleHovered(index)"
         @mouseout="toggleHovered(-1)">
-        <a class="project-name" :href="`/blog/${post.name}`">{{ post.name }}</a>
+        <a class="post-name" :href="`/blog/${post.name}`">{{ post.name }}</a>
         <a :href="`/blog/${post.name}`"><img class="gimage" :src="baseUrl + post.imageUrl"
             alt="designed house example" /></a>
       </div>
@@ -56,38 +56,85 @@ export default {
 </script>
   
   
+ 
 <style scoped>
-.project-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.project-name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  z-index: 1;
-  height: 3em;
-  padding: 0;
-  opacity: 0;
-  font-size: 2em;
-  transition: opacity 0.3s ease-in-out;
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .gimage {
-  opacity: 100%;
-  border-radius: 1.5em;
-  transition: opacity 0.3s ease-in-out;
+    object-fit: cover;
+    background: white;
+    opacity: 100%;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.project-img:hover .project-name,
+.post-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Remove fixed width and height */
+}
+
+.post-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    height: 3em;
+    padding: 0;
+    font-size: 2em;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.post-box:hover .post-name,
 .hovered {
-  opacity: 1;
+    opacity: 1;
 }
 
-.project-img:hover .gimage {
-  opacity: 0.3;
+.post-box:hover .gimage {
+    opacity: 0.3;
+}
+
+@media (max-width: 340px),
+(min-width: 341px) and (max-width: 575px),
+(min-width: 576px) and (max-width: 767px) {
+    .image-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .gimage {
+        width: 70vw;
+        height: 30em;
+        padding: 1em;
+        margin-bottom: 2em;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .gimage {
+        width: 30vw;
+        height: 30em;
+        padding: 1em;
+    }
+}
+
+@media (min-width: 992px) {
+    .gimage {
+        width: 30vw;
+        height: 30em;
+        padding: 1em;
+    }
 }
 </style>

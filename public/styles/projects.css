@@ -36,7 +36,7 @@ html {
 
 #projects {
     color: white;
-    background: rgba(48,79,91,255);
+    background: rgba(48, 79, 91, 255);
 }
 
 /* Headings */
@@ -73,41 +73,6 @@ a {
     margin: 0.5em 0;
 }
 
-/* About Paragraph */
-#about-p {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    height: 100%;
-    margin: 6em auto;
-    padding: 5em 10em;
-    background: white;
-}
-
-p {
-    text-align: justify;
-    font-size: 1.5em;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    height: fit-content;
-}
-
-/* Image Gallery */
-.image-gallery {
-    position: relative;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-.gimage {
-    padding: 1em;
-    object-fit: cover;
-    background: white;
-}
 
 /* Background Colors */
 .beige-background {
@@ -118,15 +83,6 @@ p {
 .top-header {
     margin-top: 4em;
     margin-bottom: 0;
-}
-
-/* Marked Header */
-.marked-header {
-    width: fit-content;
-    background: rgb(251, 255, 200);
-    margin: auto;
-    padding: 0.5em;
-    margin-bottom: 0.5em;
 }
 
 /* Contact Section */
@@ -187,8 +143,12 @@ input {
 /* Rows */
 .row {
     height: fit-content;
-    padding: 7em;
+    /* padding: 7em; */
     margin: 0;
+}
+
+.projects-row {
+    padding: 7em;
 }
 
 @media (max-width: 340px) {
@@ -231,25 +191,7 @@ input {
     .top-header {
         margin-top: 7em;
     }
-
-    .image-gallery {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        width: 100%;
-
-    }
-
-    .gimage {
-        margin-bottom: 2em;
-        width: 100%;
-        height: 30em;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-
+    
     form {
         width: 100%;
     }
@@ -301,24 +243,6 @@ input {
         margin-top: 7em;
     }
 
-    .image-gallery {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        width: 100%;
-
-    }
-
-    .gimage {
-        margin-bottom: 2em;
-        width: 100%;
-        height: 30em;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-
     form {
         width: 100%;
     }
@@ -359,30 +283,6 @@ input {
 
     .nav-text {
         padding-left: 1.5em;
-    }
-
-
-    .image-gallery {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-        width: 100%;
-
-    }
-
-    .gimage {
-        margin-bottom: 2em;
-        width: 100%;
-        height: 30em;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .img-col {
-        width: 45%;
-        margin: 0.5em;
-        height: fit-content;
     }
 
     form {
@@ -434,41 +334,6 @@ input {
         padding-left: 1.5em;
     }
 
-    .image-gallery {
-        display: flex;
-        align-items: stretch;
-        justify-content: center;
-        width: 100%;
-        margin: auto;
-        padding: 0;
-    }
-
-    .img-col {
-        width: 45%;
-        margin: 0.5em;
-        height: fit-content;
-    }
-
-    .gimage {
-        width: 100%;
-        height: 30em;
-        object-fit: cover;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 4em;
-        margin-bottom: 4em;
-    }
-
     form {
         width: 100%;
     }
@@ -478,10 +343,6 @@ input {
         height: 70vw;
         object-fit: contain;
         padding-top: 5em;
-    }
-
-    .project-name {
-        width: 20%;
     }
 }
 
@@ -529,27 +390,6 @@ input {
         padding-left: 1.5em;
     }
 
-    .image-gallery {
-        display: flex;
-        align-items: stretch;
-        justify-content: center;
-        width: 100%;
-        margin: auto;
-        padding: 0;
-    }
-
-    .img-col {
-        width: 33%;
-        margin: 0.5em;
-        height: fit-content;
-    }
-
-    .gimage {
-        width: 100%;
-        height: 25em;
-        object-fit: cover;
-    }
-
     .contact-area {
         background: white;
         border-radius: 0.5em;
@@ -570,10 +410,6 @@ input {
 
     form {
         width: 100%;
-    }
-
-    .project-name {
-        width: 20%;
     }
 
 }

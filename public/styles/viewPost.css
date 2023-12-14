@@ -37,6 +37,7 @@ a {
     display: flex;
     justify-content: end;
     align-items: center;
+    width: 100%;
     font-size: 1.2em;
     font-weight: 700;
 }
@@ -109,11 +110,6 @@ a {
     font-weight: 300;
 }
 
-.row {
-    height: fit-content;
-    padding: 5em;
-}
-
 p,
 pre {
     font-family: 'Assistant', sans-serif;
@@ -123,36 +119,65 @@ pre {
 }
 
 p {
-    text-align: justify;
     width: 100%;
+    text-align: justify;
 }
 
 pre {
-    font-size: 1em;
+    font-size: 0.9em;
     width: 70%;
-    text-align: center;
+    padding: 1em 2em;
     line-height: 2em;
-    /* word-wrap: break-word; */
     white-space: pre-wrap;
 }
+
+pre img {
+    width: 20em;
+    height: 20em;
+}
+
+.post-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3em;
+    background-color: #efefef;
+}
+
+.post-area h2 {
+    text-align: center;
+}
+
 
 .post-desc {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 3em;
     width: 100%;
     background-color: #efefef;
 }
 
 .post-desc ul {
-    font-size: 1.5em;
     line-height: 1em;
     margin: 0;
 }
 
 .post-desc li {
+    font-size: 1.2em;
     text-align: justify;
+}
+
+/* Rows */
+.row {
+    height: fit-content;
+    /* padding: 7em; */
+    margin: 0;
+}
+
+.blog-row {
+    padding: 7em;
 }
 
 
@@ -401,11 +426,5 @@ pre {
     form {
         margin: auto;
         width: 100%;
-    }
-
-    #post-area {
-        padding: 2em 2em;
-        width: 100%;
-        margin: auto;
     }
 }

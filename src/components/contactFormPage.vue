@@ -1,9 +1,4 @@
 <template>
-    <!-- <div class="col-logo text-center">
-        <img class="mws-logo" src="../../public/images/Logo_Moran_new2.png" alt="MWS Logo" />
-        <p class="logo-info">מייל: lorem.ipsum@gmail.com</p>
-        <p class="logo-info">טלפון: 0587809493</p>
-    </div> -->
     <div class="col-form">
         <form @submit.prevent="submitForm">
             <div class="info-div">
@@ -75,7 +70,7 @@ async function GetContactInfo() {
     const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/contact-info");
     const { data } = await response.json();
     const eaddress = data.attributes.address;
-    const phonenum = "0" + data.attributes.phone;
+    const phonenum = data.attributes.phone;
     const info = {
         emailAddress: eaddress,
         phoneNumber: phonenum,

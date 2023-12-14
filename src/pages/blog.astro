@@ -2,11 +2,11 @@
 import Navigation from "../components/navigation.vue";
 import ContactForm from "../components/contactForm.vue";
 import BlogGalleryPage from "../components/blogGalleryPage.vue";
-import Footer from "../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../public/styles/navbar.css";
 import "../../public/styles/blog.css";
-import "../../public/styles/contactForm.css";
+import Footer from "../components/footer.vue";
+// import "../../public/styles/contactForm.css";
 ---
 
 <html lang="he">
@@ -28,16 +28,14 @@ import "../../public/styles/contactForm.css";
             <Navigation client:load />
         </header>
         <main>
-            <div class="row text-center my-auto">
+            <div class="row blog-row text-center my-auto">
                 <h2>הבלוג שלי</h2>
                 <BlogGalleryPage client:load />
             </div>
         </main>
-        <div class="row beige-background p-5">
-            <ContactForm client:load />
-        </div>
-        <Footer client:load />
+        <!-- <ContactForm client:load /> -->
     </body>
+    <Footer client:load />
 </html>
 
 <script

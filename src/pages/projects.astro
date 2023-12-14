@@ -3,11 +3,11 @@ import fetchApi from "../lib/strapi";
 import Navigation from "../components/navigation.vue";
 import ContactForm from "../components/contactForm.vue";
 import ProjectGalleryPage from "../components/projectGalleryPage.vue";
-import Footer from "../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../public/styles/navbar.css";
 import "../../public/styles/projects.css";
-import "../../public/styles/contactForm.css";
+import Footer from "../components/footer.vue";
+// import "../../public/styles/contactForm.css";
 ---
 
 <html lang="he">
@@ -29,16 +29,14 @@ import "../../public/styles/contactForm.css";
             <Navigation client:load />
         </header>
         <main>
-            <div class="row text-center my-auto">
+            <div class="row projects-row text-center my-auto">
                 <h2>הפרויקטים שלי</h2>
                 <ProjectGalleryPage client:load />
             </div>
-            <div class="row beige-background p-5">
-                <ContactForm client:load />
-            </div>
-            <Footer client:load />
         </main>
+        <!-- <ContactForm client:load /> -->
     </body>
+    <Footer client:load />
 </html>
 
 <script
