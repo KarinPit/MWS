@@ -127,7 +127,7 @@ pre {
     font-size: 1.3em;
     width: 70%;
     padding: 1em 2em;
-    line-height: 2em;
+    line-height: 1.5em;
     white-space: pre-wrap;
 }
 
@@ -154,18 +154,24 @@ pre img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: right;
     padding: 3em;
     width: 100%;
     background-color: #efefef;
 }
 
+.post-desc ol {
+    margin-top: 0;
+    margin-bottom: -1.5em;
+}
+
 .post-desc ul {
-    line-height: 1em;
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: -1.5em;
 }
 
 .post-desc li {
-    font-size: 1.2em;
+    font-size: 1em;
     text-align: justify;
 }
 

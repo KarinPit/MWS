@@ -21,27 +21,47 @@ function convertToMarkdown(content) {
   let text = "";
   content.forEach((paragraph) => {
     let formattedLine = "";
-    paragraph.children.forEach((line) => {
-      console.log(line);
-      let formattingTags = Object.keys(line);
-      let lineText = line.text;
-      if (line.type === "text") {
-        if (formattingTags.indexOf("bold") != -1) {
-          lineText = `**${lineText.trim()}**`;
-        }
-        if (formattingTags.indexOf("underline") != -1) {
-          lineText = `<u>${lineText.trim()}</u>`;
-        }
-        if (formattingTags.indexOf("strikethrough") != -1) {
-          lineText = `~~>${lineText.trim()}~~`;
-        }
-        if (formattingTags.indexOf("italic") != -1) {
-          lineText = `*${lineText.trim()}*`;
+    if (paragraph.type === "paragraph") {
+      paragraph.children.forEach((line) => {
+        let formattingTags = Object.keys(line);
+        let lineText = line.text;
+        if (line.type === "text") {
+          if (formattingTags.indexOf("bold") != -1) {
+            lineText = `**${lineText.trim()}**`;
+          }
+          if (formattingTags.indexOf("underline") != -1) {
+            lineText = `<u>${lineText.trim()}</u>`;
+          }
+          if (formattingTags.indexOf("strikethrough") != -1) {
+            lineText = `~~>${lineText.trim()}~~`;
+          }
+          if (formattingTags.indexOf("italic") != -1) {
+            lineText = `*${lineText.trim()}*`;
+          }
         }
         formattedLine += lineText;
+      });
+    }
+    if (paragraph.type === "list") {
+      if (paragraph.format === "ordered") {
+        let ol = "";
+        paragraph.children.forEach((li) => {
+          ol += `<li>${li.children[0].text}</li>`;
+        });
+        ol = `<ol>${ol}</ol>`;
+        formattedLine += `${ol}\n`;
       }
-    });
+      if (paragraph.format === "unordered") {
+        let ul = "";
+        paragraph.children.forEach((li) => {
+          ul += `<li>${li.children[0].text}</li>`;
+        });
+        ul = `<ul>${ul}</ul>`;
+        formattedLine += `${ul}\n `;
+      }
+    }
     text += `${formattedLine}\n`;
+    console.log(text);
   });
 
   return text;
