@@ -95,7 +95,6 @@ async function GetContactInfo() {
     const eaddress = data.attributes.address;
     const phonenum = data.attributes.phone;
     const logo = data.attributes.logo.data.attributes.url;
-    console.log(data)
     const info = {
         emailAddress: eaddress,
         phoneNumber: phonenum,
