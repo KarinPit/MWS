@@ -161,13 +161,11 @@ pre img {
 }
 
 .post-desc ol {
-    margin-top: 0;
-    margin-bottom: -1.5em;
+    margin-top: 0.5em;
 }
 
 .post-desc ul {
-    margin-top: 0;
-    margin-bottom: -1.5em;
+    margin-top: 0.5em;
 }
 
 .post-desc li {

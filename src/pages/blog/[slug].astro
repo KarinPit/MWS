@@ -6,7 +6,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../../../public/styles/navbar.css";
 import "../../../public/styles/index.css";
 import "../../../public/styles/viewPost.css";
-import { marked } from "marked";
 import Contact from "../contact.astro";
 
 const response = await fetch(
@@ -17,58 +16,73 @@ const { slug } = Astro.params;
 const page = data.find((post) => post.attributes.title === slug);
 if (!page) return Astro.redirect("/404");
 
+function styleText(line) {
+  let formattingTags = Object.keys(line);
+  let lineText = line.text;
+  if (line.type === "text") {
+    if (formattingTags.indexOf("bold") != -1) {
+      lineText = `<strong>${lineText}</strong>`;
+    }
+    if (formattingTags.indexOf("underline") != -1) {
+      lineText = `<u>${lineText}</u>`;
+    }
+    if (formattingTags.indexOf("strikethrough") != -1) {
+      lineText = `<s>${lineText}</s>`;
+    }
+    if (formattingTags.indexOf("italic") != -1) {
+      lineText = `<i>${lineText}</i>`;
+    }
+  }
+  return lineText;
+}
+
+function listText(paragraph) {
+  let paragraphText = "";
+  if (paragraph.format === "ordered") {
+    let ol = "";
+    paragraph.children.forEach((li) => {
+      ol += `<li><p>${li.children[0].text}</p></li>`;
+    });
+    ol = `<ol>${ol}</ol>`;
+    paragraphText += `${ol}`;
+  }
+  if (paragraph.format === "unordered") {
+    let ul = "";
+    paragraph.children.forEach((li) => {
+      let liText = "";
+      li.children.forEach((child) => {
+        liText += styleText(child);
+      });
+      ul += `<li><p>${liText}</p></li>`;
+    });
+    ul = `<ul>${ul}</ul>`;
+    paragraphText += `${ul} `;
+  }
+
+  return paragraphText;
+}
+
 function convertToMarkdown(content) {
   let text = "";
   content.forEach((paragraph) => {
     let formattedLine = "";
     if (paragraph.type === "paragraph") {
       paragraph.children.forEach((line) => {
-        let formattingTags = Object.keys(line);
-        let lineText = line.text;
-        if (line.type === "text") {
-          if (formattingTags.indexOf("bold") != -1) {
-            lineText = `**${lineText.trim()}**`;
-          }
-          if (formattingTags.indexOf("underline") != -1) {
-            lineText = `<u>${lineText.trim()}</u>`;
-          }
-          if (formattingTags.indexOf("strikethrough") != -1) {
-            lineText = `~~>${lineText.trim()}~~`;
-          }
-          if (formattingTags.indexOf("italic") != -1) {
-            lineText = `*${lineText.trim()}*`;
-          }
-        }
-        formattedLine += lineText;
+        let addText = styleText(line);
+        formattedLine += addText;
       });
     }
     if (paragraph.type === "list") {
-      if (paragraph.format === "ordered") {
-        let ol = "";
-        paragraph.children.forEach((li) => {
-          ol += `<li>${li.children[0].text}</li>`;
-        });
-        ol = `<ol>${ol}</ol>`;
-        formattedLine += `${ol}\n`;
-      }
-      if (paragraph.format === "unordered") {
-        let ul = "";
-        paragraph.children.forEach((li) => {
-          ul += `<li>${li.children[0].text}</li>`;
-        });
-        ul = `<ul>${ul}</ul>`;
-        formattedLine += `${ul}\n `;
-      }
+      formattedLine += listText(paragraph);
     }
-    text += `${formattedLine}\n`;
-    console.log(text);
+    console.log(text)
+    text += `<p>${formattedLine}</p>`;
   });
 
   return text;
 }
 const toMark = page.attributes.content;
 const markdownText = convertToMarkdown(toMark);
-const renderedHTML = marked(markdownText);
 const { id, attributes } = page;
 ---
 
@@ -99,7 +113,7 @@ const { id, attributes } = page;
               ><btn><img src="/images/arrow-right.svg" />בחזרה לבלוג</btn></a
             >
             <h2>{attributes.title}</h2>
-            <pre><p set:html={renderedHTML} /></pre>
+            <pre><p set:html={markdownText} /></pre>
           </div>
         </div>
       </div>
