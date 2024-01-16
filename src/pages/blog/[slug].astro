@@ -75,7 +75,10 @@ function convertToMarkdown(content) {
     if (paragraph.type === "list") {
       formattedLine += listText(paragraph);
     }
-    console.log(text)
+    if (paragraph.type === "image") {
+      let url = paragraph.image.formats.medium.url
+      text += `<img src="${url}">`
+    }
     text += `<p>${formattedLine}</p>`;
   });
 
