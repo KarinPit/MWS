@@ -131,11 +131,6 @@ pre {
     white-space: pre-wrap;
 }
 
-pre img {
-    width: 20em;
-    height: 20em;
-}
-
 .post-area {
     display: flex;
     flex-direction: column;
@@ -148,13 +143,11 @@ pre img {
     text-align: center;
 }
 
-
 .post-desc {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: right;
     padding: 3em;
     width: 100%;
     background-color: #efefef;
@@ -171,6 +164,12 @@ pre img {
 .post-desc li {
     font-size: 1em;
     text-align: justify;
+}
+
+pre img {
+    height: auto;
+    width: auto;
+    margin: 1em;
 }
 
 /* Rows */
