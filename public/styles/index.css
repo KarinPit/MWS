@@ -197,7 +197,7 @@ a {
     width: 5em;
     z-index: 2;
     opacity: 60%;
-    background-color: #ffffff;
+    cursor: pointer;
     border-radius: 50%;
 }
 
