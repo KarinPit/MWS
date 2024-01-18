@@ -191,8 +191,8 @@ p {
 
 @media (min-width: 992px) {
     .review img {
-        width: 30vw;
-        max-height: 25em;
+        width: 20vw;
+        height: 25em;
         padding: 1em 3em;
     }
 
