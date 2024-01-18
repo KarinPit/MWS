@@ -2,8 +2,8 @@
 <template>
     <nav :class="{ 'bg-white': isScrolled }" class="navbar navbar-expand-md">
         <div class="container-fluid">
-            <div class="logo-name" :class="{ 'blue-logo': isScrolled }">
-                <a href="/">MWS Studio</a>
+            <div>
+                <a class="logo-name" :class="{ 'blue-logo': isScrolled }" href="/">MWS Studio</a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
