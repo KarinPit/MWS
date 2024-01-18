@@ -1,10 +1,5 @@
 <template>
-  <div>
-    <div class="top-header">
-      <h2>לקוחות ממליצים</h2>
       <button id="add-review" class="white-btn mainBackground" @click="showPopup = true">הוסף ביקורת</button>
-    </div>
-
     <!-- Use the <transition> element for fade-in effect -->
     <transition name="fade" appear>
       <div v-if="showPopup">
@@ -20,7 +15,6 @@
         </div>
       </div>
     </transition>
-  </div>
 </template>
 
 <script>
@@ -73,11 +67,12 @@ export default {
 
 <style scoped>
 .white-btn {
-  margin-top: 0.5em;
   padding: 0.2em 1em;
+  margin-right: 1em;
   font-size: 1.2em;
   font-weight: 300;
   border: none;
+  color: black;
 }
 
 /* Add the fade transition */
@@ -120,6 +115,7 @@ export default {
   width: 90%;
   height: fit-content;
   padding: 3em 1em 2em 1em;
+  z-index: 60;
 }
 
 .popup-content {
@@ -156,7 +152,6 @@ export default {
   top: 10%;
   left: 5%;
   transform: translate(-50%, -50%);
-  background-color: white;
   border: none;
   font-size: 1em;
   --bs-btn-close-focus-shadow: none;
@@ -175,8 +170,8 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, .5);
-  z-index: 0;
+  background-color: rgba(59, 59, 59, 0.5);
+  z-index: 50;
 }
 
 
