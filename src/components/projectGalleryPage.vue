@@ -1,4 +1,5 @@
 <template>
+    <h2 v-if="navNames">{{ navNames.Projects }}</h2>
     <div class="image-gallery">
         <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
             <div class="project-box" v-for="(project, index) in column" :key="index" @mouseover="toggleHovered(index)"
@@ -12,6 +13,8 @@
 </template>
   
 <script>
+import navNames from './navigation.vue';
+
 export default {
     data() {
         return {
@@ -19,11 +22,13 @@ export default {
             baseUrl: "",
             mainProjects: [],
             hovered: -1, // Track hover state, initialize to -1 to indicate no hover
+            navNames: null,
         };
     },
     async created() {
         // Fetch the data when the component is created
         this.mainProjects = await this.GetProjects(); // Call the GetProjects method
+        this.navNames = await fetchNavNames();
     },
     computed: {
         imageColumns() {
@@ -53,9 +58,23 @@ export default {
         },
     },
 };
+
+async function fetchNavNames() {
+    try {
+        const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/navigation-name");
+        const { data } = await response.json();
+        return data.attributes
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
 </script>
   
 <style scoped>
+
+h2 {
+    margin: auto;
+}
 .image-gallery {
     display: flex;
     justify-content: center;

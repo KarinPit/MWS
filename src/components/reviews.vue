@@ -1,4 +1,8 @@
 <template>
+    <div class="review-header">
+        <h2 v-if="navNames">{{ navNames.Reviews }}</h2>
+        <addReview></addReview>
+    </div>
     <div v-for="(review, index) in sortedReviews" :key="index" class="review-area"
         :class="{ 'last-row': isLastRow(index) }">
         <div class="review">
@@ -14,15 +18,21 @@
 </template>
   
 <script>
+import addReview from './addReview.vue';
 export default {
+    components: {
+        addReview, // Register the Navigation component
+    },
     data() {
         return {
             reviews: [],
+            navNames: null,
         };
     },
     async created() {
         // Fetch the data when the component is created
         this.reviews = await this.getReviews();
+        this.navNames = await fetchNavNames();
     },
     computed: {
         sortedReviews() {
@@ -57,6 +67,17 @@ export default {
         },
     },
 };
+
+
+async function fetchNavNames() {
+    try {
+        const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/navigation-name");
+        const { data } = await response.json();
+        return data.attributes
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
 </script>
   
 <style scoped>

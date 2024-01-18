@@ -13,9 +13,11 @@ h1 {
 }
 
 h2 {
+    display: inline-block;
     font-weight: 800;
     font-size: 2.5em;
     padding: 0 0;
+    margin: 0;
 }
 
 h3 {
@@ -26,6 +28,12 @@ h3 {
     border-radius: 0.2em;
 }
 
+.review-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
 /* Link Styles */
 
 a {
@@ -46,7 +54,6 @@ a {
 /* Header Styles */
 
 .top-header {
-    margin-top: 7em;
     margin-bottom: 0;
 }
 
@@ -119,6 +126,7 @@ input {
 .row {
     height: fit-content;
     margin: 0;
+    padding: 7em;
 }
 
 /* Media Queries */
