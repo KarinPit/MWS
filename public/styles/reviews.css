@@ -51,6 +51,7 @@ a {
 #reviews {
     background: #A0BBC7;
 }
+
 /* Header Styles */
 
 .top-header {
@@ -126,6 +127,9 @@ input {
 .row {
     height: fit-content;
     margin: 0;
+}
+
+.review-row {
     padding: 7em;
 }
 
@@ -191,10 +195,6 @@ input {
         margin-bottom: 1em;
         margin-top: 1em;
         padding: 2em;
-    }
-
-    .cactus-img {
-        width: 3em;
     }
 
     .top-header {

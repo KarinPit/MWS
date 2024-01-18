@@ -6,7 +6,7 @@
     <div v-for="(review, index) in sortedReviews" :key="index" class="review-area"
         :class="{ 'last-row': isLastRow(index) }">
         <div class="review">
-            <img src="/images/Me.jpeg">
+            <img :src=review.image>
             <!-- <p>{{ formatReviewDate(review.createdAt) }}</p> -->
             <div class="review-text">
                 <h3>{{ review.title }}</h3>
@@ -56,13 +56,13 @@ export default {
             return index === this.sortedReviews.length - 1;
         },
         async getReviews() {
-            const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/reviews");
+            const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/reviews?populate=*");
             const { data } = await response.json();
             const reviews = data.map((review) => ({
                 title: review.attributes.title,
                 description: review.attributes.content.map((child) => child.children.map((children) => children.text)).flat().join(' '),
+                image: review.attributes.image.data.attributes.url
             }));
-
             return reviews;
         },
     },
@@ -97,10 +97,6 @@ async function fetchNavNames() {
 
 hr {
     display: none;
-    /* width: 75%;
-    margin-top: 2em;
-    border: none;
-    border-top: 0.3em dashed #333; */
 }
 
 #add-review {
@@ -108,9 +104,6 @@ hr {
     margin-bottom: 1em;
 }
 
-.review-row {
-    padding: 5em 0;
-}
 
 .review-area {
     display: flex;
@@ -122,14 +115,14 @@ hr {
 .review img {
     object-fit: cover;
     object-position: 50% 0;
-    flex: 40%;
+    flex: 30%;
 }
 
 .review-text {
     display: flex;
     flex-direction: column;
     align-items: start;
-    flex: 60%;
+    flex: 70%;
 
 }
 
@@ -198,7 +191,7 @@ p {
 
 @media (min-width: 992px) {
     .review img {
-        width: 40vw;
+        width: 30vw;
         max-height: 25em;
         padding: 1em 3em;
     }
