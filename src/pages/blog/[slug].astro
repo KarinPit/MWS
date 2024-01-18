@@ -1,12 +1,10 @@
 ---
 import Navigation from "../../components/navigation.vue";
-import ContactForm from "../../components/contactForm.vue";
 import Footer from "../../components/footer.vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "../../../public/styles/navbar.css";
 import "../../../public/styles/index.css";
 import "../../../public/styles/viewPost.css";
-import Contact from "../contact.astro";
 
 const response = await fetch(
   "https://mws-data-280b2464bf34.herokuapp.com/api/blogs?populate=*"

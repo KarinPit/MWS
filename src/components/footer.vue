@@ -132,6 +132,7 @@ async function GetContactInfo() {
 </script>
   
 <style scoped>
+
 .footer-row p {
     text-align: center;
 }
