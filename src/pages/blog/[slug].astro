@@ -32,6 +32,9 @@ function styleText(line) {
     if (formattingTags.indexOf("italic") != -1) {
       lineText = `<i>${lineText}</i>`;
     }
+    if (lineText === "") {
+      lineText = "\n";
+    }
   }
   return lineText;
 }
@@ -76,8 +79,8 @@ function convertToMarkdown(content) {
       formattedLine += listText(paragraph);
     }
     if (paragraph.type === "image") {
-      let url = paragraph.image.formats.medium.url
-      text += `<img src="${url}">`
+      let url = paragraph.image.formats.medium.url;
+      text += `<img src="${url}">`;
     }
     text += `<p>${formattedLine}</p>`;
   });
