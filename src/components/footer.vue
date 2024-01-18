@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <footer class="text-center text-lg-start text-white" style="background-color: rgba(48, 79, 91, 255)">
+        <footer class="text-center text-lg-start" style="background-color: #A0BBC7">
             <div class="container pb-0">
                 <section>
                     <!-- Grid row -->
@@ -12,8 +12,8 @@
                         <!-- Grid column -->
                         <div class="col-md-3 text-center mt-3">
                             <h6 class="text-uppercase mb-4 font-weight-bold contact-title">צרו קשר</h6>
-                            <p class="info-text">{{ info.emailAddress }}</p>
-                            <p class="info-text">{{ info.phoneNumber }}</p>
+                            <p @click="openEmail(info.emailAddress)" class="info-text">{{ info.emailAddress }}</p>
+                            <p @click="openDialer(info.phoneNumber)" class="info-text">{{ info.phoneNumber }}</p>
                             <p class="info-text">צור משה</p>
                         </div>
 
@@ -22,11 +22,11 @@
                         <div class="col-md-4 text-center mt-3">
                             <h6 class="text-uppercase mb-4 font-weight-bold contact-title">עקבו אחרי</h6>
                             <p><a @click="openFacebook" style="cursor: pointer"><img class="navbar-img"
-                                        src="/images/facebook-white.svg" alt="facebook black outline logo"></a></p>
+                                        src="/images/facebook_black.svg" alt="facebook black outline logo"></a></p>
                             <p><a @click="openInstagram" style="cursor: pointer"><img class="navbar-img"
-                                        src="/images/instagram-white.svg" alt="instagram black outline logo"></a></p>
+                                        src="/images/instagram_black.svg" alt="instagram black outline logo"></a></p>
                             <p><a @click="openWhatsApp" style="cursor: pointer"><img class="navbar-img"
-                                        src="/images/whatsapp-white.svg" alt="whats app black outline logo"></a></p>
+                                        src="/images/whatsapp_black.svg" alt="whats app black outline logo"></a></p>
                         </div>
 
                         <hr class="w-100 clearfix d-md-none" />
@@ -82,6 +82,14 @@ export default {
         openInstagram() {
             window.open('https://www.instagram.com/moran_interior_design/');
         },
+        openDialer(number) {
+            const telLink = `tel:${number}`;
+            window.open(telLink, '_blank');
+        },
+        openEmail(mail) {
+            const mailtoLink = `mailto:${mail}?`;
+            window.open(mailtoLink);
+        },
 
         async submitForm() {
             const formData = {
@@ -124,6 +132,10 @@ async function GetContactInfo() {
 </script>
   
 <style scoped>
+.footer-row p {
+    text-align: center;
+}
+
 .mws-logo {
     width: 100%;
     height: 100%;

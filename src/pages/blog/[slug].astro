@@ -79,7 +79,7 @@ function convertToMarkdown(content) {
       formattedLine += listText(paragraph);
     }
     if (paragraph.type === "image") {
-      let url = paragraph.image.formats.medium.url;
+      let url = paragraph.image.url;
       text += `<img src="${url}">`;
     }
     text += `<p>${formattedLine}</p>`;
@@ -123,7 +123,6 @@ const { id, attributes } = page;
           </div>
         </div>
       </div>
-      <ContactForm client:load />
     </main>
     <Footer client:load />
   </body>

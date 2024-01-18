@@ -100,7 +100,6 @@ async function GetContactInfo() {
 }
 
 .navbar-nav .nav-item .nav-link:hover {
-    background-color: rgba(48, 79, 91, 255);
-    color: white;
+    background-color: #A0BBC7;
 }
 </style>
