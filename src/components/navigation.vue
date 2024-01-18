@@ -7,7 +7,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="nav-text">
-                <a class="nav-text-element" @click="updateClipboard" style="cursor: pointer">{{ phonenum }}</a>
                 <a class="navbar-img" @click="openFacebook" style="cursor: pointer"><img src="/images/facebook_black.svg"
                         alt="facebook black outline logo"></a>
                 <a class="navbar-img" @click="openInstagram" style="cursor: pointer"><img src="/images/instagram_black.svg"
@@ -19,27 +18,31 @@
             <!-- <div class="top-logo">
                 <img src="/images/Logo_Moran_new2.png" alt="MWS logo">
             </div> -->
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" v-if="navNames">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a id="home" class="nav-link active" aria-current="page" href="/"><span
-                                class="nav-link-span">בית</span></a>
+                        <a id="home" class="nav-link active" aria-current="page" href="/"><span class="nav-link-span">{{
+                            navNames.Home }}</span></a>
                     </li>
                     <li class="nav-item">
-                        <a id="about" class="nav-link" href="/about"><span class="nav-link-span">עלי</span></a>
+                        <a id="about" class="nav-link" href="/about"><span class="nav-link-span">{{ navNames.About
+                        }}</span></a>
                     </li>
                     <li class="nav-item">
-                        <a id="projects" class="nav-link" href="/projects"><span class="nav-link-span">פרויקטים</span></a>
+                        <a id="projects" class="nav-link" href="/projects"><span class="nav-link-span">{{ navNames.Projects
+                        }}</span></a>
                     </li>
                     <li class="nav-item">
-                        <a id="blog" class="nav-link" href="/blog"><span class="nav-link-span">בלוג</span></a>
+                        <a id="blog" class="nav-link" href="/blog"><span class="nav-link-span">{{ navNames.Blog
+                        }}</span></a>
                     </li>
                     <li class="nav-item">
-                        <a id="reviews" class="nav-link" href="/reviews"><span class="nav-link-span">לקוחות
-                                ממליצים</span></a>
+                        <a id="reviews" class="nav-link" href="/reviews"><span class="nav-link-span">{{ navNames.Reviews
+                        }}</span></a>
                     </li>
                     <li class="nav-item">
-                        <a id="contact" class="nav-link" href="/contact"><span class="nav-link-span">צור קשר</span></a>
+                        <a id="contact" class="nav-link" href="/contact"><span class="nav-link-span">{{ navNames.Contact
+                        }}</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><span class="nav-link-span">English</span></a>
@@ -56,10 +59,15 @@ export default {
     data() {
         return {
             isScrolled: false,
+            navNames: null, // Initialize navNames as null
         };
     },
     mounted() {
         window.addEventListener('scroll', this.handleScroll);
+    },
+
+    async created() {
+        this.navNames = await fetchNavNames();
     },
     beforeDestroy() {
         window.removeEventListener('scroll', this.handleScroll);
@@ -77,22 +85,20 @@ export default {
         openInstagram() {
             window.open('https://www.instagram.com/moran_interior_design/');
         },
-        updateClipboard() {
-            navigator.clipboard.writeText('0587809493');
-        },
-        openMail() {
-            window.location.href = 'mailto:karinpitlik@gmail.com?subject=&body=';
-        },
     },
 };
 
-async function GetContactInfo() {
-    const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/contact-info");
-    const { data } = await response.json();
-    const phonenum = "0" + data.attributes.phone;
-    return phonenum;
+async function fetchNavNames() {
+    try {
+        const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/navigation-name");
+        const { data } = await response.json();
+        return data.attributes
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 }
 </script>
+
 
 <style scoped>
 .navbar {
