@@ -2,6 +2,9 @@
 <template>
     <nav :class="{ 'bg-white': isScrolled }" class="navbar navbar-expand-md">
         <div class="container-fluid">
+            <div class="logo-name" :class="{ 'blue-logo': isScrolled }">
+                <a href="/">MWS Studio</a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -15,9 +18,6 @@
                         alt="whats app black outline logo"></a>
                 <!-- <a class="navbar-brand" href="/"><span id="brand-bold">MWS</span> Studio</a> -->
             </div>
-            <!-- <div class="top-logo">
-                <img src="/images/Logo_Moran_new2.png" alt="MWS logo">
-            </div> -->
             <div class="collapse navbar-collapse" id="navbarNav" v-if="navNames">
                 <ul class="navbar-nav">
                     <li class="nav-item">

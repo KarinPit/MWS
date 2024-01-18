@@ -67,6 +67,7 @@ export default {
     max-width: 20vw;
     object-fit: cover;
     padding: 0.5em;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .project-name {
