@@ -5,10 +5,12 @@ body::-webkit-scrollbar {
 .logo-name{
     font-weight: 700;
     font-size: 2em;
+    transition: color 0.5s ease-in-out;
 }
 
 .blue-logo {
-    color: #004968;
+    color: #65767d;
+    transition: color 0.5s ease-in-out;
 }
 
 nav {
