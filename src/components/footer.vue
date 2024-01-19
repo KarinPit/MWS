@@ -1,53 +1,59 @@
 <template>
     <div class="row">
         <footer class="text-center text-lg-start" style="background-color: #A0BBC7">
-            <div class="container pb-0">
-                <section>
-                    <!-- Grid row -->
-                    <div class="row footer-row">
-                        <!-- Grid column -->
-                        <!-- <div class="col-md-3 my-auto">
-                            <img class="mws-logo" :src=info.logoUrl alt="MWS Logo" />
-                        </div> -->
-                        <!-- Grid column -->
-                        <div class="col-md-3 text-center mt-3">
-                            <h6 class="text-uppercase mb-4 font-weight-bold contact-title">צרו קשר</h6>
-                            <p @click="openEmail(info.emailAddress)" class="info-text">{{ info.emailAddress }}</p>
-                            <p @click="openDialer(info.phoneNumber)" class="info-text">{{ info.phoneNumber }}</p>
-                            <p class="info-text">צור משה</p>
-                        </div>
+            <div class="row footer-row">
+                <div class="col-md-3">
+                    <img class="mws-logo" :src=info.logoUrl alt="MWS Logo" />
+                </div>
+                <div class="col-md-2 text-center mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold contact-title">צרו קשר</h6>
+                    <p @click="openEmail(info.emailAddress)" style="cursor: pointer" class="info-text">{{ info.emailAddress }}</p>
+                    <p @click="openDialer(info.phoneNumber)" style="cursor: pointer" class="info-text">{{ info.phoneNumber }}</p>
+                    <p class="info-text">צור משה</p>
+                </div>
 
-                        <hr class="w-100 clearfix d-md-none" />
+                <hr class="w-100 clearfix d-md-none" />
 
-                        <div class="col-md-4 text-center mt-3">
-                            <h6 class="text-uppercase mb-4 font-weight-bold contact-title">עקבו אחרי</h6>
-                            <p><a @click="openFacebook" style="cursor: pointer"><img class="navbar-img"
-                                        src="/images/facebook_black.svg" alt="facebook black outline logo"></a></p>
-                            <p><a @click="openInstagram" style="cursor: pointer"><img class="navbar-img"
-                                        src="/images/instagram_black.svg" alt="instagram black outline logo"></a></p>
-                            <p><a @click="openWhatsApp" style="cursor: pointer"><img class="navbar-img"
-                                        src="/images/whatsapp_black.svg" alt="whats app black outline logo"></a></p>
-                        </div>
+                <div class="col-md-2 text-center mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold contact-title">עקבו אחרי</h6>
+                    <p><a @click="openFacebook" style="cursor: pointer"><img class="navbar-img"
+                                src="/images/facebook_black.svg" alt="facebook black outline logo"></a></p>
+                    <p><a @click="openInstagram" style="cursor: pointer"><img class="navbar-img"
+                                src="/images/instagram_black.svg" alt="instagram black outline logo"></a></p>
+                    <p><a @click="openWhatsApp" style="cursor: pointer"><img class="navbar-img"
+                                src="/images/whatsapp_black.svg" alt="whats app black outline logo"></a></p>
+                </div>
 
-                        <hr class="w-100 clearfix d-md-none" />
+                <hr class="w-100 clearfix d-md-none" />
 
-                        <div class="col-md-5 text-center mt-3">
-                            <form class="footer-form" @submit.prevent="submitForm">
-                                <p class="contact-title">השאירו פרטים ואחזור אליכם</p>
-                                <label for="name">שם מלא</label>
-                                <input type="text" v-model="name" placeholder="שם מלא" required />
-                                <label for="phone">טלפון</label>
-                                <input type="tel" v-model="phone" placeholder="טלפון" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
-                                    required />
-                                <label for="email">מייל</label>
-                                <input type="email" v-model="email" placeholder="מייל" />
-                                <input class="contact-btn mainBackground" type="submit" value="שלח" />
-                            </form>
-                        </div>
-                    </div>
-                </section>
+                <div class="col-md-5 text-center mt-3">
+                    <form class="footer-form" @submit.prevent="submitForm">
+                        <p class="contact-title">השאירו פרטים ואחזור אליכם</p>
+                        <label for="name">שם מלא</label>
+                        <input type="text" v-model="name" placeholder="שם מלא" required />
+                        <label for="phone">טלפון</label>
+                        <input type="tel" v-model="phone" placeholder="טלפון" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required />
+                        <label for="email">מייל</label>
+                        <input type="email" v-model="email" placeholder="מייל" />
+                        <input class="contact-btn mainBackground" type="submit" value="שלח" />
+                    </form>
+                </div>
             </div>
         </footer>
+    </div>
+    <div class="row">
+        <div class="row footer-row bottom-row">
+            <p>Karin Pitlik - Web Development</p>
+            <!-- <div class="col-2">
+                <p>Karin Pitlik - Web Development</p>
+            </div>
+            <div class="col-2">
+                <p>Karin Pitlik - Web Development</p>
+            </div>
+            <div class="col-2">
+                <p>Karin Pitlik - Web Development</p>
+            </div> -->
+        </div>
     </div>
 </template>
 
@@ -132,7 +138,6 @@ async function GetContactInfo() {
 </script>
   
 <style scoped>
-
 .footer-row p {
     text-align: center;
 }
@@ -144,8 +149,25 @@ async function GetContactInfo() {
 }
 
 .footer-row {
+    display: flex;
+    justify-content: center;
+    align-items: start;
     height: fit-content;
-    padding: 2em 0 0 0;
+    padding: 2em 7em 0 7em;
+}
+
+.bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #65767d;
+    color: white;
+    padding: 0 8em;
+    height: 3em;
+}
+
+.bottom-row p {
+    margin: 0;
 }
 
 .text-uppercase p {

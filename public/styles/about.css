@@ -24,21 +24,38 @@ html {
 
 .top-row {
     min-height: 100vh;
-    padding: 5em;
+    padding: 8em;
     height: fit-content;
     margin: auto;
 }
 
-.main-about {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+p,
+pre {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
 }
 
+pre {
+    width: 100%;
+    font-size: 1.4em;
+    line-height: 1.3em;
+    white-space: pre-wrap;
+}
+
+pre p {
+    width: 22em;
+}
+
+.about-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /* Header Styles */
 #public-photo {
-    width: 30%;
-    max-width: 20em;
+    width: 90%;
     height: 50em;
     min-height: 29.5em;
     max-height: 80vh;
@@ -48,26 +65,6 @@ html {
 }
 
 /* About Section Styles */
-
-.about-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 50em;
-    min-height: 29.5em;
-    max-height: 80vh;
-    background: #efefef;
-    padding: 2em;
-
-}
-
-.about-info {
-    font-size: 1.4em;
-    width: 80%;
-    text-align: justify;
-    direction: rtl;
-}
 
 #about-span {
     font-weight: 800;
@@ -307,26 +304,12 @@ input {
         padding-bottom: 5em;
     }
 
-    .main-about {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
     #public-photo {
         height: 40em;
         min-width: 80vw;
         max-height: 50em;
         max-width: 100%;
         padding-top: 5em;
-    }
-
-    .about-box {
-        min-width: 80vw;
-        height: fit-content;
-        padding-bottom: 5em;
-        padding: 2em 1em;
     }
 
     .about-p {
@@ -400,25 +383,12 @@ input {
         padding-bottom: 5em;
     }
 
-    .main-about {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
     #public-photo {
         height: 40em;
         min-width: 80vw;
         max-height: 50em;
         max-width: 100%;
         padding-top: 5em;
-    }
-
-    .about-box {
-        min-width: 80vw;
-        height: fit-content;
-        padding-bottom: 5em;
     }
 
     .about-p {
@@ -483,24 +453,12 @@ input {
         padding-bottom: 5em;
     }
 
-    .main-about {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
     #public-photo {
         width: 80vw;
         height: 40em;
         max-height: 50em;
         max-width: 100%;
         padding-top: 5em;
-    }
-
-    .about-box {
-        height: fit-content;
-        padding-bottom: 5em;
     }
 
     .about-p {
@@ -572,10 +530,6 @@ input {
         width: 70%;
         max-width: 60em;
     }
-
-    .about-box {
-        max-width: 70%;
-    }
 }
 
 /* Media query for screens between 992px and 1199px (e.g., larger desktops) */
@@ -637,9 +591,4 @@ input {
         width: 70%;
         max-width: 60em;
     }
-
-    .about-box {
-        max-width: 70%;
-    }
-
 }

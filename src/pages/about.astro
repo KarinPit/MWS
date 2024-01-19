@@ -7,17 +7,13 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../../public/styles/navbar.css";
 import "../../public/styles/about.css";
 import Footer from "../components/footer.vue";
-// import "../../public/styles/contactForm.css";
 import "../../public/styles/mainButtonColor.css";
+import { richTextParser } from "../js/richTextParser";
 
 const imageResponse = await fetch(
     "https://mws-data-280b2464bf34.herokuapp.com/api/about-me?populate=*"
 );
-const stageResponse = await fetch(
-    "https://mws-data-280b2464bf34.herokuapp.com/api/about-stages"
-);
 const data1 = await imageResponse.json();
-const data2 = await stageResponse.json();
 ---
 
 <html lang="he">
@@ -40,21 +36,23 @@ const data2 = await stageResponse.json();
         </header>
         <main>
             <div class="row top-row">
-                <div class="main-about">
+                <div class="col-6 text-center my-auto">
                     <img
                         id="public-photo"
                         src={data1.data.attributes.image.data.attributes.url}
                         alt="designed rooms examples"
                     />
-                    <div class="about-box">
-                        <p class="about-info index-p">
+                </div>
+                <div class="col-6 about-info my-auto">
+                    <div>
+                        <pre>
                             <span id="about-span">היי, נעים מאוד</span>
-                            {data1.data.attributes.description}
-                        </p>
-                        <a href="/contact" class="white-btn body-btn mainBackground"
-                            >צרו קשר</a
-                        >
+                            <p set:html={richTextParser.convertToMarkdown(data1.data.attributes.myDescription)} />
+                          </pre>
                     </div>
+                    <a href="/contact" class="white-btn body-btn mainBackground"
+                        >צרו קשר</a
+                    >
                 </div>
             </div>
             <div class="row beige-background text-col">

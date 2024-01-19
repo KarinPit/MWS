@@ -7,6 +7,7 @@ import "../../public/styles/index.css";
 import Footer from "../components/footer.vue";
 import "../../public/styles/mainButtonColor.css";
 import ProjectGallerySample from "../components/projectGallerySample.vue";
+import { richTextParser } from "../js/richTextParser";
 
 const response = await fetch(
   "https://mws-data-280b2464bf34.herokuapp.com/api/home-page"
@@ -48,31 +49,47 @@ const { data } = await response.json();
 
     <div class="row text-center my-auto top">
       <div class="about-info">
-        <h3>ברוכים הבאים</h3>
-        <p class="index-p">{data.attributes.description}</p>
+        <div class="col-6 my-auto">
+          <img src="../../public/images/כפר הס-41.jpg" />
+        </div>
+        <div class="col-6 my-auto">
+          <h3>ברוכים הבאים</h3>
+          <div>
+            <pre>
+              <p class="index-p" set:html={richTextParser.convertToMarkdown(data.attributes.mainDescription)} />
+            </pre>
+          </div>
+        </div>
       </div>
     </div>
+  </body>
 
-    <div class="row text-center my-auto bottom">
-      <div class="about-info">
+  <div class="row text-center my-auto bottom">
+    <div class="about-info">
+      <div class="col-6 my-auto">
+        <img src="../../public/images/כפר הס-41.jpg" />
+      </div>
+      <div class="col-6 my-auto">
         <h3>מורן ורנר סיידו</h3>
-        <p class="index-p" id="about-p">
-          {data.attributes.aboutDescription}
-        </p>
+        <div>
+          <pre>
+            <p class="index-p" id="about-p" set:html={richTextParser.convertToMarkdown(data.attributes.aboutMeDescription)} />
+          </pre>
+        </div>
         <a href="/about" class="white-btn mainBackground">קראו עוד עלי</a>
       </div>
     </div>
+  </div>
 
-    <div class="row text-center my-auto p-5 beige-background">
-      <div class="make-top">
-        <h3>פרויקטים שלי</h3>
-        <ProjectGallerySample client:load />
-      </div>
-      <div class="background-overlay-color1"></div>
+  <div class="row text-center my-auto p-5 beige-background">
+    <div class="make-top">
+      <h3>פרויקטים שלי</h3>
+      <ProjectGallerySample client:load />
     </div>
-    <!-- <ContactForm client:load /> -->
-    <Footer client:load />
-  </body>
+    <div class="background-overlay-color1"></div>
+  </div>
+  <!-- <ContactForm client:load /> -->
+  <Footer client:load />
 </html>
 
 <script
