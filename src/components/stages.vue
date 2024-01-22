@@ -1,37 +1,48 @@
 <template>
-    <div>
-      <div v-for="(stage, index) in stages" :key="index">
-        <h3>&#10003; {{ stage.title }}</h3>
-        <p class="steps index-p">{{ stage.desc }}</p>
-      </div>
+  <div>
+    <div class="stages" v-if="richTextParser" v-for="(stage, index) in stages" :key="index">
+      <pre class="stage-pre">
+        <h3>{{ stage.title }}</h3>
+        <p class="steps" v-html="richTextParser.convertToMarkdown(stage.desc)"></p>
+      </pre>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        baseUrl: "",
-        stages: [],
-      };
+  </div>
+</template>
+
+<script>
+// Import the richTextParser object
+import { richTextParser } from "../js/richTextParser";
+
+export default {
+  data() {
+    return {
+      baseUrl: "",
+      stages: [],
+      richTextParser: null,
+    };
+  },
+  async created() {
+    // Set richTextParser when the component is created
+    this.richTextParser = richTextParser;
+
+    // Fetch the data when the component is created
+    this.stages = await this.GetStages();
+  },
+  methods: {
+    async GetStages() {
+      const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/about-stages");
+      const { data } = await response.json();
+
+      const stages = data.map((stage) => ({
+        id: stage.attributes.stageID,
+        title: stage.attributes.title,
+        desc: stage.attributes.description,
+      }));
+
+      stages.sort((a, b) => a.id - b.id)
+
+      return stages;
     },
-    async created() {
-      // Fetch the data when the component is created
-      this.stages = await this.GetStages();
-    },
-    methods: {
-      async GetStages() {
-        const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/about-stages");
-        const { data } = await response.json();
-  
-        const stages = data.map((stage) => ({
-          title: stage.attributes.title,
-          desc: stage.attributes.description.map(child => child.children.map(chtext => chtext.text)).flat().join(' '),
-        }));
-  
-        return stages;
-      },
-    },
-  };
-  </script>
-  
+  },
+};
+</script>

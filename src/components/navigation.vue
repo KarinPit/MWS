@@ -10,7 +10,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="nav-text">
-                <a class="navbar-img" @click="openFacebook" style="cursor: pointer"><img src="/images/facebook_black.svg"
+                <a class="nav-link" @click="openDialer(phoneNumber)" style="cursor: pointer">{{ phoneNumber }}</a>
+                <a class="facebook-icon navbar-img" @click="openFacebook" style="cursor: pointer"><img src="/images/facebook_black.svg"
                         alt="facebook black outline logo"></a>
                 <a class="navbar-img" @click="openInstagram" style="cursor: pointer"><img src="/images/instagram_black.svg"
                         alt="instagram black outline logo"></a>
@@ -55,11 +56,13 @@
 
 
 <script>
+import Footer from './footer.vue';
 export default {
     data() {
         return {
             isScrolled: false,
             navNames: null, // Initialize navNames as null
+            phoneNumber: '',
         };
     },
     mounted() {
@@ -68,6 +71,7 @@ export default {
 
     async created() {
         this.navNames = await fetchNavNames();
+        this.phoneNumber = await getPhoneNumber();
     },
     beforeDestroy() {
         window.removeEventListener('scroll', this.handleScroll);
@@ -85,7 +89,15 @@ export default {
         openInstagram() {
             window.open('https://www.instagram.com/moran_interior_design/');
         },
+        openDialer(number) {
+            const telLink = `tel:${number}`;
+            window.open(telLink, '_blank');
+        },
     },
+
+    components: {
+        Footer,
+    }
 };
 
 async function fetchNavNames() {
@@ -94,6 +106,16 @@ async function fetchNavNames() {
         const { data } = await response.json();
         return data.attributes
     } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+async function getPhoneNumber() {
+    try {
+        const phoneNumber = (await Footer.data().GetContactInfo()).phoneNumber;
+        return phoneNumber
+    }
+    catch (error) {
         console.error('Error fetching data:', error);
     }
 }
