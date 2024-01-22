@@ -7,8 +7,10 @@
                 </div>
                 <div class="col-md-2 text-center mt-3">
                     <h6 class="text-uppercase mb-4 font-weight-bold contact-title">צרו קשר</h6>
-                    <p @click="openEmail(info.emailAddress)" style="cursor: pointer" class="info-text">{{ info.emailAddress }}</p>
-                    <p @click="openDialer(info.phoneNumber)" style="cursor: pointer" class="info-text">{{ info.phoneNumber }}</p>
+                    <p @click="openEmail(info.emailAddress)" style="cursor: pointer" class="info-text">{{ info.emailAddress
+                    }}</p>
+                    <p @click="openDialer(info.phoneNumber)" style="cursor: pointer" class="info-text">{{ info.phoneNumber
+                    }}</p>
                     <p class="info-text">צור משה</p>
                 </div>
 
@@ -72,6 +74,7 @@ export default {
                 phoneNumber: [],
                 logoUrl: [],
             },
+            GetContactInfo
         };
     },
     async created() {

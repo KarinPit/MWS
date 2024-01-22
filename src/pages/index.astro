@@ -38,11 +38,14 @@ const { data } = await response.json();
       <div class="container-fluid">
         <div class="row">
           <Carousel client:load />
-          <img
-            class="arrow-down"
-            src="/images/Arrow Down.gif"
-            alt="arrow pointing down"
-          />
+          <div class="guide-arrow">
+            <p class="arrow-down-text">כיף שבאתם, בואו נצא לדרך</p>
+            <img
+              class="arrow-down"
+              src="/images/Arrow Down.gif"
+              alt="arrow pointing down"
+            />
+          </div>
         </div>
       </div>
     </main>

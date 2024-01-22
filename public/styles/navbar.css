@@ -2,14 +2,14 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.logo-name{
+.logo-name {
     font-weight: 700;
     font-size: 2em;
     transition: color 0.5s ease-in-out;
 }
 
 .blue-logo {
-    color: #65767d;
+    color: #A0BBC7;
     transition: color 0.5s ease-in-out;
 }
 
@@ -101,6 +101,10 @@ nav {
     margin-top: auto;
     margin-bottom: auto;
     opacity: 60%;
+}
+
+.facebook-icon {
+    margin-inline-start: 1em;
 }
 
 .nav-text-element {
