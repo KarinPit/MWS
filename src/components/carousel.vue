@@ -1,42 +1,65 @@
 <template>
-    <div id="carouselExampleControls" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel"
-        data-bs-interval="3000">
-        <div class="carousel-inner">
-            <div class="carousel-item active" v-if="urls.mainImageUrl !== ''">
-                <img :src="baseUrl + urls.mainImageUrl" class="carousel-img d-block w-100"
-                    alt="woman going down wood stairs">
-            </div>
-            <div class="carousel-item" v-if="urls.mainImageUrl !== ''" v-for="(imageUrl, index) in urls.imagesUrl"
-                :key="index">
-                <img :src="baseUrl + imageUrl" class="carousel-img d-block w-100" alt="designed house example">
-            </div>
+    <div>
+        <div class="carousel-images">
+            <transition name="fade">
+                <img :key="currentImage.key" v-if="urls.mainImageUrl !== ''" :src="currentImage.url"
+                    class="carousel-img d-block w-100" alt="woman going down wood stairs">
+            </transition>
         </div>
-        <!-- <button id="prev-btn" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </button>
-        <button id="next-btn" class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </button> -->
+        <div class="carousel-button">
+            <button class="prev" @click="showPrevImage">
+                <img src="../../public/images/arrow-left.svg">
+                <!-- <img src="/images/arrow-left.svg"> -->
+            </button>
+        </div>
+        <div class="carousel-button">
+            <button class="next" @click="showNextImage">
+                <img src="../../public/images/arrow-right.svg">
+            </button>
+        </div>
     </div>
 </template>
-
+    
 <script>
 export default {
     data() {
         return {
-            // baseUrl: 'https://mws-data-280b2464bf34.herokuapp.com/',
             baseUrl: '',
             urls: {
                 mainImageUrl: '',
                 imagesUrl: [],
             },
+            currentIndex: 0,
         };
     },
     async created() {
-        // Fetch the data when the component is created
         this.urls = await GetHomeImages();
+    },
+    methods: {
+        async showPrevImage() {
+            if (this.currentIndex > 0) {
+                this.currentIndex--;
+            }
+            else {
+                this.currentIndex = this.urls.imagesUrl.length - 1;
+            }
+        },
+        async showNextImage() {
+            if (this.currentIndex < this.urls.imagesUrl.length - 1) {
+                this.currentIndex++;
+            }
+            else {
+                this.currentIndex = 0;
+            }
+        },
+    },
+    computed: {
+        currentImage() {
+            return {
+                url: this.baseUrl + (this.currentIndex === 0 ? this.urls.mainImageUrl : this.urls.imagesUrl[this.currentIndex]),
+                key: this.currentIndex
+            };
+        },
     },
 };
 
@@ -54,3 +77,16 @@ async function GetHomeImages() {
 }
 </script>
 
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .3s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+</style>
+  

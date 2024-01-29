@@ -1,20 +1,18 @@
 <template>
-      <button id="add-review" class="white-btn mainBackground" @click="showPopup = true">הוסף ביקורת</button>
-    <!-- Use the <transition> element for fade-in effect -->
-    <transition name="fade" appear>
-      <div v-if="showPopup">
-        <!-- Overlay background with click event -->
-        <div class="popup-overlay" @click="closePopup"></div>
-        <div class="popup-menu">
-          <button type="button" id="close-btn" @click="closePopup" class="btn-close" aria-label="Close"></button>
-          <div class="popup-content">
-            <input type="text" id="customerName" v-model="customerName" placeholder="הכנס שם הלקוח" required>
-            <textarea id="reviewText" v-model="reviewText" placeholder="כתוב את ביקורתך כאן" required></textarea>
-            <button id="send-btn" class="white-btn mainBackground" @click="submitReview">שלח!</button>
-          </div>
+  <button class="add-review-button" @click="showPopup = true">הוסף ביקורת</button>
+  <transition name="fade" appear>
+    <div v-if="showPopup">
+      <div class="popup-overlay" @click="closePopup"></div>
+      <div class="popup-menu">
+        <button type="button" id="close-btn" @click="closePopup" class="btn-close" aria-label="Close"></button>
+        <div class="popup-content">
+          <input type="text" id="customerName" v-model="customerName" placeholder="הכנס שם הלקוח" required>
+          <textarea id="reviewText" v-model="reviewText" placeholder="כתוב את ביקורתך כאן" required></textarea>
+          <button id="send-btn" class="white-btn mainBackground" @click="submitReview">שלח!</button>
         </div>
       </div>
-    </transition>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -64,129 +62,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.white-btn {
-  padding: 0.2em 1em;
-  margin-right: 1em;
-  font-size: 1.2em;
-  font-weight: 300;
-  border: none;
-  color: black;
-}
-
-/* Add the fade transition */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.centered-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(156, 156, 156, 0.5);
-  /* Semi-transparent background */
-  z-index: 9999;
-  /* Ensure the popup appears above other content */
-}
-
-.popup-menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  max-width: 35em;
-  width: 90%;
-  height: fit-content;
-  padding: 3em 1em 2em 1em;
-  z-index: 60;
-}
-
-.popup-content {
-  text-align: center;
-  width: 100%;
-}
-
-#customerName {
-  border-radius: 0;
-  width: 100%;
-  max-width: 20em;
-  background: rgb(232, 232, 232);
-  border: none;
-  font-size: 1.2em;
-}
-
-#reviewText {
-  width: 100%;
-  max-width: 20em;
-  height: 10em;
-  border: none;
-  text-align: center;
-  background: rgb(232, 232, 232);
-  font-size: 1.2em;
-  padding: 1em;
-  margin: 0;
-}
-
-/* textarea::placeholder {
-} */
-
-#close-btn {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  transform: translate(-50%, -50%);
-  border: none;
-  font-size: 1em;
-  --bs-btn-close-focus-shadow: none;
-}
-
-#send-btn {
-  display: block !important;
-  margin: 0.5em auto;
-  margin-bottom: 0;
-}
-
-
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(59, 59, 59, 0.5);
-  z-index: 50;
-}
-
-
-@media (max-width: 340px),
-(min-width: 341px) and (max-width: 575px) {
-  .popup-menu {
-    width: 85%;
-    max-width: 30em;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-  .popup-menu {
-    width: 100%;
-    max-width: 30em;
-  }
-}
-</style>

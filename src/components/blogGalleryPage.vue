@@ -1,5 +1,62 @@
 <template>
   <h2 v-if="navNames">{{ navNames.Blog }}</h2>
+  <div class="all-projects">
+    <div class="project-box" v-for="(project, index) in mainProjects" :key="index">
+      <a class="project-name" :href="`/blog/${project.name}`">{{ project.name }}</a>
+      <a class="project-image" :href="`/blog/${project.name}`">
+        <img :src="baseUrl + project.imageUrl" alt="blog post image" />
+      </a>
+    </div>
+  </div>
+</template>
+
+<script>
+import navNames from './navigation.vue';
+
+export default {
+  data() {
+    return {
+      baseUrl: "", // Set the base URL for images
+      mainProjects: [], // Array to store projects
+      hovered: -1, // Track hover state
+      navNames: null,
+    };
+  },
+  async created() {
+    this.mainProjects = await this.GetProjects();
+    this.navNames = await fetchNavNames();
+  },
+  methods: {
+    toggleHovered(index) {
+      this.hovered = index;
+    },
+    async GetProjects() {
+      const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/blogs?populate=*");
+      const { data } = await response.json();
+      return data.map((project) => ({
+        name: project.attributes.title,
+        imageUrl: project.attributes.image.data.attributes.url,
+      }));
+    },
+  },
+};
+
+async function fetchNavNames() {
+  try {
+    const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/navigation-name");
+    const { data } = await response.json();
+    return data.attributes;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+</script>
+
+
+
+
+<!-- <template>
+  <h2 v-if="navNames">{{ navNames.Blog }}</h2>
   <div class="image-gallery">
     <div class="image-col" v-for="(column, colIndex) in imageColumns" :key="colIndex">
       <div class="post-box" v-for="(post, index) in column" :key="index" @mouseover="toggleHovered(index)"
@@ -154,4 +211,4 @@ h2 {
     padding: 1em;
   }
 }
-</style>
+</style> -->

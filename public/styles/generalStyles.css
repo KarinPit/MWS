@@ -1,0 +1,885 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    font-family: 'Assistant', sans-serif;
+}
+
+html {
+    direction: rtl;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Assistant', sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-size: clamp(26px, 3vw, 90px);
+    font-weight: 800;
+    margin-block-end: -0.8em;
+}
+
+h2 {
+    font-size: clamp(26px, 3vw, 30px);
+    font-weight: 800;
+    margin-block-end: 0.5em;
+}
+
+p,
+pre {
+    font-size: clamp(16px, 2.5vw, 24px);
+    text-align: start;
+    line-height: 37px;
+}
+
+p {
+    margin: 0;
+    overflow-wrap: break-word;
+}
+
+pre {
+    position: relative;
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+.text-col p {
+    width: 100%;
+    text-align: justify;
+}
+
+.project-box {
+    position: relative;
+}
+
+.project-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    text-decoration: none;
+    font-size: 1.8em;
+    color: black;
+    font-weight: 700;
+    opacity: 0;
+    z-index: 2;
+    text-align: center;
+}
+
+.project-image {
+    width: clamp(50px, 20vw, 1000px);
+    height: clamp(50px, 70vh, 500px);
+    object-fit: cover;
+}
+
+.project-name,
+.project-image {
+    transition: opacity 0.5s ease;
+}
+
+.project-box:hover .project-image {
+    opacity: 0.3;
+}
+
+.project-box:hover .project-name {
+    opacity: 1;
+}
+
+.footer {
+    grid-area: footer;
+    height: 100px !important;
+}
+
+.navbars {
+    grid-area: navbars;
+}
+
+.web-template {
+    position: relative;
+    min-height: 100vh;
+}
+
+.web-template>* {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.icon img {
+    width: clamp(20px, 3vw, 30px);
+    height: clamp(20px, 3vw, 30px);
+}
+
+@media screen and (max-width:768px) {
+
+    /* Navbar */
+
+    .social-media-icons {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .icon {
+        display: inline-block;
+    }
+
+    .logo-icons {
+        display: flex;
+        grid-area: header;
+        align-items: baseline;
+    }
+
+    .logo-icons .phone-number {
+        font-size: 0.6em;
+    }
+
+    .logo-icons p {
+        font-size: 1.5em;
+        padding-inline-start: 0.5em;
+    }
+
+    .menu-button {
+        position: fixed;
+        top: 1%;
+        right: 5%;
+        display: flex;
+        border: none;
+    }
+
+    .menu-button img {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    /* Show the container when the menu is open */
+    .nav-links {
+        display: none;
+        opacity: 0;
+    }
+
+    .nav-links span {
+        padding: 0 0.5em;
+        font-size: clamp(12px, 16px, 20px);
+    }
+
+    .nav-links-open {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 2em 1em;
+        border-radius: 3%;
+        opacity: 1;
+    }
+
+    .navbars {
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: fit-content;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2em 2em;
+        z-index: 5;
+        transition: 0.5s all ease-out;
+    }
+
+    .navbars a {
+        text-decoration: none;
+        font-size: clamp(10px, 12px, 14px);
+        color: black;
+    }
+
+    .navbars-open {
+        background-color: white !important;
+        transition: 0.5s all ease-out;
+    }
+
+    #big-screens-navbar {
+        display: none;
+    }
+
+    /* Image and Text Cols */
+    .text-col,
+    .image-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-col {
+        width: 80%;
+        height: fit-content;
+        margin: auto;
+    }
+
+    .image-col {
+        width: 100%;
+        height: 100%;
+    }
+
+    .image-col img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    pre h1 {
+        text-align: center;
+    }
+
+    .default-button {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1em;
+        background: none;
+        border: 2px solid black;
+        width: 6em;
+        height: 1.8em;
+        cursor: pointer;
+
+    }
+
+    /* Project Sample */
+    .projects {
+        grid-area: projects;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1.5em 0;
+    }
+
+    .all-projects {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 90%;
+        height: 100%;
+        margin: auto;
+        padding-block-start: 40px;
+        gap: 20px;
+    }
+
+    .project-image {
+        width: clamp(50px, 80vw, 800px);
+        height: clamp(50px, 70vh, 300px);
+    }
+
+    /* Contact Area */
+
+    .contact {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 0.1fr 0.1fr 1fr;
+        grid-template-areas:
+            "logo"
+            "social-media"
+            "contact-info"
+            "form"
+        ;
+        place-content: center;
+        grid-area: contact;
+        background: #A0BBC7;
+        gap: 20px;
+        padding: 1.5em 0;
+    }
+
+    .contact div {
+        width: 100%;
+    }
+
+    .logo {
+        grid-area: logo;
+    }
+
+    .contact-info {
+        grid: contact-info;
+    }
+
+    .social-media {
+        grid-area: social-media;
+    }
+
+    .contact-form {
+        grid-area: form;
+    }
+
+    .logo img {
+        height: clamp(120px, 40vw, 400px);
+        width: auto;
+        margin-block-end: -3em;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info p {
+        text-align: center;
+        font-size: clamp(12px, 20px, 30px);
+        margin-block-end: 0.5em;
+    }
+
+    .social-media-icons {
+        justify-content: center;
+        margin-inline-start: -1em;
+    }
+
+    .social-media {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input {
+        width: 70%;
+        height: 2.5em;
+        text-align: center;
+        font-size: clamp(12px, 18px, 30px);
+        margin-block-end: 0.5em;
+    }
+
+    label {
+        display: none;
+    }
+
+    .submit-button {
+        background: none;
+        border: 2px solid black;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column-reverse;
+        background: rgb(72, 74, 72);
+        padding: 1.5em 0;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        gap: 20px;
+    }
+
+}
+
+@media screen and (min-width:768px) and (max-width:992px) {
+
+    /* Navbar */
+
+    .social-media-icons {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .icon {
+        display: inline-block;
+    }
+
+    .logo-icons {
+        display: flex;
+        grid-area: header;
+        align-items: baseline;
+    }
+
+    .logo-icons .phone-number {
+        font-size: 0.6em;
+    }
+
+    .logo-icons p {
+        font-size: 1.5em;
+        padding-inline-start: 0.5em;
+    }
+
+    .menu-button {
+        position: fixed;
+        top: 1%;
+        right: 5%;
+        display: flex;
+        border: none;
+    }
+
+    .menu-button img {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    /* Show the container when the menu is open */
+    .nav-links {
+        display: none;
+        opacity: 0;
+    }
+
+    .nav-links span {
+        padding: 0 0.5em;
+        font-size: clamp(12px, 16px, 20px);
+    }
+
+    .nav-links-open {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 2em 1em;
+        border-radius: 3%;
+        opacity: 1;
+    }
+
+    .navbars {
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: fit-content;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2em 2em;
+        z-index: 5;
+        transition: 0.5s all ease-out;
+    }
+
+    .navbars a {
+        text-decoration: none;
+        font-size: clamp(10px, 12px, 14px);
+        color: black;
+    }
+
+    .navbars-open {
+        background-color: white !important;
+        transition: 0.5s all ease-out;
+    }
+
+    #big-screens-navbar {
+        display: none;
+    }
+
+    /* Image and Text Cols */
+
+    .text-col,
+    .image-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-col {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .image-col {
+        width: 100%;
+        height: 100%;
+    }
+
+    .image-col img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .text-col pre {
+        text-align: start;
+        position: relative;
+        width: 80%;
+        white-space: pre-wrap;
+        margin: 0;
+    }
+
+    pre h1 {
+        text-align: center;
+    }
+
+    .default-button {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1em;
+        background: none;
+        border: 2px solid black;
+        width: 6em;
+        height: 1.8em;
+        cursor: pointer;
+
+    }
+
+    /* Project Gallery Sample */
+
+    .projects {
+        grid-area: projects;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1.5em 0;
+    }
+
+    .all-projects {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 90%;
+        height: 100%;
+        margin: auto;
+        padding-block-start: 40px;
+        gap: 50px;
+    }
+
+    .project-image {
+        width: clamp(50px, 80vw, 800px);
+        height: clamp(50px, 70vh, 500px);
+    }
+
+    /* Contact Area */
+
+    .contact {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 0.1fr 0.1fr 1fr;
+        grid-template-areas:
+            "logo"
+            "social-media"
+            "contact-info"
+            "form"
+        ;
+        place-content: center;
+        grid-area: contact;
+        background: #A0BBC7;
+        gap: 20px;
+        padding: 1.5em 0;
+    }
+
+    .contact div {
+        width: 100%;
+    }
+
+    .logo {
+        grid-area: logo;
+    }
+
+    .contact-info {
+        grid: contact-info;
+    }
+
+    .social-media {
+        grid-area: social-media;
+    }
+
+    .contact-form {
+        grid-area: form;
+    }
+
+    .logo img {
+        height: clamp(120px, 40vw, 400px);
+        width: auto;
+        margin-block-end: -3em;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info p {
+        text-align: center;
+        font-size: clamp(12px, 20px, 30px);
+        margin-block-end: 0.5em;
+    }
+
+    .social-media-icons {
+        justify-content: center;
+        margin-inline-start: -1em;
+    }
+
+    .social-media {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input {
+        width: 70%;
+        height: 2.5em;
+        text-align: center;
+        font-size: clamp(12px, 18px, 30px);
+        margin-block-end: 0.5em;
+    }
+
+    label {
+        display: none;
+    }
+
+    .submit-button {
+        background: none;
+        border: 2px solid black;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column-reverse;
+        background: rgb(72, 74, 72);
+        padding: 1.5em 0;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        gap: 20px;
+    }
+}
+
+@media screen and (min-width:993px) {
+
+    /* Navbar */
+
+    .social-media-icons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .icon {
+        display: inline-block;
+    }
+
+    .logo-icons {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-icons .phone-number {
+        font-size: 0.8em;
+    }
+
+    .logo-icons p {
+        font-size: clamp(16px, 1.5em, 20px);
+        padding-inline-start: 0.5em;
+        transition: 0.3s all ease-in;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .navbars {
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3em;
+        transition: 0.3s all ease-in;
+        z-index: 5;
+    }
+
+    .navbars a {
+        text-decoration: none;
+        font-size: clamp(16px, 1vw, 18px);
+        /* font-size: clamp(12px, 1.1em, 20px); */
+        /* padding: 0 0.5em; */
+        color: black;
+    }
+
+    .small-screens-navbar,
+    .menu-button {
+        display: none !important;
+    }
+
+    /* Image and Text Cols */
+
+    .image-col {
+        width: 50%;
+        height: 100%;
+    }
+
+    .image-col img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .align-start {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+        height: 100%;
+    }
+
+    .align-end {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: end;
+        width: 100%;
+        height: 100%;
+    }
+
+    .text-col {
+        width: 50%;
+        height: 100%;
+    }
+
+    .text-col pre {
+        text-align: start;
+        position: relative;
+        width: 90%;
+        white-space: pre-wrap;
+        margin: 0;
+    }
+
+    .default-button {
+        position: absolute;
+        right: 0;
+        font-size: 1em;
+        background: none;
+        border: 2px solid black;
+        width: 6em;
+        height: 1.8em;
+        cursor: pointer;
+    }
+
+    /* Project Gallery Sample */
+
+    .projects {
+        grid-area: projects;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 3em 3em;
+    }
+
+    .all-projects {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+        padding-block-start: 80px;
+    }
+
+    /* Contact Area */
+
+    .contact {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 0.5fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "logo social-media contact-info  form"
+        ;
+        justify-content: center;
+        align-items: start;
+        grid-area: contact;
+        background: #A0BBC7;
+        padding: 3em 5em;
+    }
+
+    .contact div {
+        width: 100%;
+    }
+
+    .logo {
+        grid-area: logo;
+    }
+
+    .contact-info {
+        grid: contact-info;
+    }
+
+    .social-media {
+        grid-area: social-media;
+    }
+
+    .contact-form {
+        grid-area: form;
+    }
+
+    .logo img {
+        width: clamp(50px, 100%, 500px);
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        text-align: start;
+    }
+
+    .info p {
+        font-size: clamp(12px, 20px, 30px);
+        margin-block-end: 0.5em;
+    }
+
+    .social-media-icons {
+        justify-content: start;
+    }
+
+    .social-media {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input {
+        width: 70%;
+        height: 2.5em;
+        text-align: center;
+        font-size: clamp(12px, 18px, 30px);
+        margin-block-end: 0.5em;
+    }
+
+    label {
+        display: none;
+    }
+
+    .submit-button {
+        background: none;
+        border: 2px solid black;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        color: white;
+        background: rgb(72, 74, 72);
+    }
+
+}

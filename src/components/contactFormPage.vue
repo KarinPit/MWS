@@ -1,17 +1,16 @@
 <template>
-    <div class="col-form">
-        <form @submit.prevent="submitForm">
-            <div class="info-div">
-                <h2 class="contact-title">רוצים שאצור איתכם קשר? השאירו פרטים ואחזור אליכם</h2>
-                <p class="info-p">טלפון: {{ info.phoneNumber }}</p>
-                <p class="info-p">אימייל: {{ info.emailAddress }}</p>
-            </div>
-            <input type="text" v-model="name" placeholder="שם מלא" required />
-            <input type="tel" v-model="phone" placeholder="טלפון" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required />
-            <input type="email" v-model="email" placeholder="מייל" />
-            <input type="text" v-model="comments" placeholder="הערות" required />
-            <input class="contact-btn" type="submit" value="שלח" />
-        </form>
+    <form @submit.prevent="submitForm">
+        <h2>רוצים שאצור איתכם קשר? השאירו פרטים ואחזור אליכם</h2>
+        <input type="text" v-model="name" placeholder="שם מלא" required />
+        <input type="tel" v-model="phone" placeholder="טלפון" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required />
+        <input type="email" v-model="email" placeholder="מייל" />
+        <input type="text" v-model="comments" placeholder="הערות" required />
+        <input class="submit-button" type="submit" value="שלח" />
+    </form>
+    <div class="info-div">
+        <h2>מוזמנים גם לפנות אלי</h2>
+        <p>טלפון: {{ info.phoneNumber }}</p>
+        <p>אימייל: {{ info.emailAddress }}</p>
     </div>
 </template>
   
@@ -77,5 +76,6 @@ async function GetContactInfo() {
     };
     return info;
 }
+
 </script>
   

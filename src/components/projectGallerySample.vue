@@ -1,10 +1,10 @@
 <template>
-    <div class="image-gallery">
-        <div class="project-img" v-for="(project, index) in selectedProjects" :key="index" @mouseover="toggleHovered(index)"
+    <div class="all-projects">
+        <div class="project-box" v-for="(project, index) in selectedProjects" :key="index" @mouseover="toggleHovered(index)"
             @mouseout="toggleHovered(-1)">
             <a class="project-name" :href="`/projects/${project.name}`">{{ project.name }}</a>
             <a :href="`/projects/${project.name}`">
-                <img class="gimage" :src="baseUrl + project.imageUrl" alt="designed house example" />
+                <img class="project-image" :src="baseUrl + project.imageUrl" alt="designed house example" />
             </a>
         </div>
     </div>
@@ -48,7 +48,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style></style>
+
+<!-- <style scoped>
 .image-gallery {
     display: flex;
     justify-content: center;
@@ -213,5 +215,5 @@ export default {
     .gimage {
         height: 30em;
     }
-}
-</style>
+} -->
+<!-- </style> -->

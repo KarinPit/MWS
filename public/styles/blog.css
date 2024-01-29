@@ -1,385 +1,185 @@
-/* Global Styles */
-html {
-    direction: rtl;
-}
+@media screen and (max-width:768px) {
 
-/* Header Section */
-#public-photo {
-    background: white;
-}
+    /* General Tags */
 
-/* About Section */
-#about-info {
-    padding: 2em;
-    direction: rtl;
-}
-
-#about-span {
-    font-weight: 700;
-    font-size: 2em;
-    display: block;
-    width: fit-content;
-    margin: 0.2em auto;
-    padding: 0.3em;
-}
-
-/* Buttons */
-.white_btn {
-    margin-top: 0.5em;
-    padding: 0.2em 1em;
-    font-size: 1.5em;
-    font-weight: 300;
-    border-radius: 0.2em;
-    background: #edb966;
-    border: none;
-}
-
-/* #blog {
-    background: #A0BBC7;
-} */
-
-/* Headings */
-h1 {
-    font-size: 4em;
-    margin: 0;
-}
-
-h2 {
-    font-weight: 800;
-    font-size: 2.5em;
-    padding: 0.5em 0;
-}
-
-h3 {
-    font-weight: 600;
-    font-size: 1.6em;
-    padding: 0.2em 1em;
-    background: #edb966;
-    border-radius: 0.2em;
-}
-
-/* Links */
-a {
-    color: black;
-    text-decoration: none;
-}
-
-/* Images */
-.level-img {
-    width: 6em;
-    height: auto;
-    margin: 0.5em 0;
-}
-
-/* About Paragraph */
-#about-p {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    height: 100%;
-    margin: 6em auto;
-    padding: 5em 10em;
-    background: white;
-}
-
-.index-p {
-    text-align: justify;
-    font-size: 1.5em;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    height: fit-content;
-}
-
-/* Background Colors */
-.beige-background {
-    background: #efefef;
-}
-
-/* Top Header */
-.top-header {
-    margin-top: 4em;
-    margin-bottom: 0;
-}
-
-/* Marked Header */
-.marked-header {
-    width: fit-content;
-    background: rgb(251, 255, 200);
-    margin: auto;
-    padding: 0.5em;
-    margin-bottom: 0.5em;
-}
-
-/* Contact Section */
-
-
-/* Contact Area */
-.contact-btn {
-    font-size: 1.2em;
-    display: block;
-    height: 3em;
-    width: 25vw;
-    max-width: 6em;
-    margin: auto;
-    background: #21252a;
-    margin-top: 0.8em;
-    color: white;
-    border: none;
-}
-
-/* Rows */
-.row {
-    height: fit-content;
-    /* padding: 7em; */
-    margin: 0;
-}
-
-.blog-row {
-    padding: 7em;
-}
-
-@media (max-width: 340px) {
-    body {
-        font-family: 'Assistant', sans-serif;
-        font-size: 11px;
+    h1 {
+        margin-block-start: 0;
     }
 
-    .navbar-brand {
-        display: none;
+    h3 {
+        margin-block-start: 0;
+        margin-block-end: -1.2em;
+        text-align: center;
     }
 
-    #brand-bold {
-        font-weight: 700;
+    /* Web template */
+    .web-template {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1.5r 2fr 0.8fr 0.5fr 100px;
+        grid-template-areas:
+            "about"
+            "stages"
+            "projects"
+            "contact"
+            "footer"
+        ;
+        place-items: center;
     }
 
-    .brand-row {
+    .web-template>* {
         width: 100%;
-        margin-top: 1em;
-        padding-top: 1em;
-        background: #ffffff;
-        border-top: 1px solid rgba(0, 0, 0, 0.22);
+        height: 100%;
+        text-align: center;
     }
 
-    .navbar-brand-row {
-        font-size: 2em;
-        font-weight: 300;
-        padding: 0;
+    /* For Gallery Pages */
+    .all-projects {
         width: 100%;
-        text-decoration: none;
-        color: black;
-        display: block;
+        display: grid !important;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-block-start: 20px !important;
     }
 
-    .navbar-collapse {
-        margin: 0;
-        background: white;
-    }
-
-    .top-header {
-        margin-top: 7em;
-    }
-
-    .row {
-        padding: 7em 2em;
-    }
-}
-
-/* Media query for screens smaller than 576px (e.g., smartphones) */
-@media (min-width: 341px) and (max-width: 575px) {
-    body {
-        font-family: 'Assistant', sans-serif;
-        font-size: 11px;
-    }
-
-    .navbar-brand {
-        display: none;
-    }
-
-    #brand-bold {
-        font-weight: 700;
-    }
-
-    .brand-row {
+    .project-box {
         width: 100%;
-        margin-top: 1em;
-        padding-top: 1em;
-        background: #ffffff;
-        border-top: 1px solid rgba(0, 0, 0, 0.22);
+        height: 500px;
     }
 
-    .navbar-brand-row {
-        font-size: 2em;
-        font-weight: 300;
-        padding: 0;
-        width: 100%;
-        text-decoration: none;
-        color: black;
-        display: block;
-    }
-
-    .navbar-collapse {
-        margin: 0;
-        background: white;
-    }
-
-    .top-header {
-        margin-top: 7em;
-    }
-
-    .row {
-        padding: 7em 5em;
-    }
-
-}
-
-/* Media query for screens between 576px and 767px (e.g., small tablets) */
-@media (min-width: 576px) and (max-width: 767px) {
-    body {
-        font-family: 'Assistant', sans-serif;
-        font-size: 13px;
-    }
-
-    .brand-div {
+    .projects {
         display: flex;
-        justify-content: end;
-        width: 20vw;
+        text-align: center;
+        padding-block-start: 9em !important;
     }
 
-    .navbar-brand {
-        font-size: 1.4em;
-        font-weight: 300;
-        padding: 0;
-        min-height: 100%;
-    }
-
-    .brand-row {
-        display: none;
-    }
-
-    #brand-bold {
-        font-weight: 700;
-    }
-
-    .nav-text {
-        padding-left: 1.5em;
-    }
-}
-
-/* Media query for screens between 768px and 991px (e.g., larger tablets and small desktops) */
-@media (min-width: 768px) and (max-width: 991px) {
-    body {
-        font-family: 'Assistant', sans-serif;
-        font-size: 15px;
-    }
-
-    nav {
-        direction: ltr;
-    }
-
-    .brand-div {
-        display: flex;
-        justify-content: end;
-        width: 20vw;
-    }
-
-    .navbar-brand {
-        font-size: 1.4em;
-        font-weight: 300;
-        padding: 0;
-        min-height: 100%;
-    }
-
-    .navbar-collapse {
-        margin: 0;
-    }
-
-    .navbar-nav {
-        padding-right: 1em;
-    }
-
-    .brand-row {
-        display: none;
-    }
-
-    #brand-bold {
-        font-weight: 700;
-    }
-
-    .nav-text {
-        padding-left: 1.5em;
-    }
-
-    .contact-area {
-        background: white;
-        border-radius: 0.5em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        width: 80vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 4em;
-        margin-bottom: 4em;
-    }
-
-    #public-photo {
+    .project-image img {
         width: 100%;
-        height: 70vw;
-        object-fit: contain;
-        padding-top: 5em;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
-/* Media query for screens between 992px and 1199px (e.g., larger desktops) */
-@media (min-width: 992px) {
-    body {
-        font-family: 'Assistant', sans-serif;
-        font-size: 18px;
+@media screen and (min-width:768px) and (max-width:992px) {
+
+    /* General Tags */
+
+    h1 {
+        margin-block-start: 0;
     }
 
-    nav {
-        direction: ltr;
+    h3 {
+        margin-block-start: 0;
+        margin-block-end: -1.2em;
+        text-align: center;
     }
 
-    .brand-div {
+    /* Web template */
+    .web-template {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1.5r 2fr 0.8fr 0.5fr 100px;
+        grid-template-areas:
+            "about"
+            "stages"
+            "projects"
+            "contact"
+            "footer"
+        ;
+        place-items: center;
+    }
+
+    .web-template>* {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+
+    /* For Gallery Pages */
+    .all-projects {
+        width: 100%;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding-block-start: 20px !important;
+    }
+
+    .project-box {
+        width: 100%;
+        height: 500px;
+    }
+
+    .projects {
         display: flex;
-        justify-content: end;
-        width: 20vw;
+        text-align: center;
+        padding-block-start: 9em !important;
     }
 
-    .navbar-brand {
-        font-size: 1.4em;
-        font-weight: 300;
-        padding: 0;
-        min-height: 100%;
+    .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media screen and (min-width:993px) {
+
+    /* General Tags */
+
+    h1 {
+        margin-block-start: 0;
     }
 
-    .navbar-collapse {
-        margin: 0;
+    h3 {
+        margin-block-start: 0;
+        margin-block-end: -1.2em;
+        text-align: center;
     }
 
-    .navbar-nav {
-        padding-right: 1em;
+    /* Web template */
+    .web-template {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 0.1fr 100px;
+        grid-template-areas:
+            "projects"
+            "contact"
+            "footer"
+        ;
+        place-items: center;
     }
 
-    .brand-row {
-        display: none;
+    .web-template>* {
+        width: 100%;
+        height: 100%;
     }
 
-    #brand-bold {
-        font-weight: 700;
+    /* For Gallery Pages */
+    .all-projects {
+        width: 100%;
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding-block-start: 20px !important;
     }
 
-    .nav-text {
-        padding-left: 1.5em;
+    .project-box {
+        width: 100%;
+        height: 500px;
     }
 
-    .logo-col {
-        padding: 0;
+    .projects {
+        display: flex;
+        text-align: center;
+        padding-block-start: 5em !important;
     }
 
+    .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
