@@ -1,10 +1,9 @@
 ---
+import ContactForm from "../../components/contactForm.vue";
 import Navigation from "../../components/navigation.vue";
 import ProjectGallery from "../../components/projectGallery.vue";
-import Footer from "../../components/footer.vue";
-import "bootstrap/dist/css/bootstrap.css";
-import "../../../public/styles/navbar.css";
 import "../../../public/styles/viewProject.css";
+import "../../../public/styles/generalStyles.css";
 import { richTextParser } from "../../js/richTextParser";
 
 const response = await fetch(
@@ -16,11 +15,10 @@ const page = data.find((post) => post.attributes.title === slug);
 if (!page) return Astro.redirect("/404");
 
 const toMark = page.attributes.description;
-const markdownText = richTextParser.convertToMarkdown(toMark);
+const text = richTextParser.convertToMarkdown(toMark);
 const { id, attributes } = page;
 ---
 
-<!DOCTYPE html>
 <html lang="he">
   <head>
     <meta charset="UTF-8" />
@@ -36,37 +34,60 @@ const { id, attributes } = page;
     <title>{attributes.title}</title>
   </head>
   <body>
-    <header>
-      <Navigation client:load />
-    </header>
     <main>
-      <div class="row project-row my-auto">
-        <div class="project-area">
-          <div class="project-desc">
+      <div class="web-template">
+        <div class="navbars">
+          <Navigation client:load />
+        </div>
+        <div class="projects projects-page">
+          <h2>{attributes.title}</h2>
+          <pre><p class="p-line" set:html={text} /></pre>
+          <div class="project-images-gallery">
+            <ProjectGallery project={attributes} client:load />
+          </div>
+        </div>
+        <div class="contact">
+          <ContactForm client:load />
+        </div>
+        <div class="footer">
+          <p>054-4568784</p>
+          <p>Karin Pitlik - Web Development</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<script>
+  const navbar = document.querySelector(".navbars");
+  const logoIcon = document.querySelector(".logo-icon p");
+
+  if (window.scrollY > 0) {
+    navbar.style.background = "white";
+    logoIcon.style.color = "#A0BBC7";
+  } else {
+    navbar.style.background = "transparent";
+    logoIcon.style.color = "black";
+  }
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) {
+      navbar.style.background = "white";
+      logoIcon.style.color = "#A0BBC7";
+    } else {
+      navbar.style.background = "transparent";
+      logoIcon.style.color = "black";
+    }
+  });
+</script>
+
+<!-- ---
+
             <a class="back-btn" href="/projects"
               ><btn
                 ><img src="/images/arrow-right.svg" />בחזרה לעמוד הפרויקטים</btn
               ></a
             >
             <h2>{attributes.title}</h2>
-            <div>
-              <pre><p class="p-line" set:html={markdownText} /></pre>
-              <ProjectGallery project={attributes} client:load />
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <Footer client:load />
-  </body>
-</html>
 
-<script
-  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-  integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
-  crossorigin="anonymous"></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-  integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
-  crossorigin="anonymous"></script>
-<script></script>
+<script></script> -->

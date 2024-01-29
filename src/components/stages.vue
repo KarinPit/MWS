@@ -1,12 +1,8 @@
 <template>
-  <div>
-    <div class="stages" v-if="richTextParser" v-for="(stage, index) in stages" :key="index">
-      <pre class="stage-pre">
+  <pre v-if="richTextParser" v-for="(stage, index) in stages" :key="index" class="stage-pre">
         <h3>{{ stage.title }}</h3>
         <p class="steps" v-html="richTextParser.convertToMarkdown(stage.desc)"></p>
       </pre>
-    </div>
-  </div>
 </template>
 
 <script>

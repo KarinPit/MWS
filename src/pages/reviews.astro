@@ -1,11 +1,10 @@
 ---
 import Navigation from "../components/navigation.vue";
+import ContactForm from "../components/contactForm.vue";
 import ClientReviews from "../components/reviews.vue";
-import "bootstrap/dist/css/bootstrap.css";
-import "../../public/styles/navbar.css";
+import AddReview from "../components/addReview.vue";
 import "../../public/styles/reviews.css";
-import "../../public/styles/mainButtonColor.css";
-import Footer from "../components/footer.vue";
+import "../../public/styles/generalStyles.css";
 ---
 
 <html lang="he">
@@ -23,27 +22,48 @@ import Footer from "../components/footer.vue";
         <title>MWS Design</title>
     </head>
     <body>
-        <header>
-            <Navigation client:load />
-        </header>
         <main>
-            <div class="row review-row text-center my-auto">
-                <div class="reviews">
+            <div class="web-template">
+                <div class="navbars">
+                    <Navigation client:load />
+                </div>
+                <div class="projects">
+                    <div class="add-review">
+                        <AddReview client:load />
+                    </div>
                     <ClientReviews client:load />
+                </div>
+                <div class="contact">
+                    <ContactForm client:load />
+                </div>
+                <div class="footer">
+                    <p>054-4568784</p>
+                    <p>Karin Pitlik - Web Development</p>
                 </div>
             </div>
         </main>
-        <!-- <ContactForm client:load /> -->
     </body>
-    <Footer client:load />
 </html>
 
-<script
-    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-    integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
-    crossorigin="anonymous"></script>
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-    integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
-    crossorigin="anonymous"></script>
-<script></script>
+<script>
+    const navbar = document.querySelector(".navbars");
+    const logoIcon = document.querySelector(".logo-icon p");
+
+    if (window.scrollY > 0) {
+        navbar.style.background = "white";
+        logoIcon.style.color = "#A0BBC7";
+    } else {
+        navbar.style.background = "transparent";
+        logoIcon.style.color = "black";
+    }
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 0) {
+            navbar.style.background = "white";
+            logoIcon.style.color = "#A0BBC7";
+        } else {
+            navbar.style.background = "transparent";
+            logoIcon.style.color = "black";
+        }
+    });
+</script>
