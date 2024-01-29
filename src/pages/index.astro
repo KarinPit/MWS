@@ -162,6 +162,22 @@ res = await loadData();
           }
         }, 2500);
       });
+
+      const startArrow = document.querySelector(".start-arrow");
+      document.addEventListener("DOMContentLoaded", () => {
+        const startArrow = document.querySelector(".start-arrow");
+        if (startArrow) {
+          startArrow.addEventListener("click", function () {
+            scrollToSection(".welcome");
+          });
+        }
+        function scrollToSection(className) {
+          const toDiv = document.querySelector(className);
+          if (toDiv) {
+            toDiv.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
     }
   </script>
 </html>
