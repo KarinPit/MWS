@@ -77,8 +77,8 @@ const { id, attributes } = page;
       </div>
     </main>
   </body>
-  <script define:vars={{ res }}>
-    if (res) {
+  <script define:vars={{ data }}>
+    if (data) {
       window.addEventListener("load", () => {
         setTimeout(() => {
           const loadingScreen = document.querySelector(".loading-screen");
