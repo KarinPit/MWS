@@ -112,6 +112,31 @@ pre {
     height: clamp(20px, 3vw, 30px);
 }
 
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    gap: 20px;
+    opacity: 1;
+    transition: 0.5s opacity ease-out;
+    
+}
+
+.loading-screen img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
 @media screen and (max-width:768px) {
 
     /* Navbar */

@@ -26,10 +26,15 @@ const { data } = await response.json();
       href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <script src="../js/generalScripts.js"></script>
     <title>MWS Design</title>
   </head>
   <body>
     <main>
+      <div class="loading-screen">
+        <!-- <p>מיד מעבירים אותך</p> -->
+        <img src="../../public/images/Loading.gif" alt="Loading gif" />
+      </div>
       <div class="web-template">
         <div class="navbars">
           <Navigation client:load />
@@ -92,21 +97,7 @@ const { data } = await response.json();
   </body>
 
   <script>
-    const navbar = document.querySelector(".navbars");
-    const logoIcon = document.querySelector(".logo-icon p");
     const startArrow = document.querySelector(".start-arrow");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 0) {
-        navbar.style.background = "white";
-        logoIcon.style.color = "#A0BBC7";
-        startArrow.style.opacity = 0;
-      } else {
-        navbar.style.background = "transparent";
-        logoIcon.style.color = "black";
-        startArrow.style.opacity = 1;
-      }
-    });
 
     document.addEventListener("DOMContentLoaded", () => {
       const startArrow = document.querySelector(".start-arrow");
