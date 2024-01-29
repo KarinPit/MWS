@@ -8,13 +8,13 @@
         </div>
         <div class="carousel-button">
             <button class="prev" @click="showPrevImage">
-                <img src="../../public/images/arrow-left.svg">
+                <img src="/images/arrow-left.svg">
                 <!-- <img src="/images/arrow-left.svg"> -->
             </button>
         </div>
         <div class="carousel-button">
             <button class="next" @click="showNextImage">
-                <img src="../../public/images/arrow-right.svg">
+                <img src="/images/arrow-right.svg">
             </button>
         </div>
     </div>
