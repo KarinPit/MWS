@@ -2,19 +2,38 @@
 import ContactForm from "../../components/contactForm.vue";
 import Navigation from "../../components/navigation.vue";
 import ProjectGallery from "../../components/projectGallery.vue";
+import LoadingPage from "../../html/loadingPage.astro";
+import { richTextParser } from "../../js/richTextParser";
 import "../../../public/styles/viewProject.css";
 import "../../../public/styles/generalStyles.css";
-import { richTextParser } from "../../js/richTextParser";
 
-const response = await fetch(
-  "https://mws-data-280b2464bf34.herokuapp.com/api/projects?populate=*"
-);
+var response = null;
+response = await loadData();
 const { data } = await response.json();
 const { slug } = Astro.params;
 const page = data.find((post) => post.attributes.title === slug);
 if (!page) return Astro.redirect("/404");
 
-const toMark = page.attributes.description;
+async function fetchData() {
+  const response = await fetch(
+    "https://mws-data-280b2464bf34.herokuapp.com/api/projects?populate=*"
+  );
+  const { data } = await response.json();
+  return data;
+}
+
+async function loadData() {
+  try {
+    const data = await fetchData();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+var res = null;
+res = await loadData();
+const toMark = res.attributes.description;
 const text = richTextParser.convertToMarkdown(toMark);
 const { id, attributes } = page;
 ---
@@ -36,16 +55,14 @@ const { id, attributes } = page;
   </head>
   <body>
     <main>
-      <div class="loading-screen">
-        <img src="../../public/images/Loading.gif" alt="Loading gif" />
-      </div>
+      <LoadingPage />
       <div class="web-template">
         <div class="navbars">
           <Navigation client:load />
         </div>
         <div class="projects projects-page">
           <h2>{attributes.title}</h2>
-          <pre><p class="p-line" set:html={text} /></pre>
+          <pre><p class="p-line" set:html="{text}" /></pre>
           <div class="project-images-gallery">
             <ProjectGallery project={attributes} client:load />
           </div>

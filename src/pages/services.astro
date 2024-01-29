@@ -3,6 +3,7 @@ import Navigation from "../components/navigation.vue";
 import ContactForm from "../components/contactForm.vue";
 import ProjectGallerySample from "../components/projectGallerySample.vue";
 import ServicesDesc from "../components/services.vue";
+import LoadingPage from "../html/loadingPage.astro";
 import "../../public/styles/services.css";
 import "../../public/styles/generalStyles.css";
 import { getGeneralData } from "../js/navbarNames.js";
@@ -29,9 +30,7 @@ var generalData = getGeneralData().then((data) => {
     </head>
     <body>
         <main>
-            <div class="loading-screen">
-                <img src="../../public/images/Loading.gif" alt="Loading gif" />
-            </div>
+            <LoadingPage/>
             <div class="web-template">
                 <div class="navbars">
                     <Navigation client:load />
@@ -60,4 +59,24 @@ var generalData = getGeneralData().then((data) => {
             </div>
         </main>
     </body>
-</html>../js/NavbarNames
+    <script define:vars={{ generalData }}>
+        if (generalData) {
+            window.addEventListener("load", () => {
+                setTimeout(() => {
+                    const loadingScreen =
+                        document.querySelector(".loading-screen");
+                    if (loadingScreen) {
+                        loadingScreen.style.opacity = 0;
+                        loadingScreen.addEventListener(
+                            "transitionend",
+                            () => {
+                                loadingScreen.style.display = "none";
+                            },
+                            { once: true }
+                        );
+                    }
+                }, 2500);
+            });
+        }
+    </script>
+</html>

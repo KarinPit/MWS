@@ -2,6 +2,7 @@
 import Navigation from "../components/navigation.vue";
 import ContactForm from "../components/contactForm.vue";
 import ProjectGalleryPage from "../components/projectGalleryPage.vue";
+import LoadingPage from "../html/loadingPage.astro";
 import "../../public/styles/projects.css";
 import "../../public/styles/generalStyles.css";
 ---
@@ -23,10 +24,7 @@ import "../../public/styles/generalStyles.css";
     </head>
     <body>
         <main>
-            <div class="loading-screen">
-                <!-- <p>מיד מעבירים אותך</p> -->
-                <img src="../../public/images/Loading.gif" alt="Loading gif" />
-            </div>
+            <LoadingPage />
             <div class="web-template">
                 <div class="navbars">
                     <Navigation client:load />
@@ -44,4 +42,21 @@ import "../../public/styles/generalStyles.css";
             </div>
         </main>
     </body>
+    <script>
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const loadingScreen = document.querySelector(".loading-screen");
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = 0;
+                    loadingScreen.addEventListener(
+                        "transitionend",
+                        () => {
+                            loadingScreen.style.display = "none";
+                        },
+                        { once: true }
+                    );
+                }
+            }, 2500);
+        });
+    </script>
 </html>

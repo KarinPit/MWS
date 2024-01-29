@@ -3,6 +3,7 @@ import Navigation from "../components/navigation.vue";
 import ContactForm from "../components/contactForm.vue";
 import ClientReviews from "../components/reviews.vue";
 import AddReview from "../components/addReview.vue";
+import LoadingPage from "../html/loadingPage.astro";
 import "../../public/styles/reviews.css";
 import "../../public/styles/generalStyles.css";
 ---
@@ -24,9 +25,7 @@ import "../../public/styles/generalStyles.css";
     </head>
     <body>
         <main>
-            <div class="loading-screen">
-                <img src="../../public/images/Loading.gif" alt="Loading gif" />
-            </div>
+            <LoadingPage />
             <div class="web-template">
                 <div class="navbars">
                     <Navigation client:load />
@@ -47,6 +46,21 @@ import "../../public/styles/generalStyles.css";
             </div>
         </main>
     </body>
+    <script>
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const loadingScreen = document.querySelector(".loading-screen");
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = 0;
+                    loadingScreen.addEventListener(
+                        "transitionend",
+                        () => {
+                            loadingScreen.style.display = "none";
+                        },
+                        { once: true }
+                    );
+                }
+            }, 2500);
+        });
+    </script>
 </html>
-
-<script src="../js/generalScripts.js"></script>

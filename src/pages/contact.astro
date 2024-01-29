@@ -1,13 +1,29 @@
 ---
 import Navigation from "../components/navigation.vue";
 import ContactFormPage from "../components/contactFormPage.vue";
+import LoadingPage from "../html/loadingPage.astro";
 import "../../public/styles/contact.css";
 import "../../public/styles/generalStyles.css";
 
-const response = await fetch(
-  "https://mws-data-280b2464bf34.herokuapp.com/api/contact-info"
-);
-const { data } = await response.json();
+async function fetchData() {
+  const response = await fetch(
+    "https://mws-data-280b2464bf34.herokuapp.com/api/contact-info"
+  );
+  const { data } = await response.json();
+  return data;
+}
+
+async function loadData() {
+  try {
+    const data = await fetchData();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+var res = null;
+res = await loadData();
 ---
 
 <html lang="he">
@@ -19,22 +35,19 @@ const { data } = await response.json();
     <link rel="icon" type="image/svg+xml" href="/images/Favicon-new.svg" />
     <title>MWS Studio</title>
     <link
-    href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
     />
     <script
-    async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqYsdKnuV6P-nsHHAJeBNM7jyDABbvbug&callback=initGoogleMap"
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqYsdKnuV6P-nsHHAJeBNM7jyDABbvbug&callback=initGoogleMap"
     ></script>
     <script src="../js/generalScripts.js"></script>
     <title>MWS Design</title>
   </head>
   <body>
     <main>
-      <div class="loading-screen">
-        <!-- <p>מיד מעבירים אותך</p> -->
-        <img src="../../public/images/Loading.gif" alt="Loading gif" />
-      </div>
+      <LoadingPage />
       <div class="web-template">
         <div class="navbars">
           <Navigation client:load />
@@ -56,20 +69,38 @@ const { data } = await response.json();
   </body>
 </html>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    initGoogleMap();
-  });
+<script define:vars={{ res }}>
+  if (res) {
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        const loadingScreen = document.querySelector(".loading-screen");
+        if (loadingScreen) {
+          loadingScreen.style.opacity = 0;
+          loadingScreen.addEventListener(
+            "transitionend",
+            () => {
+              loadingScreen.style.display = "none";
+            },
+            { once: true }
+          );
+        }
+      }, 2500);
+    });
 
-  function initGoogleMap() {
-    var mapDiv = document.getElementById("map-div");
-    if (!mapDiv) return;
+    document.addEventListener("DOMContentLoaded", () => {
+      initGoogleMap();
+    });
 
-    var mapOptions = {
-      center: { lat: 32.2970147571538, lng: 34.914017604840296 },
-      zoom: 15,
-    };
+    function initGoogleMap() {
+      var mapDiv = document.getElementById("map-div");
+      if (!mapDiv) return;
 
-    var map = new google.maps.Map(mapDiv, mapOptions);
+      var mapOptions = {
+        center: { lat: 32.2970147571538, lng: 34.914017604840296 },
+        zoom: 15,
+      };
+
+      var map = new google.maps.Map(mapDiv, mapOptions);
+    }
   }
 </script>

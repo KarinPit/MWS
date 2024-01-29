@@ -1,3 +1,4 @@
+
 const startArrow = document.querySelector(".start-arrow");
 const navbar = document.querySelector(".navbars");
 const logoIcon = document.querySelector(".logo-icon p");
@@ -20,20 +21,6 @@ window.addEventListener("scroll", () => {
         logoIcon.style.color = "black";
         showStartArrow()
     }
-});
-
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        const loadingScreen = document.querySelector(".loading-screen");
-        if (loadingScreen) {
-            loadingScreen.style.opacity = 0;
-
-            // Wait for the transition to end before setting display to 'none'
-            loadingScreen.addEventListener('transitionend', () => {
-                loadingScreen.style.display = "none";
-            }, { once: true });
-        }
-    }, 2500);
 });
 
 function hideStartArrow() {
