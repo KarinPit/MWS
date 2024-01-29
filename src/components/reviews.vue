@@ -1,5 +1,5 @@
 <template>
-    <h2>{{ navNames.Reviews }}</h2>
+    <h1>{{ navNames.Reviews }}</h1>
     <div class="review" v-for="(review, index) in sortedReviews" :key="index">
         <div class="review-image">
             <img :src=review.image>

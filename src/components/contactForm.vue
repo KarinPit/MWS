@@ -1,6 +1,8 @@
 <template>
     <div class="logo">
-        <img :src=info.logoUrl alt="MWS Logo" />
+        <a href="/">
+            <img :src=info.logoUrl alt="MWS Logo" />
+        </a>
     </div>
     <div class="contact-info">
         <h2>צרו קשר</h2>
@@ -31,7 +33,8 @@
             <label for="name">שם מלא</label>
             <input type="text" v-model="name" placeholder="שם מלא" required />
             <label for="phone">טלפון</label>
-            <input type="tel" v-model="phone" placeholder="טלפון" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required />
+            <input type="tel" v-model="phone" placeholder="טלפון" pattern="(\+?\d{1,3})?(\d{3})-?(\d{3})-?(\d{4})"
+                required />
             <label for="email">מייל</label>
             <input type="email" v-model="email" placeholder="מייל" />
             <input class="submit-button" type="submit" value="שלח" />

@@ -1,5 +1,5 @@
 <template>
-  <h2 v-if="navNames">{{ navNames.Blog }}</h2>
+  <h1 v-if="navNames">{{ navNames.Blog }}</h1>
   <div class="all-projects">
     <div class="project-box" v-for="(project, index) in mainProjects" :key="index">
       <a class="project-name" :href="`/blog/${project.name}`">{{ project.name }}</a>
