@@ -2,13 +2,14 @@
   <button class="add-review-button" @click="showPopup = true">הוסף ביקורת</button>
   <transition name="fade" appear>
     <div v-if="showPopup">
-      <div class="popup-overlay" @click="closePopup"></div>
-      <div class="popup-menu">
-        <button type="button" id="close-btn" @click="closePopup" class="btn-close" aria-label="Close"></button>
-        <div class="popup-content">
-          <input type="text" id="customerName" v-model="customerName" placeholder="הכנס שם הלקוח" required>
-          <textarea id="reviewText" v-model="reviewText" placeholder="כתוב את ביקורתך כאן" required></textarea>
-          <button id="send-btn" class="white-btn mainBackground" @click="submitReview">שלח!</button>
+      <div class="popup-overlay" @click.self="closePopup">
+        <div class="popup-menu" ref="popupElement">
+          <div class="popup-content">
+            <button class="close-button" type="button" @click="closePopup" aria-label="Close">x</button>
+            <input type="text" id="customerName" v-model="customerName" placeholder="הכנס שם הלקוח" required>
+            <textarea id="reviewText" v-model="reviewText" placeholder="כתוב את ביקורתך כאן" required></textarea>
+            <button class="send-button" @click="submitReview">שלח</button>
+          </div>
         </div>
       </div>
     </div>
@@ -22,17 +23,19 @@ export default {
   data() {
     return {
       showPopup: false,
-      customerName: '', // Added field for customer name
+      customerName: '',
       reviewText: '',
-      reviewJson: '',
       apiUrl: 'https://mws-data-280b2464bf34.herokuapp.com/api/reviews'
     };
   },
   methods: {
-    closePopup() {
-      this.showPopup = false;
-      this.customerName = ''; // Clear customer name
-      this.reviewText = '';
+    closePopup(event) {
+      // Close the popup if the click is outside the popup content or on the close button
+      if (!this.$refs.popupElement || !this.$refs.popupElement.contains(event.target) || event.target.classList.contains('close-button')) {
+        this.showPopup = false;
+        this.customerName = '';
+        this.reviewText = '';
+      }
     },
     submitReview() {
       if (this.customerName.trim() === '' || this.reviewText.trim() === '') {
@@ -40,25 +43,26 @@ export default {
         return;
       }
 
-      this.reviewJson = {
+      const reviewData = {
         "data": {
           title: this.customerName,
           content: this.reviewText,
           publishedAt: null
         }
-      }
+      };
+
       axios
-        .post(this.apiUrl, this.reviewJson)
-        .then((reviewJson) => {
-          console.log('New entry added:', reviewJson);
+        .post(this.apiUrl, reviewData)
+        .then((response) => {
+          console.log('New entry added:', response.data);
           this.closePopup();
-          // Handle success, e.g., display a success message or perform other actions
+          // Handle success, e.g., display a success message
         })
         .catch((error) => {
           console.error('Error adding new entry:', error);
-          // Handle errors, e.g., display an error message or perform error-specific actions
+          // Handle errors, e.g., display an error message
         });
-    },
-  },
+    }
+  }
 };
 </script>

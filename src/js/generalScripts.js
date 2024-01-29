@@ -1,4 +1,3 @@
-
 const startArrow = document.querySelector(".start-arrow");
 const navbar = document.querySelector(".navbars");
 const logoIcon = document.querySelector(".logo-icon p");
