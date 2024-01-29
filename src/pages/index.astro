@@ -1,10 +1,11 @@
 ---
 import Navigation from "../components/navigation.vue";
 import Carousel from "../components/carousel.vue";
-import "../../public/styles/index.css";
 import ProjectGallerySample from "../components/projectGallerySample.vue";
-import { richTextParser } from "../js/richTextParser";
 import ContactForm from "../components/contactForm.vue";
+import LoadingPage from "../html/loadingPage.astro";
+import { richTextParser } from "../js/richTextParser";
+import "../../public/styles/index.css";
 import "../../public/styles/generalStyles.css";
 
 async function getTitles() {
@@ -20,20 +21,32 @@ async function getTitles() {
   }
 }
 
-var generalData = await getTitles().then((data) => {
-  const titles = {
-    title1: data.mainDescriptionTitle,
-    title2: data.aboutMeDescriptionTitle,
-  };
+async function fetchData() {
+  const response = await fetch(
+    "https://mws-data-280b2464bf34.herokuapp.com/api/home-page"
+  );
+  const { data } = await response.json();
+  return data;
+}
 
-  return titles;
-});
+async function loadData() {
+  try {
+    const generalData = await fetchData();
+    const data = await getTitles();
+    const titles = {
+      title1: generalData.attributes.mainDescriptionTitle,
+      title2: generalData.attributes.aboutMeDescriptionTitle,
+    };
+    await Promise.all([generalData, data]);
+    const res = { titles: titles, data: data };
+    return res;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
 
-const response = await fetch(
-  "https://mws-data-280b2464bf34.herokuapp.com/api/home-page"
-);
-
-const { data } = await response.json();
+var res = null;
+res = await loadData();
 ---
 
 <html lang="he">
@@ -53,9 +66,7 @@ const { data } = await response.json();
   </head>
   <body>
     <main>
-      <div class="loading-screen">
-        <img src="../../public/images/Loading.gif" alt="Loading gif" />
-      </div>
+      <LoadingPage />
       <div class="web-template">
         <div class="navbars">
           <Navigation client:load />
@@ -77,8 +88,8 @@ const { data } = await response.json();
         <div class="welcome">
           <div class="text-col">
             <pre>
-              <h1>{generalData.title1}</h1>
-              <p set:html={richTextParser.convertToMarkdown(data.attributes.mainDescription)} />
+              <h1>{res.titles.title1}</h1>
+              <p set:html={richTextParser.convertToMarkdown(res.data.mainDescription)} />
               <button class="default-button" onclick="location.href='/contact'">צרו קשר</button>
             </pre>
           </div>
@@ -90,8 +101,8 @@ const { data } = await response.json();
         <div class="about">
           <div class="text-col">
             <pre>
-              <h1>{generalData.title2}</h1>
-              <p set:html={richTextParser.convertToMarkdown(data.attributes.aboutMeDescription)} />
+              <h1>{res.titles.title2}</h1>
+              <p set:html={richTextParser.convertToMarkdown(res.data.aboutMeDescription)} />
               <button class="default-button" onclick="location.href='/about'">קראו עוד עלי</button>
             </pre>
           </div>
@@ -134,24 +145,23 @@ const { data } = await response.json();
       </div>
     </main>
   </body>
-
-  <script>
-    const startArrow = document.querySelector(".start-arrow");
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const startArrow = document.querySelector(".start-arrow");
-      if (startArrow) {
-        startArrow.addEventListener("click", function () {
-          scrollToSection(".welcome");
-        });
-      }
-
-      function scrollToSection(className) {
-        const toDiv = document.querySelector(className);
-        if (toDiv) {
-          toDiv.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-    });
+  <script define:vars={{ res }}>
+    if (res) {
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          const loadingScreen = document.querySelector(".loading-screen");
+          if (loadingScreen) {
+            loadingScreen.style.opacity = 0;
+            loadingScreen.addEventListener(
+              "transitionend",
+              () => {
+                loadingScreen.style.display = "none";
+              },
+              { once: true }
+            );
+          }
+        }, 2500);
+      });
+    }
   </script>
 </html>
