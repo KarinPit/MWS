@@ -1,5 +1,5 @@
 <template>
-  <button class="add-review-button" @click="showPopup = true">הוסף ביקורת</button>
+  <button class="add-review-button" @click="showPopup = true"><p>הוסף ביקורת</p></button>
   <transition name="fade" appear>
     <div v-if="showPopup">
       <div class="popup-overlay" @click.self="closePopup">

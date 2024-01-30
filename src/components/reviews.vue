@@ -1,8 +1,11 @@
 <template>
-    <h1>{{ navNames.Reviews }}</h1>
+    <div class="reviews-header">
+        <h1>{{ navNames.Reviews }}</h1>
+        <addReview></addReview>
+    </div>
     <div class="review" v-for="(review, index) in sortedReviews" :key="index">
         <div class="review-image">
-            <img :src=review.image>
+            <img :src=review.image :style="getImageStyle(review)">
         </div>
         <div class="review-text">
             <h3>{{ review.title }}</h3>
@@ -12,7 +15,7 @@
 </template>
   
 <script>
-
+import addReview from './addReview.vue';
 export default {
     data() {
         return {
@@ -49,11 +52,22 @@ export default {
             const reviews = data.map((review) => ({
                 title: review.attributes.title,
                 description: review.attributes.content.map((child) => child.children.map((children) => children.text)).flat().join(' '),
-                image: review.attributes.image.data.attributes.url
+                image: review.attributes.image.data.attributes.url,
+                objectPosition: review.attributes.objectPosition,
             }));
             return reviews;
         },
+
+        getImageStyle(review) {
+            const objectPosition = review.objectPosition || "50% 50%";
+            return {
+                objectPosition: objectPosition
+            };
+        },
     },
+    components: {
+        addReview,
+    }
 };
 
 
