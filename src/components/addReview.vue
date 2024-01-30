@@ -31,13 +31,16 @@ export default {
     };
   },
   methods: {
+    forceClosePopup() {
+      this.showPopup = false;
+      this.customerName = '';
+      this.reviewText = '';
+    },
+
     closePopup(event) {
       // Close the popup if the click is outside the popup content or on the close button
       if (!this.$refs.popupElement || !this.$refs.popupElement.contains(event.target) || event.target.classList.contains('close-button')) {
-        this.showPopup = false;
-        this.closePopup = true;
-        this.customerName = '';
-        this.reviewText = '';
+        this.forceClosePopup();
       }
     },
     submitReview() {
@@ -57,8 +60,7 @@ export default {
       axios
         .post(this.apiUrl, reviewData)
         .then((response) => {
-          this.closePopup();
-          console.log('closed popup');
+          forceClosePopup()
         })
         .catch((error) => {
           console.error('Error adding new entry:', error);
