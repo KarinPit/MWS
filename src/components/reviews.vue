@@ -9,13 +9,14 @@
         </div>
         <div class="review-text">
             <h3>{{ review.title }}</h3>
-            <p>{{ review.description }}</p>
+            <p v-html="richTextParser.convertToMarkdown(review.description)"></p>
         </div>
     </div>
 </template>
   
 <script>
 import addReview from './addReview.vue';
+import { richTextParser } from "../js/richTextParser";
 export default {
     data() {
         return {
@@ -27,6 +28,7 @@ export default {
         // Fetch the data when the component is created
         this.reviews = await this.getReviews();
         this.navNames = await fetchNavNames();
+        this.richTextParser = richTextParser;
     },
     computed: {
         sortedReviews() {
@@ -51,7 +53,7 @@ export default {
             const { data } = await response.json();
             const reviews = data.map((review) => ({
                 title: review.attributes.title,
-                description: review.attributes.content.map((child) => child.children.map((children) => children.text)).flat().join(' '),
+                description: review.attributes.content,
                 image: review.attributes.image.data.attributes.url,
                 objectPosition: review.attributes.objectPosition,
             }));
