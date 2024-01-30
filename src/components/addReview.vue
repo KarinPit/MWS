@@ -1,5 +1,7 @@
 <template>
-  <button class="add-review-button" @click="showPopup = true"><p>הוסף ביקורת</p></button>
+  <button class="add-review-button" @click="showPopup = true">
+    <p>הוסף ביקורת</p>
+  </button>
   <transition name="fade" appear>
     <div v-if="showPopup">
       <div class="popup-overlay" @click.self="closePopup">
@@ -46,10 +48,12 @@ export default {
       const reviewData = {
         "data": {
           title: this.customerName,
-          content: this.reviewText,
+          reviewContent: this.reviewText,
           publishedAt: null
         }
       };
+
+      console.log(reviewData);
 
       axios
         .post(this.apiUrl, reviewData)
