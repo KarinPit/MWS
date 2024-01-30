@@ -35,6 +35,7 @@ export default {
       // Close the popup if the click is outside the popup content or on the close button
       if (!this.$refs.popupElement || !this.$refs.popupElement.contains(event.target) || event.target.classList.contains('close-button')) {
         this.showPopup = false;
+        this.closePopup = true;
         this.customerName = '';
         this.reviewText = '';
       }
@@ -60,7 +61,6 @@ export default {
         .then((response) => {
           console.log('New entry added:', response.data);
           this.closePopup();
-          // Handle success, e.g., display a success message
         })
         .catch((error) => {
           console.error('Error adding new entry:', error);
