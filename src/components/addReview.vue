@@ -60,7 +60,7 @@ export default {
       axios
         .post(this.apiUrl, reviewData)
         .then((response) => {
-          forceClosePopup()
+          this.forceClosePopup()
         })
         .catch((error) => {
           console.error('Error adding new entry:', error);
