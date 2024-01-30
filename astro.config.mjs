@@ -1,7 +1,5 @@
 import { defineConfig } from 'astro/config';
 import vue from "@astrojs/vue";
-import netlify from '@astrojs/netlify/functions';
-
 import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
