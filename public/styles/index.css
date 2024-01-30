@@ -60,7 +60,7 @@
 
     .carousel-images img {
         width: 100%;
-        height: 100dvh;
+        height: 100vh;
         object-fit: cover;
     }
 
@@ -212,7 +212,7 @@
 
     .carousel-images img {
         width: 100%;
-        height: 100dvh;
+        height: 100vh;
         object-fit: cover;
     }
 
