@@ -14,13 +14,20 @@
 
     /*  Add Review Section */
 
+    .reviews-header {
+        position: relative;
+    }
+
     .add-review-button {
+        width: fit-content;
         padding: 0.2em 1em;
         margin-right: 1em;
-        font-size: 1.2em;
         font-weight: 300;
         border: none;
         color: black;
+        background: #A0BBC7;
+        font-weight: 500;
+        cursor: pointer;
     }
 
     .fade-enter-active,
@@ -404,18 +411,6 @@
         .review-image {
             width: 30%;
             height: 100%;
-        }
-
-        /*  Add Review Section */
-
-        .add-review {
-            position: absolute;
-            top: 1.5%;
-            left: 12.6%;
-            width: fit-content;
-            height: 20px;
-            margin-block-start: 100px;
-            z-index: 2;
         }
 
     }

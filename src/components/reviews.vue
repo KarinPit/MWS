@@ -1,5 +1,8 @@
 <template>
-    <h1>{{ navNames.Reviews }}</h1>
+    <div class="reviews-header">
+        <h1>{{ navNames.Reviews }}</h1>
+        <addReview></addReview>
+    </div>
     <div class="review" v-for="(review, index) in sortedReviews" :key="index">
         <div class="review-image">
             <img :src=review.image :style="getImageStyle(review)">
@@ -12,7 +15,7 @@
 </template>
   
 <script>
-
+import addReview from './addReview.vue';
 export default {
     data() {
         return {
@@ -62,6 +65,9 @@ export default {
             };
         },
     },
+    components: {
+        addReview,
+    }
 };
 
 

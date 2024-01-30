@@ -38,10 +38,6 @@ res = await loadData();
       href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <script
-      async
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqYsdKnuV6P-nsHHAJeBNM7jyDABbvbug&callback=initGoogleMap"
-    ></script>
     <script src="../js/generalScripts.js"></script>
     <title>MWS Design</title>
   </head>
@@ -70,6 +66,8 @@ res = await loadData();
 </html>
 
 <script define:vars={{ res }}>
+  var gMap;
+
   if (res) {
     window.addEventListener("load", () => {
       setTimeout(() => {
@@ -87,20 +85,36 @@ res = await loadData();
       }, 2500);
     });
 
-    document.addEventListener("DOMContentLoaded", () => {
-      initGoogleMap();
+    _connectGoogleApi();
+    initMap()
+  }
+
+  async function _connectGoogleApi() {
+    const API_KEY = "AIzaSyAqYsdKnuV6P-nsHHAJeBNM7jyDABbvbug";
+    if (window.google) return Promise.resolve();
+    var elGoogleApi = document.createElement("script");
+    elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`;
+    elGoogleApi.async = true;
+    document.body.append(elGoogleApi);
+
+    return new Promise((resolve, reject) => {
+      elGoogleApi.onload = resolve;
+      elGoogleApi.onerror = () => reject("Google script failed to load");
     });
+  }
 
-    function initGoogleMap() {
-      var mapDiv = document.getElementById("map-div");
-      if (!mapDiv) return;
-
-      var mapOptions = {
-        center: { lat: 32.2970147571538, lng: 34.914017604840296 },
+  async function initMap(lat = 32.297459982, lng = 34.91348178) {
+    console.log("InitMap");
+    return _connectGoogleApi().then(() => {
+      console.log("google available");
+      gMap = new google.maps.Map(document.querySelector("#map-div"), {
+        center: { lat, lng },
         zoom: 15,
-      };
-
-      var map = new google.maps.Map(mapDiv, mapOptions);
-    }
+      });
+      let loc = gMap.center.toJSON();
+      fetchData.getAddress(getAddressUrl(loc), fetchData.showAddress);
+      showWeather(loc);
+      console.log("Map!", gMap);
+    });
   }
 </script>
