@@ -93,9 +93,14 @@ export default {
         };
     },
     async created() {
-        this.navNames = await fetchNavNames();
-        this.phoneNumber = await getPhoneNumber();
-        this.isActiveLink()
+        try {
+            this.navNames = await fetchNavNames();
+            this.phoneNumber = await getPhoneNumber();
+            this.isActiveLink()
+        } catch (error) {
+            console.error('Error fetching navigation names:', error);
+            // Handle the error appropriately
+        }
     },
 
     mounted() {
@@ -177,12 +182,12 @@ async function fetchNavNames() {
     try {
         const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/navigation-name");
         const { data } = await response.json();
-        return data.attributes
+        return data.attributes;
     } catch (error) {
         console.error('Error fetching data:', error);
+        throw error;
     }
 }
-
 async function getPhoneNumber() {
     try {
         const phoneNumber = (await contactForm.data().GetContactInfo()).phoneNumber;
@@ -190,6 +195,7 @@ async function getPhoneNumber() {
     }
     catch (error) {
         console.error('Error fetching data:', error);
+        throw error;
     }
 }
 </script>
