@@ -86,7 +86,7 @@ res = await loadData();
     });
 
     _connectGoogleApi();
-    initMap()
+    initMap();
   }
 
   async function _connectGoogleApi() {
@@ -114,7 +114,7 @@ res = await loadData();
       let loc = gMap.center.toJSON();
       fetchData.getAddress(getAddressUrl(loc), fetchData.showAddress);
       showWeather(loc);
-      console.log("Map!", gMap);
+      console.log("Map Loaded!", gMap);
     });
   }
 </script>
