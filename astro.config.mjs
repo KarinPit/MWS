@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import vue from "@astrojs/vue";
 import netlify from '@astrojs/netlify/functions';
 
+import vercel from "@astrojs/vercel/serverless";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [vue()],
@@ -10,5 +12,5 @@ export default defineConfig({
     port: parseInt(process.env.PORT, 10) || 3000
   },
   output: 'server',
-  adapter: netlify()
+  adapter: vercel()
 });
