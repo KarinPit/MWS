@@ -74,7 +74,7 @@
     </div>
 
     <button class="menu-button" @click="toggleMenu">
-        <img src="../../public/images/list.svg">
+        <img src="/images/list.svg">
     </button>
 </template>
 
