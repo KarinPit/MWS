@@ -54,17 +54,14 @@ export default {
         }
       };
 
-      console.log(reviewData);
-
       axios
         .post(this.apiUrl, reviewData)
         .then((response) => {
-          console.log('New entry added:', response.data);
           this.closePopup();
+          console.log('closed popup');
         })
         .catch((error) => {
           console.error('Error adding new entry:', error);
-          // Handle errors, e.g., display an error message
         });
     }
   }
