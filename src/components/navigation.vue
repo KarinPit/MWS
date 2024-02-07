@@ -57,7 +57,7 @@
             <p>{{ phoneNumber }}</p>
         </a>
         <a class="icon logo-icon" href="/">
-            <p>MWS Studio</p>
+            <img src="../../public/images/Logo_Moran_new2.png" alt="MWS logo">
         </a>
     </div>
 
