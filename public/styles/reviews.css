@@ -6,6 +6,7 @@
     }
 
     h3 {
+        font-size: clamp(18px, 1.3vw, 26px) !important;
         margin-block-start: 0;
         margin-block-end: -1.2em;
         text-align: center;
@@ -379,8 +380,7 @@
             justify-content: center;
             align-items: center;
             width: 80vw;
-            min-height: 60vh;
-            max-height: 70vh;
+            min-height: 75vh;
             margin: 2em auto;
             gap: 30px;
         }
