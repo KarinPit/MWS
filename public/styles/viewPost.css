@@ -3,14 +3,14 @@
         position: relative;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 100px 1fr 0.1fr 100px;
+        grid-template-rows: 1fr 0.1fr 100px;
         grid-template-areas:
-            "navbars"
             "projects"
             "contact"
             "footer"
         ;
         place-items: center;
+        height: 100vh;
     }
 
     .navbars {
@@ -46,7 +46,9 @@
         }
 
         .projects-page {
+            margin-block-start: 150px;
             text-align: justify;
+            height: fit-content !important;
         }
 
         .projects {
@@ -83,7 +85,9 @@
         }
 
         .projects-page {
+            margin-block-start: 150px;
             text-align: justify;
+            height: fit-content !important;
         }
 
         .projects {
@@ -119,6 +123,8 @@
         }
 
         .projects-page {
+            height: fit-content !important;
+            margin-block-start: 150px;
             text-align: justify;
         }
 

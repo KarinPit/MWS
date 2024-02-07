@@ -39,7 +39,7 @@
     .fade-leave-to {
         opacity: 1;
     }
-    
+
     .centered-popup {
         position: fixed;
         top: 0;
@@ -198,7 +198,6 @@
 
         .review-text p {
             text-align: justify;
-            font-size: clamp(12px, 3vw, 22px);
         }
 
         .review-image {
@@ -233,7 +232,7 @@
         .projects {
             display: flex;
             text-align: center;
-            padding-block-start: 9em !important;
+            margin-block-start: 150px !important;
         }
 
         .project-image img {
@@ -250,13 +249,14 @@
             position: relative;
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 0.1fr 100px;
+            grid-template-rows: 1.5fr 0.1fr 100px;
             grid-template-areas:
                 "projects"
                 "contact"
                 "footer"
             ;
             place-items: center;
+            height: 100vh;
         }
 
         .web-template>* {
@@ -292,19 +292,18 @@
 
         .review-text {
             align-self: start;
-            width: 50%;
+            width: 70%;
             height: 100%;
             background: rgb(236, 236, 236);
-            padding: 50px;
+            padding: 20px;
         }
 
         .review-text p {
-            font-size: clamp(12px, 1.8vw, 22px);
             text-align: justify;
         }
 
         .review-image {
-            width: 40%;
+            width: 30%;
             height: 100%;
         }
 
@@ -335,7 +334,7 @@
         .projects {
             display: flex;
             text-align: center;
-            padding-block-start: 9em !important;
+            margin-block-start: 300px !important;
         }
 
         .project-image img {
@@ -368,7 +367,7 @@
         }
 
         .projects {
-            margin-block-start: 100px;
+            margin-block-start: 150px !important;
             justify-content: start !important;
         }
 
@@ -406,7 +405,6 @@
         }
 
         .review-text p {
-            font-size: clamp(12px, 1.8vw, 22px);
             text-align: justify;
         }
 

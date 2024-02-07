@@ -2,7 +2,7 @@
     <div class="all-projects">
         <div class="project-box" v-for="(project, index) in selectedProjects" :key="index" @mouseover="toggleHovered(index)"
             @mouseout="toggleHovered(-1)">
-            <a class="project-name" :href="`/projects/${project.name}`">{{ project.name }}</a>
+            <a class="project-name" :href="`/projects/${project.name}`"><p>{{ project.name }}</p></a>
             <a :href="`/projects/${project.name}`">
                 <img class="project-image" :src="baseUrl + project.imageUrl" alt="designed house example" />
             </a>

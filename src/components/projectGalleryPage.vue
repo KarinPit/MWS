@@ -2,7 +2,7 @@
     <h1 v-if="navNames">{{ navNames.Projects }}</h1>
     <div class="all-projects">
         <div class="project-box" v-for="(project, index) in mainProjects" :key="index">
-            <a class="project-name" :href="`/projects/${project.name}`">{{ project.name }}</a>
+            <a class="project-name" :href="`/projects/${project.name}`"><p>{{ project.name }}</p></a>
             <a class="project-image" :href="`/projects/${project.name}`">
                 <img :src="baseUrl + project.imageUrl" alt="designed house example" />
             </a>
