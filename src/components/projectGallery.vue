@@ -4,7 +4,7 @@
         <img class="project-image" :src="baseUrl + image.url" alt="designed house example" />
     </a>
 
-    <vue-easy-lightbox :visible="lightboxVisible" :imgs="lightboxImages" :index="lightboxIndex"
+    <vue-easy-lightbox :visible="lightboxVisible" :imgs="lightboxImages" :index="lightboxIndex" :moveDisabled="true"
         @hide="hideLightbox"></vue-easy-lightbox>
 </template>
 
