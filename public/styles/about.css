@@ -28,8 +28,6 @@
         }
 
         h3 {
-            margin-block-start: 0;
-            margin-block-end: -2.4em;
             text-align: center;
         }
 
@@ -121,8 +119,9 @@
         }
 
         .stages pre {
+            height: fit-content;
             text-align: justify;
-            margin: 0 auto -5em auto;
+            margin: 0 auto;
             padding-block-start: 2em;
         }
     }
@@ -136,8 +135,6 @@
         }
 
         h3 {
-            margin-block-start: 0;
-            margin-block-end: -2em;
             text-align: center;
         }
 
@@ -232,7 +229,7 @@
             text-align: justify;
             width: 70%;
             font-size: 1.5em;
-            margin: 0 auto -2em auto;
+            margin: 0 auto;
             padding-block-start: 2em;
         }
     }
@@ -246,8 +243,6 @@
         }
 
         h3 {
-            margin-block-start: 0;
-            margin-block-end: -1em;
             text-align: center;
         }
 
@@ -316,6 +311,7 @@
         /* Stages */
         .stages {
             display: flex;
+            flex-direction: column;
             grid-area: stages;
             justify-content: center;
             align-items: center;
@@ -325,7 +321,7 @@
 
         .stages-box {
             width: 80%;
-            height: 100%;
+            height: fit-content;
             padding: 3em;
             background: white;
         }
@@ -334,7 +330,7 @@
             text-align: justify;
             width: 70%;
             font-size: 1.5em;
-            margin: 0 auto -2em auto;
+            margin: 0 auto;
             padding-block-start: 2em;
         }
 

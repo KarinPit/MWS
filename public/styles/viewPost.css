@@ -35,10 +35,14 @@
             text-align: center;
         }
 
+        ul {
+            padding-right: 10px;
+        }
+
         /* Project Page View */
 
         .projects-page pre {
-            width: 80%;
+            width: 80vw;
             min-height: 700px;
             margin: 0 auto;
             background: rgb(241, 240, 240);
@@ -46,7 +50,7 @@
         }
 
         .projects-page {
-            margin-block-start: 150px;
+            margin-block-start: 180px;
             text-align: justify;
             height: fit-content !important;
         }
@@ -85,7 +89,7 @@
         }
 
         .projects-page {
-            margin-block-start: 150px;
+            margin-block-start: 180px;
             text-align: justify;
             height: fit-content !important;
         }

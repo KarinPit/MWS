@@ -29,7 +29,7 @@
             </a>
             <div class="dropdown-content">
                 <a id="about" class="nav-link" :class="{ 'active-link': isActiveLink('/about') }" href="/about">
-                    <span class="nav-link-span dropdown-link">עלי</span>
+                    <span class="nav-link-span dropdown-link">אודות</span>
                 </a>
                 <a id="services" class="nav-link" :class="{ 'active-link': isActiveLink('/services') }" href="/services">
                     <span class="nav-link-span dropdown-link">{{ navNames.services }}</span>
