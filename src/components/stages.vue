@@ -2,6 +2,7 @@
   <pre v-if="richTextParser" v-for="(stage, index) in stages" :key="index" class="stage-pre">
         <h3>{{ stage.title }}</h3>
         <p class="steps" v-html="richTextParser.convertToMarkdown(stage.desc)"></p>
+        <button v-if="stage.title === 'תוכניות ליווי'">למידע נוסף</button>
       </pre>
 </template>
 

@@ -68,7 +68,9 @@ function convertToMarkdown(content) {
         }
         if (paragraph.type === "image") {
             let url = paragraph.image.url;
-            text += `<img src="${url}">`;
+            text += `<div class="image-container">
+                        <img class="pre-image" src="${url}">
+                    </div>`;
         }
         text += `<p>${formattedLine}</p>`;
     });

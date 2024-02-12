@@ -32,11 +32,7 @@
         grid-area: carsl;
     }
 
-    .welcome {
-        grid-area: welcome;
-        background: #A0BBC7 !important;
-    }
-
+    
     .welcome,
     .about {
         display: flex;
@@ -47,7 +43,13 @@
         background: rgb(255, 255, 255);
         padding: 0 0 5em 0;
     }
-
+    
+    .welcome {
+        grid-area: welcome;
+        background: #A0BBC7 !important;
+        padding: 3em 0 5em 0;
+    }
+    
     .about {
         grid-area: about;
         background: white;
@@ -185,11 +187,6 @@
         grid-area: carsl;
     }
 
-    .welcome {
-        grid-area: welcome;
-        background: #A0BBC7 !important;
-    }
-
     .welcome,
     .about {
         display: flex;
@@ -199,6 +196,12 @@
         height: 100%;
         background: rgb(255, 255, 255);
         padding: 0 0 5em 0;
+    }
+
+    .welcome {
+        grid-area: welcome;
+        background: #A0BBC7 !important;
+        padding: 3em 0 5em 0;
     }
 
     .about {

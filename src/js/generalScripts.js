@@ -3,21 +3,13 @@ const startArrow = document.querySelector(".start-arrow");
 const navbar = document.querySelector(".navbars");
 // const logoIcon = document.querySelector(".logo-icon p");
 
-if (window.scrollY > 0) {
-    navbar.style.background = "white";
-    // logoIcon.style.color = "#A0BBC7";
-} else {
-    navbar.style.background = "transparent";
-    // logoIcon.style.color = "black";
-}
-
 window.addEventListener("scroll", () => {
     if (window.scrollY > 0) {
-        navbar.style.background = "white";
+        // navbar.style.background = "white";
         // logoIcon.style.color = "#A0BBC7";
         hideStartArrow()
     } else {
-        navbar.style.background = "transparent";
+        // navbar.style.background = "transparent";
         // logoIcon.style.color = "black";
         showStartArrow()
     }
