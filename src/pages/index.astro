@@ -2,6 +2,7 @@
 import Navigation from "../components/navigation.vue";
 import Carousel from "../components/carousel.vue";
 import ProjectGallerySample from "../components/projectGallerySample.vue";
+import ServiceGallery from "../components/serviceGallery.vue";
 import ContactForm from "../components/contactForm.vue";
 import LoadingPage from "../html/loadingPage.astro";
 import { richTextParser } from "../js/richTextParser";
@@ -121,21 +122,7 @@ const aboutMeImage =
         </div>
 
         <div class="services">
-          <h1>תוכניות הליווי שלי</h1>
-          <div class="service-option-menu">
-            <div class="service-option">
-              <img src="/images/כפר הס-41.jpg" />
-              <p>תוכנית ליווי 1</p>
-            </div>
-            <div class="service-option">
-              <img src="/images/כפר הס-41.jpg" />
-              <p>תוכנית ליווי 2</p>
-            </div>
-            <div class="service-option">
-              <img src="/images/כפר הס-41.jpg" />
-              <p>תוכנית ליווי 3</p>
-            </div>
-          </div>
+          <ServiceGallery client:load />
         </div>
 
         <div class="projects">
