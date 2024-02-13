@@ -2,11 +2,11 @@
     <h1 v-if="navNames">{{ navNames.services }}</h1>
     <div class="all-projects">
         <div class="project-box" v-for="(project, index) in mainProjects" :key="index">
-            <a class="project-name" :href="`/projects/${project.name}`">
+            <a class="project-name" :href="`/services/${project.name}`">
                 <h4>{{ project.name }}</h4>
                 <!-- <p class="summary-text" v-html="richTextParser.convertToMarkdown(project.summary)"></p> -->
             </a>
-            <a class="project-image" :href="`/projects/${project.name}`">
+            <a class="project-image" :href="`/services/${project.name}`">
                 <img :src="baseUrl + project.imageUrl" alt="designed house example" />
             </a>
         </div>
