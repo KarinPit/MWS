@@ -1,8 +1,11 @@
 <template>
-    <h1 v-if="navNames">{{ navNames.Projects }}</h1>
+    <h1 v-if="navNames">{{ navNames.services }}</h1>
     <div class="all-projects">
         <div class="project-box" v-for="(project, index) in mainProjects" :key="index">
-            <a class="project-name" :href="`/projects/${project.name}`"><h4>{{ project.name }}</h4></a>
+            <a class="project-name" :href="`/projects/${project.name}`">
+                <h4>{{ project.name }}</h4>
+                <!-- <p class="summary-text" v-html="richTextParser.convertToMarkdown(project.summary)"></p> -->
+            </a>
             <a class="project-image" :href="`/projects/${project.name}`">
                 <img :src="baseUrl + project.imageUrl" alt="designed house example" />
             </a>
@@ -12,6 +15,7 @@
 
 <script>
 import navNames from './navigation.vue';
+import { richTextParser } from "../js/richTextParser";
 
 export default {
     data() {
@@ -25,17 +29,19 @@ export default {
     async created() {
         this.mainProjects = await this.GetProjects();
         this.navNames = await fetchNavNames();
+        this.richTextParser = richTextParser;
     },
     methods: {
         toggleHovered(index) {
             this.hovered = index;
         },
         async GetProjects() {
-            const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/projects?populate=*");
+            const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/services?populate=*");
             const { data } = await response.json();
             return data.map((project) => ({
                 name: project.attributes.title,
-                imageUrl: project.attributes.mainImage.data.attributes.url,
+                summary: project.attributes.serviceSummary,
+                imageUrl: project.attributes.serviceImage.data.attributes.url,
             }));
         },
     },

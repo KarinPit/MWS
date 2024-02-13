@@ -1,322 +1,119 @@
-/* Web template */
-.web-template {
-    position: relative;
-    /* display: grid; */
-    grid-template-columns: 1fr;
-    grid-template-rows: 100px 1.9fr 0.8fr 0.1fr 100px;
-    grid-template-areas:
-        "navbars"
-        "stages"
-        "projects"
-        "contact"
-        "footer"
-    ;
-    place-items: center;
-    min-height: 100vh;
-}
-
-.navbars {
-    grid-area: navbars;
-}
-
-/* General Tags */
-
-h1 {
-    margin-block-start: 20px !important;
-    margin-block-end: 20px !important;
-}
-
-h3 {
-    margin-block-start: 0;
-    margin-block-end: -1.2em;
-    text-align: center;
-}
-
-
-@media screen and (max-width:768px) {
-
-    .about {
-        grid-area: about;
-        display: flex;
-        flex-direction: column-reverse;
-        width: 100%;
-        height: 100%;
-        background: rgb(255, 255, 255);
-        padding: 0 0 5em 0;
-    }
-
-    .align-start {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-    }
-
-    .align-end {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: end;
-        width: 100%;
-        height: 100%;
-    }
-
-    .text-col {
-        width: 100%;
-        height: fit-content;
-    }
-
-    .image-col {
-        width: 100%;
-        height: 100%;
-        padding: 8em 0 1em 0;
-    }
-
-    .image-col img {
-        width: 100%;
-        height: 100% !important;
-        min-height: 10em;
-        object-fit: cover;
-        object-position: 0% 0%;
-    }
-
-    .text-col pre {
-        text-align: start;
+    /* Web template */
+    .web-template {
         position: relative;
-        font-size: 1.1em;
-        width: 90%;
-        white-space: pre-wrap;
-        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "navbars"
+            "about"
+            "stages"
+            "projects"
+            "contact"
+            "footer"
+        ;
+        place-items: center;
     }
 
-    .text-col p {
-        width: 100%;
-        text-align: justify;
-    }
-
-    .default-button {
-        font-size: 1.2em;
-        background: none;
-        border: 2px solid black;
-        width: 6em;
-        height: 1.8em;
-        cursor: pointer;
-
-    }
-
-    /* Stages */
-    .stages {
-        display: flex;
-        grid-area: stages;
-        justify-content: center;
-        align-items: center;
-        background: rgb(230, 230, 230);
-        padding: 150px 0;
-    }
-
-    .stages-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 80%;
-        height: 100%;
-        background: white;
-    }
-
-    .stages pre {
-        text-align: justify;
-        width: 80%;
-        /* margin: 0 auto -2em auto; */
-
-    }
-}
-
-@media screen and (min-width:768px) and (max-width:1200px) {
-
-    .about {
-        grid-area: about;
-        display: flex;
-        flex-direction: column-reverse;
+    .web-template>* {
         width: 100%;
         height: 100%;
-        background: rgb(255, 255, 255);
-        padding: 0 0 5em 0;
+        text-align: center;
     }
 
-    .align-start {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        height: 100%;
+    .navbars {
+        grid-area: navbars;
     }
 
-    .align-end {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: end;
-        width: 100%;
-        height: 100%;
+    /* General Tags */
+
+    h1 {
+        margin-block-start: 20px !important;
+        margin-block-end: 20px !important;
     }
 
-    .text-col {
-        width: 100%;
-        height: fit-content;
+    @media screen and (max-width:768px) {
+
+        /* For Gallery Pages */
+        .all-projects {
+            width: 100%;
+            display: grid !important;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding-block-start: 20px !important;
+        }
+
+        .project-box {
+            width: 100%;
+            height: 500px;
+        }
+
+        .projects {
+            display: flex;
+            text-align: center;
+            padding-block-start: 9em !important;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
-    .image-col {
-        width: 100%;
-        height: 100%;
-        padding: 8em 0 1em 0;
+    @media screen and (min-width:768px) and (max-width:1200px) {
+
+        /* For Gallery Pages */
+        .all-projects {
+            width: 100%;
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding-block-start: 20px !important;
+        }
+
+        .project-box {
+            width: 100%;
+            height: 500px;
+        }
+
+        .projects {
+            display: flex;
+            text-align: center;
+            padding-block-start: 9em !important;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
-    .image-col img {
-        width: 100%;
-        height: 100% !important;
-        min-height: 10em;
-        object-fit: cover;
-        object-position: 0% 0%;
-    }
+    @media screen and (min-width:1200px) {
 
-    .text-col pre {
-        text-align: start;
-        position: relative;
-        font-size: 1.1em;
-        width: 80%;
-        white-space: pre-wrap;
-        margin: 0;
-    }
+        /* For Gallery Pages */
+        .all-projects {
+            width: 100%;
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-block-start: 20px !important;
+        }
 
-    .text-col p {
-        width: 100%;
-        text-align: justify;
-    }
+        .project-box {
+            width: 100%;
+            height: 500px;
+        }
 
-    .default-button {
-        font-size: 1.2em;
-        background: none;
-        border: 2px solid black;
-        width: 6em;
-        height: 1.8em;
-        cursor: pointer;
+        .projects {
+            display: flex;
+            text-align: center;
+            padding-block-start: 5em !important;
+        }
+
+        .project-image img {
+            height: 100%;
+            object-fit: cover;
+        }
 
     }
-
-    /* Stages */
-    .stages {
-        display: flex;
-        grid-area: stages;
-        justify-content: center;
-        align-items: center;
-        background: rgb(230, 230, 230);
-        padding: 150px 0;
-    }
-
-    .stages-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 80%;
-        height: 100%;
-        background: white;
-    }
-
-    .stages pre {
-        text-align: justify;
-        width: 70%;
-        /* margin: 0 auto -2em auto; */
-
-    }
-}
-
-@media screen and (min-width:1200px) {
-
-    .about {
-        grid-area: about;
-        display: flex;
-        width: 100%;
-        height: 100%;
-        background: rgb(255, 255, 255);
-        padding: 7em 4em;
-    }
-
-    .about img {
-        width: 500px;
-        height: 500px;
-        object-fit: cover;
-    }
-
-    .align-start {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        width: 100%;
-        height: 100%;
-    }
-
-    .align-end {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: end;
-        width: 100%;
-        height: 100%;
-    }
-
-    .text-col {
-        width: 50%;
-        height: 100%;
-        padding-inline-start: 3em;
-    }
-
-    .text-col pre {
-        text-align: start;
-        position: relative;
-        font-size: 1.3em;
-        width: 90%;
-        white-space: pre-wrap;
-        margin: 0;
-    }
-
-    .text-col p {
-        width: 100%;
-        text-align: justify;
-    }
-
-    .default-button {
-        font-size: 1.2em;
-        background: none;
-        border: 2px solid black;
-        width: 6em;
-        height: 1.8em;
-        cursor: pointer;
-
-    }
-
-    /* Stages */
-    .stages {
-        display: flex;
-        grid-area: stages;
-        justify-content: center;
-        align-items: center;
-        padding: 100px 0;
-        background: rgb(236, 236, 236);
-    }
-
-    .stages-box {
-        width: 80%;
-        height: 100%;
-        padding: 3em;
-        background: white;
-    }
-
-    .stages pre {
-        text-align: justify;
-        width: 70%;
-        font-size: 1.5em;
-        margin: 0 auto -2em auto;
-    }
-
-}

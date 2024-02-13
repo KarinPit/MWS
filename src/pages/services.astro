@@ -1,16 +1,10 @@
 ---
 import Navigation from "../components/navigation.vue";
 import ContactForm from "../components/contactForm.vue";
-import ProjectGallerySample from "../components/projectGallerySample.vue";
-import ServicesDesc from "../components/services.vue";
+import ServiceGalleryPage from "../components/serviceGalleryPage.vue";
 import LoadingPage from "../html/loadingPage.astro";
 import "../../public/styles/services.css";
 import "../../public/styles/generalStyles.css";
-import { getGeneralData } from "../js/navbarNames.js";
-
-var generalData = getGeneralData().then((data) => {
-    return data.NavbarNames.services;
-});
 ---
 
 <html lang="he">
@@ -30,28 +24,17 @@ var generalData = getGeneralData().then((data) => {
     </head>
     <body>
         <main>
-            <LoadingPage/>
+            <LoadingPage />
             <div class="web-template">
                 <div class="navbars">
                     <Navigation client:load />
                 </div>
-
-                <div class="stages">
-                    <div class="stages-box">
-                        <h1 style="text-align:center">{generalData}</h1>
-                        <ServicesDesc client:load />
-                    </div>
-                </div>
-
                 <div class="projects">
-                    <h1 style="text-align: center;">פרויקטים נבחרים</h1>
-                    <ProjectGallerySample client:load />
+                    <ServiceGalleryPage client:load />
                 </div>
-
                 <div class="contact">
                     <ContactForm client:load />
                 </div>
-
                 <div class="footer">
                     <p>054-4568784</p>
                     <p>Karin Pitlik - Web Development</p>
@@ -59,24 +42,21 @@ var generalData = getGeneralData().then((data) => {
             </div>
         </main>
     </body>
-    <script define:vars={{ generalData }}>
-        if (generalData) {
-            window.addEventListener("load", () => {
-                setTimeout(() => {
-                    const loadingScreen =
-                        document.querySelector(".loading-screen");
-                    if (loadingScreen) {
-                        loadingScreen.style.opacity = 0;
-                        loadingScreen.addEventListener(
-                            "transitionend",
-                            () => {
-                                loadingScreen.style.display = "none";
-                            },
-                            { once: true }
-                        );
-                    }
-                }, 2500);
-            });
-        }
+    <script>
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const loadingScreen = document.querySelector(".loading-screen");
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = 0;
+                    loadingScreen.addEventListener(
+                        "transitionend",
+                        () => {
+                            loadingScreen.style.display = "none";
+                        },
+                        { once: true }
+                    );
+                }
+            }, 2500);
+        });
     </script>
 </html>

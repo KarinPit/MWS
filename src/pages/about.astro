@@ -2,6 +2,7 @@
 import Navigation from "../components/navigation.vue";
 import ContactForm from "../components/contactForm.vue";
 import ProjectGallerySample from "../components/projectGallerySample.vue";
+import ServiceGallery from "../components/serviceGallery.vue";
 import Stages from "../components/stages.vue";
 import LoadingPage from "../html/loadingPage.astro";
 import { richTextParser } from "../js/richTextParser";
@@ -75,6 +76,10 @@ res = await loadData();
                     </div>
                 </div>
 
+                <div class="services">
+                    <ServiceGallery client:load />
+                </div>
+                
                 <div class="projects">
                     <h1 style="text-align: center;">פרויקטים נבחרים</h1>
                     <ProjectGallerySample client:load />
