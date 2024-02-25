@@ -2,7 +2,6 @@
     text-align: center;
 }
 
-
 @media screen and (max-width:768px) {
 
     /* Web template */
@@ -96,8 +95,8 @@
     .carousel-button button {
         position: absolute;
         top: 50%;
-        width: 3em;
-        height: 3em;
+        width: 5em;
+        height: 5em;
         z-index: 2;
         background: none;
         border: none;
@@ -205,8 +204,8 @@
     .carousel-button button {
         position: absolute;
         top: 50%;
-        width: 3em;
-        height: 3em;
+        width: 5em;
+        height: 5em;
         z-index: 2;
         background: none;
         border: none;

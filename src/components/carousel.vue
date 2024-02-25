@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="carousel-images">
+        <div class="carousel-images" @touchstart="handleTouchStart" @touchend="handleTouchEnd">
             <transition name="fade">
                 <img :key="currentImage.key" v-if="urls.mainImageUrl !== ''" :src="currentImage.url"
                     class="carousel-img d-block w-100" alt="woman going down wood stairs">
@@ -29,6 +29,8 @@ export default {
                 imagesUrl: [],
             },
             currentIndex: 0,
+            touchStartX: 0,
+            touchEndX: 0,
         };
     },
     async created() {
@@ -52,6 +54,22 @@ export default {
                 this.currentIndex++;
             } else {
                 this.currentIndex = 0;
+            }
+        },
+        handleTouchStart(e) {
+            this.touchStartX = e.changedTouches[0].clientX;
+        },
+        handleTouchEnd(e) {
+            this.touchEndX = e.changedTouches[0].clientX;
+            this.handleSwipeGesture();
+        },
+        handleSwipeGesture() {
+            if (this.touchStartX - this.touchEndX > 75) {
+                // Swipe left
+                this.showNextImage();
+            } else if (this.touchEndX - this.touchStartX > 75) {
+                // Swipe right
+                this.showPrevImage();
             }
         },
     },
@@ -78,11 +96,11 @@ async function GetHomeImages() {
         };
     } catch (error) {
         console.error('Error fetching images:', error);
-        throw error; // Re-throw the error for further handling
+        throw error;
     }
 }
 </script>
-  
+
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
@@ -94,4 +112,3 @@ async function GetHomeImages() {
     opacity: 0;
 }
 </style>
-  

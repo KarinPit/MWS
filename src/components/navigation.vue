@@ -34,6 +34,9 @@
                 <a id="services" class="nav-link" :class="{ 'active-link': isActiveLink('/services') }" href="/services">
                     <span class="nav-link-span dropdown-link">{{ navNames.services }}</span>
                 </a>
+                <a id="reviews" class="nav-link" :class="{ 'active-link': isActiveLink('/reviews') }" href="/reviews">
+                    <span class="nav-link-span dropdown-link">{{ navNames.Reviews }}</span>
+                </a>
             </div>
         </div>
         <a id="projects" class="nav-link" :class="{ 'active-link': isActiveLink('/projects') }" href="/projects">
@@ -41,9 +44,6 @@
         </a>
         <a id="blog" class="nav-link" :class="{ 'active-link': isActiveLink('/blog') }" href="/blog">
             <span class="nav-link-span">{{ navNames.Blog }}</span>
-        </a>
-        <a id="reviews" class="nav-link" :class="{ 'active-link': isActiveLink('/reviews') }" href="/reviews">
-            <span class="nav-link-span">{{ navNames.Reviews }}</span>
         </a>
         <a id="contact" class="nav-link" :class="{ 'active-link': isActiveLink('/contact') }" href="/contact">
             <span class="nav-link-span">{{ navNames.Contact }}</span>
@@ -57,7 +57,8 @@
             <p>{{ phoneNumber }}</p>
         </a>
         <a class="icon logo-icon" href="/">
-            <img src="/images/Logo_Moran_new2.png" alt="MWS logo">
+            <img v-if="navNames.logoImage && navNames.logoImage.data && navNames.logoImage.data.attributes && navNames.logoImage.data.attributes.url"
+                :src="navNames.logoImage.data.attributes.url" alt="MWS logo">
         </a>
     </div>
 
@@ -170,6 +171,11 @@ export default {
         },
         isDropdownChildActive() {
             return this.isActiveLink('/about') || this.isActiveLink('/services');
+        },
+
+        logoImageUrl() {
+            // Navigate through the object safely and return the URL if it exists
+            return this.navNames.logoImage?.data?.attributes?.url || null;
         }
     },
 
@@ -180,7 +186,7 @@ export default {
 
 async function fetchNavNames() {
     try {
-        const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/navigation-name");
+        const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/navigation-name?populate=*");
         const { data } = await response.json();
         return data.attributes;
     } catch (error) {
@@ -198,4 +204,5 @@ async function getPhoneNumber() {
         throw error;
     }
 }
+
 </script>
