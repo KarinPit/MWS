@@ -4,7 +4,7 @@
         <div class="project-box" v-for="(project, index) in mainProjects" :key="index">
             <a class="project-name" :href="`/projects/${project.name}`"><h4>{{ project.name }}</h4></a>
             <a class="project-image" :href="`/projects/${project.name}`">
-                <img :src="baseUrl + project.imageUrl" alt="designed house example" />
+                <img :src="baseUrl + project.imageUrl" alt="designed house project image" />
             </a>
         </div>
     </div>

@@ -7,7 +7,7 @@
                 <!-- <p class="summary-text" v-html="richTextParser.convertToMarkdown(project.summary)"></p> -->
             </a>
             <a class="project-image" :href="`/services/${project.name}`">
-                <img :src="baseUrl + project.imageUrl" alt="designed house example" />
+                <img :src="baseUrl + project.imageUrl" alt="service main image" />
             </a>
         </div>
     </div>

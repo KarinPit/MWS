@@ -1,7 +1,7 @@
 <template>
     <a v-if="project && typeof project === 'object'" v-for="(image, index) in images" :key="index"
         @click="showImage(index)">
-        <img class="project-image" :src="baseUrl + image.url" alt="designed house example" />
+        <img class="project-image" :src="baseUrl + image.url" alt="designed house project image" />
     </a>
 
     <vue-easy-lightbox :visible="lightboxVisible" :imgs="lightboxImages" :index="lightboxIndex" :moveDisabled="true"

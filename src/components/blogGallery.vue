@@ -1,6 +1,6 @@
 <template>
     <div v-if="post && typeof post === 'object'">
-        <img class="gimage" :src="baseUrl + postImage" alt="designed house example" />
+        <img class="gimage" :src="baseUrl + postImage" alt="blog image" />
     </div>
 </template>
   

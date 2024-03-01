@@ -4,7 +4,7 @@
             @mouseout="toggleHovered(-1)">
             <a class="project-name" :href="`/projects/${project.name}`"><h4>{{ project.name }}</h4></a>
             <a :href="`/projects/${project.name}`">
-                <img class="project-image" :src="baseUrl + project.imageUrl" alt="designed house example" />
+                <img class="project-image" :src="baseUrl + project.imageUrl" alt="designed house project image" />
             </a>
         </div>
     </div>

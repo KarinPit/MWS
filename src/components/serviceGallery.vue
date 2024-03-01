@@ -4,7 +4,7 @@
         <div class="service-box" v-for="(project, index) in mainProjects" :key="index" @mouseover="toggleHovered(index)"
             @mouseout="toggleHovered(-1)">
             <!-- <a :href="`/services/${project.name}`"> -->
-            <img class="service-image" :src="baseUrl + project.imageUrl" alt="designed house example" />
+            <img class="service-image" :src="baseUrl + project.imageUrl" alt="service main image" />
             <!-- </a> -->
             <div class="service-name">
                 <h4>{{ project.name }}</h4>
