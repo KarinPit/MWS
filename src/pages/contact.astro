@@ -102,13 +102,13 @@ res = await loadData();
     });
   }
 
-  async function initMap(lat = 32.297459982, lng = 34.91348178) {
+  async function initMap(lat = 32.301236, lng = 34.913379) {
     console.log("InitMap");
     return _connectGoogleApi().then(() => {
       console.log("google available");
       gMap = new google.maps.Map(document.querySelector("#map-div"), {
         center: { lat, lng },
-        zoom: 15,
+        zoom: 14,
       });
       let loc = gMap.center.toJSON();
       fetchData.getAddress(getAddressUrl(loc), fetchData.showAddress);

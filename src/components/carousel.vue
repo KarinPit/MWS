@@ -3,17 +3,17 @@
         <div class="carousel-images" @touchstart="handleTouchStart" @touchend="handleTouchEnd">
             <transition name="fade">
                 <img :key="currentImage.key" v-if="urls.mainImageUrl !== ''" :src="currentImage.url"
-                    class="carousel-img d-block w-100" alt="woman going down wood stairs">
+                    class="carousel-img d-block w-100" alt="carousel images showing interior designs of the designer">
             </transition>
         </div>
         <div class="carousel-button">
-            <button class="prev" @click="showPrevImage">
-                <img src="/images/arrow-left.svg">
+            <button aria-label="previous arrow button for the carousel" class="prev" @click="showPrevImage">
+                <img src="/images/arrow-left.svg" alt="left arrow">
             </button>
         </div>
         <div class="carousel-button">
-            <button class="next" @click="showNextImage">
-                <img src="/images/arrow-right.svg">
+            <button aria-label="next arrow button for the carousel" class="next" @click="showNextImage">
+                <img src="/images/arrow-right.svg" alt="right arrow">
             </button>
         </div>
     </div>

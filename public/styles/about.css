@@ -135,6 +135,10 @@
         margin: 0 auto;
         padding-block-start: 2em;
     }
+
+    .stages pre p {
+        text-align: justify;
+    }
 }
 
 @media screen and (min-width:768px) and (max-width:1200px) {

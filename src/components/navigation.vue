@@ -74,8 +74,8 @@
         </a>
     </div>
 
-    <button class="menu-button" @click="toggleMenu">
-        <img src="/images/list.svg">
+    <button aria-label="compressed navbar menu" class="menu-button" @click="toggleMenu">
+        <img src="/images/list.svg" alt="hamburger menu icon">
     </button>
 </template>
 
@@ -106,7 +106,6 @@ export default {
 
     mounted() {
         this.currentPath = window.location.pathname;
-        this.dropdownRef = this.$el.querySelector('.logo-dropdown');
         document.addEventListener('click', this.handleOutsideClick);
     },
 
@@ -137,11 +136,9 @@ export default {
                 if (this.isMenuOpen) {
                     navLinks.classList.add('nav-links-open');
                     navbars.classList.add('navbars-open');
-                    dorpdownParent.add('parent-hovered')
                 } else {
                     navLinks.classList.remove('nav-links-open');
                     navbars.classList.remove('navbars-open');
-                    dorpdownParent.remove('parent-hovered')
                 }
             }
 
