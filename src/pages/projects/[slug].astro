@@ -41,23 +41,45 @@ const { id, attributes } = page;
         <div class="navbars">
           <Navigation client:load />
         </div>
-        <div class="projects projects-page">
+
+        <div class="projects projects-page custom-margin">
           <h2>{attributes.title}</h2>
           <pre><p class="p-line" set:html={text} /></pre>
           <div class="project-images-gallery">
             <ProjectGallery project={attributes} client:load />
           </div>
         </div>
+
         <div class="contact">
           <ContactForm client:load />
         </div>
+
         <div class="footer">
+          <p>
+            <a
+              href="../../public/הצהרת נגישות.docx"
+              download="Accessibility File">| הצהרת נגישות |</a
+            >
+          </p>
           <p>054-4568784</p>
           <p>Karin Pitlik - Web Development</p>
         </div>
       </div>
     </main>
   </body>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"
+  ></script>
+
+  <script
+    src="https://www.negishim.com/accessibility/accessibility_pro.js"
+    type="text/javascript"></script>
+  <script type="text/javascript">
+    accessibility_rtl = true;
+    pixel_from_side = 20;
+    pixel_from_start = 150;
+  </script>
+
   <script define:vars={{ data }}>
     if (data) {
       window.addEventListener("load", () => {

@@ -98,10 +98,12 @@ const aboutMeImage =
         <div class="welcome">
           <div class="text-col">
             <pre>
-              <h1>{titles.title1}</h1>
+              <h1 class="aligned-right">{titles.title1}</h1>
               <p set:html={richTextParser.convertToMarkdown(mainDescription)} />
-              <button class="default-button" onclick="location.href='/contact'">צרו קשר</button>
             </pre>
+            <button class="default-button" onclick="location.href='/contact'">
+              <p class="button-text">צרו קשר</p>
+            </button>
           </div>
           <div class="image-col">
             <img src={mainImage} alt="arrow pointing down" />
@@ -111,10 +113,12 @@ const aboutMeImage =
         <div class="about">
           <div class="text-col">
             <pre>
-              <h1>{titles.title2}</h1>
+              <h1 class="aligned-right">{titles.title2}</h1>
               <p set:html={richTextParser.convertToMarkdown(aboutMeDescription)} />
-              <button class="default-button" onclick="location.href='/about'">קראו עוד</button>
             </pre>
+            <button class="default-button" onclick="location.href='/about'">
+              <p class="button-text">קראו עוד</p>
+            </button>
           </div>
           <div class="image-col">
             <img src={aboutMeImage} alt="arrow pointing down" />
@@ -125,7 +129,7 @@ const aboutMeImage =
           <ServiceGallery client:load />
         </div>
 
-        <div class="projects">
+        <div class="projects no-margin">
           <h1 style="text-align: center;">פרויקטים נבחרים</h1>
           <ProjectGallerySample client:load />
         </div>
@@ -135,12 +139,31 @@ const aboutMeImage =
         </div>
 
         <div class="footer">
+          <p>
+            <a
+              href="../../public/הצהרת נגישות.docx"
+              download="Accessibility File">| הצהרת נגישות |</a
+            >
+          </p>
           <p>054-4568784</p>
           <p>Karin Pitlik - Web Development</p>
         </div>
       </div>
+      
     </main>
   </body>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"
+  ></script>
+
+  <script
+    src="https://www.negishim.com/accessibility/accessibility_pro.js"
+    type="text/javascript"></script>
+  <script type="text/javascript">
+    accessibility_rtl = true;
+    pixel_from_side = 20;
+    pixel_from_start = 150;
+  </script>
 
   <script define:vars={{ titles }}>
     if (titles) {

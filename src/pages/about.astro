@@ -58,8 +58,11 @@ res = await loadData();
                         <pre>
                             <h1>{res.attributes.mainTitle}</h1>
                             <p set:html={richTextParser.convertToMarkdown(res.attributes.myDescription)} />
-                            <button class="default-button" onclick="location.href='/contact'">צרו קשר</button>
                         </pre>
+                        <button
+                            class="default-button"
+                            onclick="location.href='/contact'">צרו קשר</button
+                        >
                     </div>
                     <div class="image-col">
                         <img
@@ -85,30 +88,48 @@ res = await loadData();
                 </div>
 
                 <div class="footer">
+                    <p>
+                        <a
+                            href="../../public/הצהרת נגישות.docx"
+                            download="Accessibility File">| הצהרת נגישות |</a
+                        >
+                    </p>
                     <p>054-4568784</p>
                     <p>Karin Pitlik - Web Development</p>
                 </div>
             </div>
         </main>
     </body>
-    <script define:vars={{ res }}>
-        if (res) {
-            window.addEventListener("load", () => {
-                setTimeout(() => {
-                    const loadingScreen =
-                        document.querySelector(".loading-screen");
-                    if (loadingScreen) {
-                        loadingScreen.style.opacity = 0;
-                        loadingScreen.addEventListener(
-                            "transitionend",
-                            () => {
-                                loadingScreen.style.display = "none";
-                            },
-                            { once: true }
-                        );
-                    }
-                }, 2500);
-            });
-        }
-    </script>
 </html>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"
+></script>
+
+<script
+    src="https://www.negishim.com/accessibility/accessibility_pro.js"
+    type="text/javascript"></script>
+<script type="text/javascript">
+    accessibility_rtl = true;
+    pixel_from_side = 20;
+    pixel_from_start = 150;
+</script>
+
+<script define:vars={{ res }}>
+    if (res) {
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const loadingScreen = document.querySelector(".loading-screen");
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = 0;
+                    loadingScreen.addEventListener(
+                        "transitionend",
+                        () => {
+                            loadingScreen.style.display = "none";
+                        },
+                        { once: true }
+                    );
+                }
+            }, 2500);
+        });
+    }
+</script>
