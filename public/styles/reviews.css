@@ -1,5 +1,19 @@
     /* General Tags */
 
+    .web-template {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "navbars"
+            "projects"
+            "contact"
+            "footer"
+        ;
+        place-items: center;
+    }
+
+
     h1 {
         margin-block-start: 0;
         margin-block-end: 20px !important;
@@ -147,15 +161,6 @@
 
         /* Web template */
         .web-template {
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 2fr 0.1fr 100px;
-            grid-template-areas:
-                "projects"
-                "contact"
-                "footer"
-            ;
             place-items: center;
         }
 
@@ -230,12 +235,6 @@
             height: 500px;
         }
 
-        .projects {
-            display: flex;
-            text-align: center;
-            margin-block-start: 150px !important;
-        }
-
         .project-image img {
             width: 100%;
             height: 100%;
@@ -247,16 +246,6 @@
 
         /* Web template */
         .web-template {
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1.5fr 0.1fr 100px;
-            grid-template-areas:
-                "projects"
-                "contact"
-                "footer"
-            ;
-            place-items: center;
             height: 100vh;
         }
 
@@ -332,12 +321,6 @@
             height: 550px;
         }
 
-        .projects {
-            display: flex;
-            text-align: center;
-            margin-block-start: 300px !important;
-        }
-
         .project-image img {
             width: 100%;
             height: 100%;
@@ -349,15 +332,6 @@
 
         /* Web template */
         .web-template {
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 0.1fr 100px;
-            grid-template-areas:
-                "projects"
-                "contact"
-                "footer"
-            ;
             place-items: center;
         }
 
@@ -365,11 +339,6 @@
             width: 100%;
             height: 100%;
             text-align: center;
-        }
-
-        .projects {
-            margin-block-start: 150px !important;
-            justify-content: start !important;
         }
 
         /* Review Section */

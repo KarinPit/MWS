@@ -78,8 +78,8 @@
         align-items: center;
         z-index: 10;
         font-size: clamp(10px, 2vw, 30px);
-        width: max-content;
-        padding: 1em 2.5em 1em 1.5em;
+        width: fit-content;
+        padding: 0.8em;
         height: fit-content;
         border-radius: 5%;
         background: rgba(255, 255, 255, 0.671);
