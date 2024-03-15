@@ -1,0 +1,75 @@
+---
+import Navigation from "../../components/en/navigation.vue";
+import ContactForm from "../../components/en/contactForm.vue";
+import ProjectGalleryPage from "../../components/en/projectGalleryPage.vue";
+import LoadingPage from "../../html/loadingPage.astro";
+import "../../../public/styles/en/projects.css";
+import "../../../public/styles/en/generalStyles.css";
+---
+
+<html lang="he">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="icon" type="image/svg+xml" href="/images/Favicon-new.svg" />
+        <title>MWS Studio</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <script src="../../js/generalScripts.js"></script>
+        <title>MWS Design</title>
+    </head>
+    <body>
+        <main>
+            <LoadingPage />
+            <div class="web-template">
+                <div class="navbars">
+                    <Navigation client:load />
+                </div>
+
+                <div class="projects">
+                    <ProjectGalleryPage client:load />
+                </div>
+
+                <div class="contact">
+                    <ContactForm client:load />
+                </div>
+
+                <div class="footer">
+                    <p>054-4568784</p>
+                    <p>Karin Pitlik - Web Development</p>
+                    <p>
+                        <a href="/accessibility">| Accessibility Statement |</a>
+                        <!-- <a href="/הצהרת נגישות.docx" download="Accessibility File"
+                        >| הצהרת נגישות |
+                      </a> -->
+                    </p>
+                </div>
+            </div>
+        </main>
+    </body>
+
+    <script src="/NagishLi/nagishli_beta.js" charset="utf-8"
+    ></script>
+
+    <script>
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const loadingScreen = document.querySelector(".loading-screen");
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = 0;
+                    loadingScreen.addEventListener(
+                        "transitionend",
+                        () => {
+                            loadingScreen.style.display = "none";
+                        },
+                        { once: true }
+                    );
+                }
+            }, 2500);
+        });
+    </script>
+</html>
