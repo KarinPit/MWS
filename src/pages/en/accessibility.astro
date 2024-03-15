@@ -1,10 +1,10 @@
 ---
-import ContactForm from "../components/contactForm.vue";
-import Navigation from "../components/navigation.vue";
-import LoadingPage from "../html/loadingPage.astro";
-import { richTextParser } from "../js/richTextParser";
-import "../../public/styles/viewProject.css";
-import "../../public/styles/generalStyles.css";
+import ContactForm from "../../components/en/contactForm.vue";
+import Navigation from "../../components/en/navigation.vue";
+import LoadingPage from "../../html/loadingPage.astro";
+import { richTextParser } from "../../js/richTextParser";
+import "../../../public/styles/en/viewProject.css";
+import "../../../public/styles/en/generalStyles.css";
 
 async function fetchData() {
     const response = await fetch(
@@ -39,7 +39,7 @@ data = await loadData();
             href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
             rel="stylesheet"
         />
-        <script src="../js/generalScripts.js"></script>
+        <script src="../../js/generalScripts.js"></script>
     </head>
     <body>
         <main>
@@ -51,7 +51,7 @@ data = await loadData();
 
                 <div class="projects projects-page custom-margin">
                     <pre>
-                        <p set:html={richTextParser.convertToMarkdown(data.attributes.data)} />
+                        <p set:html={richTextParser.convertToMarkdown(data.attributes.data_Eng)} />
                     </pre>
                 </div>
 
@@ -63,7 +63,7 @@ data = await loadData();
                     <p>054-4568784</p>
                     <p>Karin Pitlik - Web Development</p>
                     <p>
-                        <a href="/accessibility">| Accessibility Statement |</a>
+                        <a href="/en/accessibility">| Accessibility Statement |</a>
                         <!-- <a href="/הצהרת נגישות.docx" download="Accessibility File"
                         >| הצהרת נגישות |
                       </a> -->

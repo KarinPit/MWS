@@ -1,6 +1,6 @@
 <template>
     <div class="reviews-header">
-        <h1>{{ navNames.Reviews }}</h1>
+        <h1>{{ navNames.Reviews_Eng }}</h1>
         <addReview></addReview>
     </div>
     <div class="review" v-for="(review, index) in sortedReviews" :key="index">
@@ -52,8 +52,8 @@ export default {
             const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/reviews?populate=*");
             const { data } = await response.json();
             const reviews = data.map((review) => ({
-                title: review.attributes.title,
-                description: review.attributes.content,
+                title: review.attributes.title_Eng,
+                description: review.attributes.content_Eng,
                 image: review.attributes.image.data.attributes.url,
                 objectPosition: review.attributes.objectPosition,
             }));

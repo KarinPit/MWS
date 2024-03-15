@@ -48,7 +48,7 @@
         <a id="contact" class="nav-link" :class="{ 'active-link': isActiveLink('/contact') }" href="/contact">
             <span class="nav-link-span">{{ navNames.Contact }}</span>
         </a>
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/en/">
             <span class="nav-link-span">English</span>
         </a>
     </div>

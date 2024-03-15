@@ -1,5 +1,5 @@
 <template>
-    <h1 v-if="navNames">{{ navNames.services }}</h1>
+    <h1 v-if="navNames">{{ navNames.Services_Eng }}</h1>
     <div class="all-projects">
         <div class="project-box" v-for="(project, index) in mainProjects" :key="index">
             <a class="project-name" :href="`/en/services/${project.name}`">
@@ -39,8 +39,8 @@ export default {
             const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/services?populate=*");
             const { data } = await response.json();
             return data.map((project) => ({
-                name: project.attributes.title,
-                summary: project.attributes.serviceSummary,
+                name: project.attributes.title_Eng,
+                summary: project.attributes.serviceSummary_Eng,
                 imageUrl: project.attributes.serviceImage.data.attributes.url,
             }));
         },

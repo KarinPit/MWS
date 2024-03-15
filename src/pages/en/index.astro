@@ -33,19 +33,19 @@ let titles = {
 
 if (responseData && responseData.data && responseData.data.attributes) {
   titles = {
-    title1: responseData.data.attributes.mainDescriptionTitle || "",
-    title2: responseData.data.attributes.aboutMeDescriptionTitle || "",
+    title1: responseData.data.attributes.mainDescriptionTitle_Eng || "",
+    title2: responseData.data.attributes.aboutMeDescriptionTitle_Eng || "",
   };
 }
 
 const mainDescription =
   responseData && responseData.data && responseData.data.attributes
-    ? responseData.data.attributes.mainDescription
+    ? responseData.data.attributes.mainDescription_Eng
     : "";
 
 const aboutMeDescription =
   responseData && responseData.data && responseData.data.attributes
-    ? responseData.data.attributes.aboutMeDescription
+    ? responseData.data.attributes.aboutMeDescription_Eng
     : "";
 
 const mainImage =
@@ -143,7 +143,7 @@ const aboutMeImage =
           <p>054-4568784</p>
           <p>Karin Pitlik - Web Development</p>
           <p>
-            <a href="/accessibility">| Accessibility Statement |</a>
+            <a href="/en/accessibility">| Accessibility Statement |</a>
             <!-- <a href="/הצהרת נגישות.docx" download="Accessibility File"
               >| הצהרת נגישות |
             </a> -->

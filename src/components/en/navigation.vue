@@ -23,20 +23,20 @@
     </div>
 
     <div class="nav-links">
-        <a class="nav-link" href="https://www.designmws.com/">
+        <a class="nav-link" href="/">
             <span class="nav-link-span">Hebrew</span>
         </a>
 
         <a id="contact" class="nav-link" :class="{ 'active-link': isActiveLink('/contact') }" href="/en/contact">
-            <span class="nav-link-span">{{ navNames.Contact }}</span>
+            <span class="nav-link-span">{{ navNames.Contact_Eng }}</span>
         </a>
 
         <a id="blog" class="nav-link" :class="{ 'active-link': isActiveLink('/blog') }" href="/en/blog">
-            <span class="nav-link-span">{{ navNames.Blog }}</span>
+            <span class="nav-link-span">{{ navNames.Blog_Eng }}</span>
         </a>
 
         <a id="projects" class="nav-link" :class="{ 'active-link': isActiveLink('/projects') }" href="/en/projects">
-            <span class="nav-link-span">{{ navNames.Projects }}</span>
+            <span class="nav-link-span">{{ navNames.Projects_Eng }}</span>
         </a>
 
         <div class="logo-dropdown" @mouseover="handleDropdownHover(true)" @mouseleave="handleDropdownHover(false)">
@@ -47,7 +47,7 @@
                     'parent-hovered': isDropdownOpen,
                     'active-link': isDropdownChildActive
                 }">
-                    {{ navNames.About }}
+                    {{ navNames.About_Eng }}
                 </span>
             </a>
             <div class="dropdown-content">
@@ -55,16 +55,16 @@
                     <span class="nav-link-span dropdown-link">About</span>
                 </a>
                 <a id="services" class="nav-link" :class="{ 'active-link': isActiveLink('/services') }" href="/en/services">
-                    <span class="nav-link-span dropdown-link">{{ navNames.services }}</span>
+                    <span class="nav-link-span dropdown-link">{{ navNames.Services_Eng }}</span>
                 </a>
                 <a id="reviews" class="nav-link" :class="{ 'active-link': isActiveLink('/reviews') }" href="/en/reviews">
-                    <span class="nav-link-span dropdown-link">{{ navNames.Reviews }}</span>
+                    <span class="nav-link-span dropdown-link">{{ navNames.Reviews_Eng }}</span>
                 </a>
             </div>
         </div>
 
         <a id="home" class="nav-link" :class="{ 'active-link': isActiveLink('/') }" href="/en/">
-            <span class="nav-link-span">{{ navNames.Home }}</span>
+            <span class="nav-link-span">{{ navNames.Home_Eng }}</span>
         </a>
     </div>
 
@@ -189,7 +189,7 @@ export default {
 
 async function fetchNavNames() {
     try {
-        const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/navigation-name-eng?populate=*");
+        const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/navigation-name?populate=*");
         const { data } = await response.json();
         return data.attributes;
     } catch (error) {

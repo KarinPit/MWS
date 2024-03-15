@@ -55,8 +55,8 @@ res = await loadData();
                 <div class="about">
                     <div class="text-col">
                         <pre>
-                            <h1>{res.attributes.mainTitle}</h1>
-                            <p set:html={richTextParser.convertToMarkdown(res.attributes.myDescription)} />
+                            <h1>{res.attributes.mainTitle_Eng}</h1>
+                            <p set:html={richTextParser.convertToMarkdown(res.attributes.myDescription_Eng)} />
                         </pre>
                         <button
                             class="default-button"
@@ -74,7 +74,7 @@ res = await loadData();
 
                 <div class="stages">
                     <div class="stages-box">
-                        <h1>{res.attributes.secondTitle}</h1>
+                        <h1>{res.attributes.secondTitle_Eng}</h1>
                         <Stages client:load />
                     </div>
                 </div>
@@ -91,7 +91,7 @@ res = await loadData();
                     <p>054-4568784</p>
                     <p>Karin Pitlik - Web Development</p>
                     <p>
-                        <a href="/accessibility">| Accessibility Statement |</a>
+                        <a href="/en/accessibility">| Accessibility Statement |</a>
                         <!-- <a href="/הצהרת נגישות.docx" download="Accessibility File"
                         >| הצהרת נגישות |
                       </a> -->

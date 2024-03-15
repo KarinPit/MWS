@@ -31,8 +31,8 @@ export default {
 
       const stages = data.map((stage) => ({
         id: stage.attributes.stageID,
-        title: stage.attributes.title,
-        desc: stage.attributes.description,
+        title: stage.attributes.title_Eng,
+        desc: stage.attributes.description_Eng,
       }));
 
       stages.sort((a, b) => a.id - b.id)

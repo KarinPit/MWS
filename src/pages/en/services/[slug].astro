@@ -12,14 +12,13 @@ const response = await fetch(
 );
 const { data } = await response.json();
 const { slug } = Astro.params;
-const page = data.find((service) => service.attributes.title === slug);
+const page = data.find((service) => service.attributes.title_Eng === slug);
 if (!page) return Astro.redirect("/404");
 
-const toMark = page.attributes.description;
+const toMark = page.attributes.description_Eng;
 const serviceImage = page.attributes.serviceImage.data.attributes.url;
 const text = richTextParser.convertToMarkdown(toMark);
 const { id, attributes } = page;
-console.log(serviceImage);
 ---
 
 <html lang="he">
@@ -46,7 +45,7 @@ console.log(serviceImage);
 
         <div class="projects projects-page custom-margin">
           <div class="service-header">
-            <h2>{attributes.title}</h2>
+            <h2>{attributes.title_Eng}</h2>
             <img src={serviceImage} alt="service main image" />
           </div>
           <pre><p class="p-line" set:html={text} /></pre>
@@ -60,7 +59,7 @@ console.log(serviceImage);
           <p>054-4568784</p>
           <p>Karin Pitlik - Web Development</p>
           <p>
-            <a href="/accessibility">| Accessibility Statement |</a>
+            <a href="/en/accessibility">| Accessibility Statement |</a>
             <!-- <a href="/הצהרת נגישות.docx" download="Accessibility File"
               >| הצהרת נגישות |
             </a> -->
