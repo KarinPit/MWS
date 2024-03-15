@@ -13,7 +13,7 @@
     </div>
 
     <div class="logo-icons">
-        <a class="icon logo-icon" href="/">
+        <a class="icon logo-icon" href="/en/">
             <img v-if="navNames.logoImage && navNames.logoImage.data && navNames.logoImage.data.attributes && navNames.logoImage.data.attributes.url"
             :src="navNames.logoImage.data.attributes.url" alt="MWS logo">
         </a>

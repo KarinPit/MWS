@@ -1,6 +1,6 @@
 <template>
     <div class="logo">
-        <a href="/">
+        <a href="/en/">
             <img :src=info.logoUrl alt="MWS Logo" />
         </a>
     </div>
