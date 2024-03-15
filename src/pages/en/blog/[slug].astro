@@ -32,10 +32,10 @@ const response = await fetch(
 );
 const { data } = await response.json();
 const { slug } = Astro.params;
-const page = data.find((post) => post.attributes.title === slug);
+const page = data.find((post) => post.attributes.title_Eng === slug);
 if (!page) return Astro.redirect("/404");
 
-const toMark = page.attributes.content;
+const toMark = page.attributes.content_Eng;
 const text = richTextParser.convertToMarkdown(toMark);
 const { id, attributes } = page;
 ---
@@ -52,8 +52,8 @@ const { id, attributes } = page;
       href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&family=Assistant:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <script src="../../js/generalScripts.js"></script>
-    <title>{attributes.title}</title>
+    <script src="../../../js/generalScripts.js"></script>
+    <title>{attributes.title_Eng}</title>
   </head>
   <body>
     <main>
@@ -64,7 +64,7 @@ const { id, attributes } = page;
         </div>
 
         <div class="projects projects-page custom-margin">
-          <h2>{attributes.title}</h2>
+          <h2>{attributes.title_Eng}</h2>
           <pre>
             <p class="p-line" set:html={text} /></pre>
         </div>
@@ -77,7 +77,7 @@ const { id, attributes } = page;
           <p>054-4568784</p>
           <p>Karin Pitlik - Web Development</p>
           <p>
-              <a href="/accessibility">| Accessibility Statement |</a>
+              <a href="/en/accessibility">| Accessibility Statement |</a>
               <!-- <a href="/הצהרת נגישות.docx" download="Accessibility File"
               >| הצהרת נגישות |
             </a> -->

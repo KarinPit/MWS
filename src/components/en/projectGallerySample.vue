@@ -38,7 +38,7 @@ export default {
             const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/projects?populate=*");
             const { data } = await response.json();
             const projects = data.map((project) => ({
-                name: project.attributes.title, // Set project name
+                name: project.attributes.title_Eng, // Set project name
                 imageUrl: project.attributes.mainImage.data.attributes.url,
                 publishStatus: project.attributes.publishStatus.data[0].attributes.title,
             }));
