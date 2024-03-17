@@ -1,6 +1,5 @@
-
 <template>
-     <div class="social-media-icons small-screens-navbar">
+    <div class="social-media-icons small-screens-navbar">
         <a class="icon" @click="openFacebook">
             <img src="/images/facebook_black.svg" alt="facebook icon">
         </a>
@@ -14,8 +13,7 @@
 
     <div class="logo-icons">
         <a class="icon logo-icon" href="/en/">
-            <img v-if="navNames.logoImage && navNames.logoImage.data && navNames.logoImage.data.attributes && navNames.logoImage.data.attributes.url"
-            :src="navNames.logoImage.data.attributes.url" alt="MWS logo">
+            <img v-if="logoImageUrl" :src="logoImageUrl" alt="MWS logo">
         </a>
         <a class="icon phone-number" @click="openDialer(phoneNumber)">
             <p>{{ phoneNumber }}</p>
@@ -23,23 +21,26 @@
     </div>
 
     <div class="nav-links">
+        <!-- Hebrew link always shown, assuming no dynamic nav name needed -->
         <a class="nav-link" href="/">
             <span class="nav-link-span">Hebrew</span>
         </a>
 
-        <a id="contact" class="nav-link" :class="{ 'active-link': isActiveLink('/contact') }" href="/en/contact">
+        <!-- Conditional rendering for each dynamic nav link -->
+        <a v-if="navNames.Contact_Eng" id="contact" class="nav-link" :class="{ 'active-link': isActiveLink('/contact') }" href="/en/contact">
             <span class="nav-link-span">{{ navNames.Contact_Eng }}</span>
         </a>
 
-        <a id="blog" class="nav-link" :class="{ 'active-link': isActiveLink('/blog') }" href="/en/blog">
+        <a v-if="navNames.Blog_Eng" id="blog" class="nav-link" :class="{ 'active-link': isActiveLink('/blog') }" href="/en/blog">
             <span class="nav-link-span">{{ navNames.Blog_Eng }}</span>
         </a>
 
-        <a id="projects" class="nav-link" :class="{ 'active-link': isActiveLink('/projects') }" href="/en/projects">
+        <a v-if="navNames.Projects_Eng" id="projects" class="nav-link" :class="{ 'active-link': isActiveLink('/projects') }" href="/en/projects">
             <span class="nav-link-span">{{ navNames.Projects_Eng }}</span>
         </a>
 
-        <div class="logo-dropdown" @mouseover="handleDropdownHover(true)" @mouseleave="handleDropdownHover(false)">
+        <!-- Conditional rendering for dropdown menu items -->
+        <div v-if="navNames.About_Eng || navNames.Services_Eng || navNames.Reviews_Eng" class="logo-dropdown" @mouseover="handleDropdownHover(true)" @mouseleave="handleDropdownHover(false)">
             <a class="icon logo-icon">
                 <span :class="{
                     'nav-link-span': true,
@@ -51,18 +52,19 @@
                 </span>
             </a>
             <div class="dropdown-content">
-                <a id="about" class="nav-link" :class="{ 'active-link': isActiveLink('/about') }" href="/en/about">
+                <a v-if="navNames.About_Eng" id="about" class="nav-link" :class="{ 'active-link': isActiveLink('/about') }" href="/en/about">
                     <span class="nav-link-span dropdown-link">About</span>
                 </a>
-                <a id="services" class="nav-link" :class="{ 'active-link': isActiveLink('/services') }" href="/en/services">
+                <a v-if="navNames.Services_Eng" id="services" class="nav-link" :class="{ 'active-link': isActiveLink('/services') }" href="/en/services">
                     <span class="nav-link-span dropdown-link">{{ navNames.Services_Eng }}</span>
                 </a>
-                <a id="reviews" class="nav-link" :class="{ 'active-link': isActiveLink('/reviews') }" href="/en/reviews">
+                <a v-if="navNames.Reviews_Eng" id="reviews" class="nav-link" :class="{ 'active-link': isActiveLink('/reviews') }" href="/en/reviews">
                     <span class="nav-link-span dropdown-link">{{ navNames.Reviews_Eng }}</span>
                 </a>
             </div>
         </div>
 
+        <!-- Assuming Home link always shown -->
         <a id="home" class="nav-link" :class="{ 'active-link': isActiveLink('/') }" href="/en/">
             <span class="nav-link-span">{{ navNames.Home_Eng }}</span>
         </a>
@@ -84,6 +86,7 @@
         <img src="/images/list.svg" alt="hamburger menu icon">
     </button>
 </template>
+
 
 
 <script>
