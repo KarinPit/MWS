@@ -45,7 +45,6 @@ export default {
         async GetProjects() {
             const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/services?populate=*");
             const { data } = await response.json();
-            console.log(data);
             const projects = data.map((project) => ({
                 name: project.attributes.title_Eng, // Set project name
                 summary: project.attributes.serviceSummary_Eng,
