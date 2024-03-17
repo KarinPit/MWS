@@ -38,11 +38,12 @@ export default {
         async GetProjects() {
             const response = await fetch("https://mws-data-280b2464bf34.herokuapp.com/api/services?populate=*");
             const { data } = await response.json();
-            return data.map((project) => ({
+            const services = data.map((project) => ({
                 name: project.attributes.title,
                 summary: project.attributes.serviceSummary,
                 imageUrl: project.attributes.serviceImage.data.attributes.url,
             }));
+            return services.reverse()
         },
     },
 };
