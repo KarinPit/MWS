@@ -2,8 +2,13 @@
     <div>
         <div class="carousel-images" @touchstart="handleTouchStart" @touchend="handleTouchEnd">
             <transition name="fade">
-                <img :key="currentImage.key" v-if="urls.mainImageUrl !== ''" :src="currentImage.url"
-                    class="carousel-img d-block w-100" alt="carousel images showing interior designs of the designer">
+                <img v-if="currentItem.type === 'image'" :key="'img-' + currentItem.key" :src="currentItem.url"
+                     class="carousel-img d-block w-100" alt="carousel content showing interior designs of the designer">
+                <video v-else-if="currentItem.type === 'video'" :key="'vid-' + currentItem.key" autoplay loop muted
+                       class="carousel-video d-block w-100" alt="a video showing Moran walking through the houses she designed">
+                    <source :src="currentItem.url" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </transition>
         </div>
         <div class="carousel-button">
@@ -42,6 +47,9 @@ export default {
         }
     },
     methods: {
+        isVideo(url) {
+            return url.endsWith('.mp4'); // or any other video format checks
+        },
         showPrevImage() {
             if (this.currentIndex > 0) {
                 this.currentIndex--;
@@ -74,6 +82,14 @@ export default {
         },
     },
     computed: {
+        currentItem() {
+            const url = this.baseUrl + (this.currentIndex === 0 ? this.urls.mainImageUrl : this.urls.imagesUrl[this.currentIndex]);
+            return {
+                url: url,
+                key: this.currentIndex, // Used as a part of the 'key' attribute in the template
+                type: this.isVideo(url) ? 'video' : 'image'
+            };
+        },
         currentImage() {
             return {
                 url: this.baseUrl + (this.currentIndex === 0 ? this.urls.mainImageUrl : this.urls.imagesUrl[this.currentIndex]),
