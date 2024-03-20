@@ -318,6 +318,7 @@ pre {
     height: fit-content;
     padding: 1em;
     cursor: pointer;
+    color: black;
 }
 
 .default-button-style {
