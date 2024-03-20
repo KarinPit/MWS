@@ -63,6 +63,21 @@ const aboutMeImage =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MWS Studio by Moran Werner Seydo" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.designmw.com/" />
+    <meta property="og:title" content="MWS Studio" />
+    <meta
+      property="og:description"
+      content="MWS Studio by Moran Werner Seydo"
+    />
+    <meta
+      property="og:image"
+      content="https://www.designmw.com/images/Logo_moran_ver2.png"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/images/Favicon-new.svg" />
@@ -101,7 +116,10 @@ const aboutMeImage =
               <h1 class="aligned-right">{titles.title1}</h1>
               <p set:html={richTextParser.convertToMarkdown(mainDescription)} />
             </pre>
-            <button class="default-button" onclick="location.href='/en/contact'">
+            <button
+              class="default-button"
+              onclick="location.href='/en/contact'"
+            >
               <p class="button-text">Contact us</p>
             </button>
           </div>
