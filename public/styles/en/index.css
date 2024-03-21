@@ -118,6 +118,9 @@
         right: 1%;
     }
 
+    .carousel-video {
+        object-position: 50% 0%;
+    }
 }
 
 @media screen and (min-width:768px) and (max-width:1200px) {
@@ -225,6 +228,10 @@
 
     .carousel-button .next {
         right: 1%;
+    }
+
+    .carousel-video {
+        object-position: 50% 0%;
     }
 
 }

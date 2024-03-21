@@ -119,7 +119,7 @@
 
     .carousel-video {
         object-position: 50% 0%;
-        padding-block-start: 150px;
+        /* padding-block-start: 150px; */
     }
 
 
@@ -234,7 +234,7 @@
 
     .carousel-video {
         object-position: 50% 0%;
-        padding-block-start: 150px;
+        /* padding-block-start: 150px; */
     }
 }
 
