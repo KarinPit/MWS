@@ -5,13 +5,13 @@ const navbar = document.querySelector(".navbars");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 0) {
-        // navbar.style.background = "white";
-        // logoIcon.style.color = "#A0BBC7";
         hideStartArrow()
+        navbar.style.background = "white";
+        logoIcon.style.color = "#A0BBC7";
     } else {
-        // navbar.style.background = "transparent";
-        // logoIcon.style.color = "black";
         showStartArrow()
+        navbar.style.background = "transparent";
+        logoIcon.style.color = "black";
     }
 });
 
