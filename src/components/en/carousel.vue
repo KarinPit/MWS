@@ -3,9 +3,10 @@
         <div class="carousel-images" @touchstart="handleTouchStart" @touchend="handleTouchEnd">
             <transition name="fade">
                 <img v-if="currentItem.type === 'image'" :key="'img-' + currentItem.key" :src="currentItem.url"
-                     class="carousel-img d-block w-100" alt="carousel content showing interior designs of the designer">
-                <video v-else-if="currentItem.type === 'video'" :key="'vid-' + currentItem.key" autoplay playsinline loop muted
-                       class="carousel-video d-block w-100" alt="a video showing Moran walking through the houses she designed">
+                    class="carousel-img d-block w-100" alt="carousel content showing interior designs of the designer">
+                <video v-else-if="currentItem.type === 'video'" :key="'vid-' + currentItem.key"
+                    :poster="urls.imagesUrl[0]" autoplay playsinline loop muted class="carousel-video d-block w-100"
+                    alt="a video showing Moran walking through the houses she designed">
                     <source :src="currentItem.url" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -23,7 +24,7 @@
         </div>
     </div>
 </template>
-  
+
 <script>
 export default {
     data() {
